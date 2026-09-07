@@ -320,26 +320,41 @@
 
       const formData = new FormData(this);
 
-      // Nota: Para que un formulario web envíe datos directamente a Google Sheets,
-      // normalmente se conecta a través de un "Google Apps Script". 
-      // Si usas un enlace de Google Sheets directo, asegúrate de tener tu script configurado.
+// PEGA AQUÍ LA URL DE TU APLICACIÓN WEB DE GOOGLE APPS SCRIPT (Termina en /exec)
+    const SCRIPT_URL = "https://script.google.com/macros/s/TU_CODIGO_DE_EJEMPLO_TERMINADO_EN_EXEC/exec";
+
+    document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+      e.preventDefault();
       
-      fetch(GOOGLE_SHEET_URL, {
+      const submitBtn = document.getElementById('submitBtn');
+      const statusMsg = document.getElementById('statusMessage');
+      
+      submitBtn.disabled = true;
+      submitBtn.innerText = "Enviando respuesta...";
+      submitBtn.style.opacity = "0.7";
+
+      const formData = new FormData(this);
+      const urlEncodedData = new URLSearchParams();
+      for (const pair of formData) {
+        urlEncodedData.append(pair[0], pair[1]);
+      }
+
+      fetch(SCRIPT_URL, {
         method: 'POST',
-        mode: 'no-cors',
-        body: formData
+        body: urlEncodedData
       })
-      .then(() => {
+      .then(response => response.json())
+      .then(data => {
         statusMsg.style.color = "#4CAF50";
-        statusMsg.innerText = "¡Gracias! Tu confirmación ha sido guardada.";
-        document.getElementById('rsvpForm').reset();
+        statusMsg.innerText = "¡Gracias! Tu confirmación ha sido guardada con éxito.";
+        document.getElementById('rsvpForm'].reset();
         submitBtn.disabled = false;
         submitBtn.innerText = "Enviar Confirmación";
         submitBtn.style.opacity = "1";
       })
       .catch(error => {
         statusMsg.style.color = "#f44336";
-        statusMsg.innerText = "Hubo un error de conexión. Intenta de nuevo.";
+        statusMsg.innerText = "Hubo un error al guardar. Inténtalo de nuevo.";
         submitBtn.disabled = false;
         submitBtn.innerText = "Enviar Confirmación";
         submitBtn.style.opacity = "1";
