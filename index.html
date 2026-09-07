@@ -285,7 +285,7 @@
     </div>
   </div>
 
-  <script>
+<script>
     // Fecha: 8 de Diciembre de 2026
     const eventDate = new Date(2026, 11, 8, 18, 0, 0).getTime();
 
@@ -305,22 +305,7 @@
       document.getElementById('seconds').innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
     }, 1000);
 
-    // ENLACE DE GOOGLE SHEETS CONFIGURADO
-    const GOOGLE_SHEET_URL = "https://docs.google.com/spreadsheets/d/1cVJ00y3b7P9fKbhHmoFgTvc6LQXdOd6eAryRZtM5Bv0/edit?gid=0#gid=0";
-
-    document.getElementById('rsvpForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const submitBtn = document.getElementById('submitBtn');
-      const statusMsg = document.getElementById('statusMessage');
-      
-      submitBtn.disabled = true;
-      submitBtn.innerText = "Enviando respuesta...";
-      submitBtn.style.opacity = "0.7";
-
-      const formData = new FormData(this);
-
-// PEGA AQUÍ LA URL DE TU APLICACIÓN WEB DE GOOGLE APPS SCRIPT (Termina en /exec)
+    // PEGA AQUÍ LA URL DE TU APLICACIÓN WEB DE GOOGLE APPS SCRIPT (Termina en /exec)
     const SCRIPT_URL = "https://script.google.com/macros/s/TU_CODIGO_DE_EJEMPLO_TERMINADO_EN_EXEC/exec";
 
     document.getElementById('rsvpForm').addEventListener('submit', function(e) {
@@ -347,7 +332,7 @@
       .then(data => {
         statusMsg.style.color = "#4CAF50";
         statusMsg.innerText = "¡Gracias! Tu confirmación ha sido guardada con éxito.";
-        document.getElementById('rsvpForm'].reset();
+        document.getElementById('rsvpForm').reset(); // Corregido el corchete por paréntesis
         submitBtn.disabled = false;
         submitBtn.innerText = "Enviar Confirmación";
         submitBtn.style.opacity = "1";
