@@ -1,170 +1,312 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mis 15 Años - ¡Estás Invitado!</title>
-  <style>
-    :root {
-      --primary: #d4af37; /* Dorado */
-      --secondary: #6b2d5c; /* Púrpura / Vino */
-      --bg: #fcf8f6;
-      --text: #333333;
-    }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis 15 Años - Mari Daniela</title>
+  
+  <!-- Fuentes de Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      text-align: center;
-      padding: 20px;
-    }
+  <style>
+    :root {
+      --gold: #d4af37;
+      --gold-light: #f3e5ab;
+      --text-dark: #333333;
+      --text-light: #666666;
+      --bg-color: #fdfbf7;
+      --card-bg: rgba(255, 255, 255, 0.95);
+    }
 
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-      background: #ffffff;
-      padding: 30px 20px;
-      border-radius: 15px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      border: 1px solid #eee;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      background-image: radial-gradient(var(--gold-light) 1px, transparent 1px);
+      background-size: 30px 30px;
+      color: var(--text-dark);
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+      min-height: 100vh;
+    }
 
-    h1 {
-      font-size: 2.5rem;
-      color: var(--secondary);
-      margin-bottom: 10px;
-      font-family: 'Georgia', serif;
-    }
+    .invitation-card {
+      background: var(--card-bg);
+      max-width: 500px;
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+      padding: 40px 30px;
+      text-align: center;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+    }
 
-    .subtitle {
-      font-size: 1.2rem;
-      color: var(--primary);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 25px;
-    }
+    .subtitle {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
 
-    p { line-height: 1.6; color: #555; margin-bottom: 20px; }
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4rem;
+      color: var(--text-dark);
+      margin-bottom: 5px;
+      line-height: 1.2;
+    }
 
-    /* Contador Regresivo */
-    .countdown-title {
-      font-weight: bold;
-      color: var(--secondary);
-      margin-top: 15px;
-      margin-bottom: 10px;
-    }
-    
-    .countdown-container {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 25px;
-    }
+    .age-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--text-light);
+      margin-bottom: 30px;
+    }
 
-    .time-box {
-      background: var(--secondary);
-      color: #fff;
-      padding: 10px;
-      border-radius: 8px;
-      min-width: 65px;
-    }
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+      margin: 0 auto 25px auto;
+    }
 
-    .time-box span {
-      display: block;
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
+    /* Contador */
+    .countdown-wrapper {
+      margin-bottom: 35px;
+    }
+    
+    .countdown-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      color: var(--text-dark);
+    }
 
-    .time-box label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-    }
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
 
-    .details-box {
-      background: #fdfaf6;
-      border-left: 4px solid var(--primary);
-      padding: 15px;
-      margin: 20px 0;
-      text-align: left;
-    }
+    .time-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #fff;
+      padding: 10px 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      border: 1px solid #f0f0f0;
+      min-width: 70px;
+    }
 
-    .details-box p { margin-bottom: 8px; }
+    .time-box span {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--gold);
+    }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-top: 25px;
-    }
+    .time-box label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-light);
+      margin-top: 5px;
+    }
 
-    input, select, textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
+    /* Detalles */
+    .details {
+      background: #fff;
+      padding: 25px 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      margin-bottom: 35px;
+      text-align: center;
+    }
 
-    button {
-      background-color: var(--secondary);
-      color: #fff;
-      border: none;
-      padding: 14px;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
+    .details p {
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
 
-    button:hover {
-      background-color: #522146;
-    }
+    .details p:last-child { margin-bottom: 0; }
+    .icon { font-size: 1.2rem; }
 
-    #statusMessage {
-      font-weight: bold;
-      color: green;
-      margin-top: 15px;
-    }
-  </style>
+    /* Formulario */
+    h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      color: var(--text-dark);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #eaeaea;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      background: #fafafa;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+    }
+
+    button {
+      background: var(--gold);
+      color: #fff;
+      border: none;
+      padding: 15px;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #b5952f;
+      transform: translateY(-2px);
+    }
+
+    #statusMessage {
+      margin-top: 15px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+  </style>
 </head>
 <body>
 
-  <div class="container">
-    <p class="subtitle">¡Celebra con nosotros!</p>
-    <h1>Mis 15 Años</h1>
-    <p>Hay momentos en la vida que son inolvidables, y compartirlos con las personas que más quiero los hace aún más especiales.</p>
+  <div class="invitation-card">
+    <p class="subtitle">¡Estás Invitado!</p>
+    <h1>Mari Daniela</h1>
+    <p class="age-title">Mis 15 Años</p>
+    
+    <div class="divider"></div>
 
-    <!-- Contador Regresivo -->
-    <p class="countdown-title">¡Faltan tan solo!</p>
-    <div class="countdown-container">
-      <div class="time-box"><span id="days">00</span><label>Días</label></div>
-      <div class="time-box"><span id="hours">00</span><label>Horas</label></div>
-      <div class="time-box"><span id="minutes">00</span><label>Min</label></div>
-      <div class="time-box"><span id="seconds">00</span><label>Seg</label></div>
-    </div>
+    <div class="countdown-wrapper">
+      <p class="countdown-title">Faltan tan solo:</p>
+      <div class="countdown">
+        <div class="time-box"><span id="days">00</span><label>Días</label></div>
+        <div class="time-box"><span id="hours">00</span><label>Hrs</label></div>
+        <div class="time-box"><span id="minutes">00</span><label>Min</label></div>
+        <div class="time-box"><span id="seconds">00</span><label>Seg</label></div>
+      </div>
+    </div>
 
-    <div class="details-box">
-      <p><strong>📅 Fecha:</strong> Sábado, 15 de Noviembre de 2026</p>
-      <p><strong>⏰ Hora:</strong> 18:00 hrs</p>
-      <p><strong>📍 Lugar:</strong> Salón de Eventos "El Encanto"</p>
-      <p><strong>👗 Código de vestir:</strong> Formal / Gala</p>
-    </div>
+    <div class="details">
+      <!-- AQUÍ ACTUALICÉ LA FECHA VISUAL -->
+      <p><span class="icon">📅</span> <strong>8 de Diciembre de 2026</strong></p>
+      <p><span class="icon">⏰</span> <strong>18:00 hrs</strong></p>
+      <p><span class="icon">📍</span> Salón de Eventos "El Encanto"</p>
+      <p><span class="icon">👗</span> Etiqueta: Formal / Gala</p>
+    </div>
 
-    <h3>Confirmar Asistencia</h3>
-    <form id="rsvpForm">
-      <input type="text" name="nombre" id="nombre" placeholder="Nombre y Apellido" required>
-      <select name="asistencia" id="asistencia" required>
-        <option value="" disabled selected>¿Asistirás?</option>
-        <option value="Sí, asistiré">Sí, asistiré con gusto</option>
-        <option value="No asistiré">Lo siento, no podré asistir</option>
-      </select>
-      <input type="number" name="pases" id="pases" placeholder="Número de pases" min="1" max="5" value="1" required>
-      <textarea name="mensaje" id="mensaje" rows="3" placeholder="Envía un mensaje o felicitación (opcional)"></textarea>
-      
-      <button type="submit" id="submitBtn">Confirmar Asistencia</button>
-    </form>
-    <p id="statusMessage"></p>
-  </div>
+    <div class="rsvp-section">
+      <h3>Confirmar Asistencia</h3>
+      <form id="rsvpForm">
+        <input type="text" name="nombre" id="nombre" placeholder="Tu Nombre y Apellido" required>
+        
+        <select name="asistencia" id="asistencia" required>
+          <option value="" disabled selected>¿Nos acompañarás?</option>
+          <option value="Sí, asistiré">¡Sí, ahí estaré!</option>
+          <option value="No asistiré">Lo siento, no podré asistir</option>
+        </select>
+        
+        <input type="number" name="pases" id="pases" placeholder="Número de invitados (Ej. 2)" min="1" max="5" required>
+        
+        <textarea name="mensaje" id="mensaje" rows="3" placeholder="Déjale un mensaje a Mari Daniela (Opcional)"></textarea>
+        
+        <button type="submit" id="submitBtn">Enviar Confirmación</button>
+      </form>
+      <p id="statusMessage"></p>
+    </div>
+  </div>
+
+  <script>
+    // AQUÍ ACTUALICÉ LA FECHA DEL CONTADOR (Año, Mes [Diciembre es 11], Día, Hora, Minuto, Segundo)
+    const eventDate = new Date(2026, 11, 8, 18, 0, 0).getTime();
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      if (distance < 0) {
+        clearInterval(timer);
+        document.querySelector('.countdown').innerHTML = "<p style='font-family: Playfair Display; font-size: 1.5rem; color: #d4af37;'>¡Hoy es el gran día!</p>";
+        return;
+      }
+
+      document.getElementById('days').innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+      document.getElementById('hours').innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+      document.getElementById('minutes').innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+      document.getElementById('seconds').innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
+    }, 1000);
+
+    // 2. ENVÍO A GOOGLE SHEETS
+    const GOOGLE_SCRIPT_URL = "TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI";
+
+    document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const submitBtn = document.getElementById('submitBtn');
+      const statusMsg = document.getElementById('statusMessage');
+      
+      submitBtn.disabled = true;
+      submitBtn.innerText = "Enviando respuesta...";
+      submitBtn.style.opacity = "0.7";
+
+      const formData = new FormData(this);
+
+      fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => {
+        statusMsg.style.color = "#4CAF50";
+        statusMsg.innerText = "¡Gracias! Tu confirmación ha sido guardada.";
+        document.getElementById('rsvpForm').reset();
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Enviar Confirmación";
+        submitBtn.style.opacity = "1";
+      })
+      .catch(error => {
+        statusMsg.style.color = "#f44336";
+        statusMsg.innerText = "Hubo un error de conexión. Intenta de nuevo.";
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Enviar Confirmación";
+        submitBtn.style.opacity = "1";
+      });
+    });
+  </script>
+
+</body>
+</html>
