@@ -164,8 +164,34 @@
       gap: 8px;
     }
 
-    .details p:last-child { margin-bottom: 0; }
+    .details p:last-of-type { margin-bottom: 18px; }
     .icon { font-size: 1.2rem; }
+
+    /* Botón de Navegación / Mapas */
+    .map-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background-color: #ffffff;
+      color: var(--gold);
+      border: 1.5px solid var(--gold);
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      width: 100%;
+      margin-top: 5px;
+    }
+
+    .map-btn:hover {
+      background-color: var(--gold);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
 
     /* Formulario */
     .rsvp-section h3 {
@@ -254,15 +280,21 @@
     </div>
 
     <div class="details">
-      <p><span class="icon">📅</span> <strong>Domingo 8 de Noviembre de 2026</strong></p>
-      <p><span class="icon">⏰</span> <strong>14:00 hrs (2:00 PM)</strong></p>
+      <p><span class="icon">📅</span> <strong>Sábado 7 de Noviembre de 2026</strong></p>
+      <p><span class="icon">⏰</span> <strong>19:00 a 24:00 hrs (7:00 PM - 12:00 AM)</strong></p>
       <p><span class="icon">📍</span> Salón de Eventos "El Encanto"</p>
+      <p><span class="icon">🛣️</span> Km 4.5 Carretera al Atlántico, Zona Portales</p>
       <p><span class="icon">👗</span> Etiqueta: Formal / Gala</p>
+      
+      <!-- Botón de Navegación a Google Maps -->
+      <a href="https://maps.google.com/?q=Centro+Comercial+Portales+Km+4.5+Carretera+al+Atlantico+zona+17+Guatemala" target="_blank" class="map-btn">
+        <span>🗺️</span> Ver Ubicación / Cómo llegar
+      </a>
     </div>
 
     <div class="rsvp-section">
       <h3>Confirmar Asistencia</h3>
-      <!-- Añadimos target e iframe oculto para evitar problemas de CORS -->
+      <!-- Formulario configurado con iframe oculto para evitar problemas de CORS -->
       <form id="rsvpForm" action="https://script.google.com/macros/s/AKfycbzrymL9OAmSVkM4OOTQ2z2LUBGRg77gqOBG518cIk2Too0Vq_ekXHzlmAj_yVP5mqB5gQ/exec" method="POST" target="hidden_iframe">
         <input type="text" name="nombre" id="nombre" placeholder="Tu Nombre y Apellido" required>
         
@@ -279,15 +311,15 @@
         
         <button type="submit" id="submitBtn">Enviar Confirmación</button>
       </form>
-      <!-- Iframe oculto para recibir la respuesta sin errores de navegador -->
+      <!-- Iframe oculto para recibir la respuesta sin errores -->
       <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
       <p id="statusMessage"></p>
     </div>
   </div>
 
   <script>
-    // Fecha: Domingo 8 de Noviembre de 2026 a las 14:00 hrs (2 PM)
-    const eventDate = new Date(2026, 10, 8, 14, 0, 0).getTime();
+    // Fecha: Sábado 7 de Noviembre de 2026 a las 19:00 hrs (7 PM)
+    const eventDate = new Date(2026, 10, 7, 19, 0, 0).getTime();
 
     const timer = setInterval(() => {
       const now = new Date().getTime();
@@ -318,7 +350,6 @@
     });
 
     iframe.addEventListener('load', function() {
-      // Validar si ya se había enviado para mostrar el mensaje de éxito
       if (submitBtn.disabled) {
         statusMsg.style.color = "#4CAF50";
         statusMsg.innerText = "¡Gracias! Tu confirmación ha sido guardada con éxito.";
