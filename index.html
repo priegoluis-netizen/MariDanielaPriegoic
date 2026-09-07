@@ -3,35 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mis 15 Años - Maria Daniela Priego Ic</title>
-  
+  <title>Mis 15 Años - Maria Daniela</title>
   <!-- Fuentes de Google -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-
+  
   <style>
     :root {
       --gold: #d4af37;
-      --gold-light: #f3e5ab;
       --text-dark: #333333;
       --text-light: #666666;
-      --bg-color: #fdfbf7;
-      --card-bg: rgba(255, 255, 255, 0.95);
+      --card-bg: #ffffff;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
+      background-color: #fcf8f2;
       font-family: 'Poppins', sans-serif;
-      background-color: var(--bg-color);
-      background-image: radial-gradient(var(--gold-light) 1px, transparent 1px);
-      background-size: 30px 30px;
-      color: var(--text-dark);
       display: flex;
       justify-content: center;
-      padding: 20px;
+      align-items: center;
       min-height: 100vh;
+      padding: 20px;
     }
 
     .invitation-card {
@@ -277,7 +274,7 @@
         <!-- Límite de máximo 2 personas -->
         <input type="number" name="pases" id="pases" placeholder="Número de personas (Máximo 2)" min="1" max="2" required>
         
-        <textarea name="mensaje" id="mensaje" rows="3" placeholder="Déjale un mensaje a Mari Daniela (Opcional)"></textarea>
+        <textarea name="mensaje" id="mensaje" rows="3" placeholder="Déjale un mensaje a Maria Daniela (Opcional)"></textarea>
         
         <button type="submit" id="submitBtn">Enviar Confirmación</button>
       </form>
@@ -305,7 +302,7 @@
       document.getElementById('seconds').innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
     }, 1000);
 
-    // PEGA AQUÍ LA URL DE TU APLICACIÓN WEB DE GOOGLE APPS SCRIPT (Termina en /exec)
+    // URL de la Aplicación Web de Google Apps Script
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzrymL9OAmSVkM4OOTQ2z2LUBGRg77gqOBG518cIk2Too0Vq_ekXHzlmAj_yVP5mqB5gQ/exec";
 
     document.getElementById('rsvpForm').addEventListener('submit', function(e) {
