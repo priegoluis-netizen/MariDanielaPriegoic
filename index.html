@@ -274,7 +274,7 @@
           <option value="No asistiré">Lo siento, no podré asistir</option>
         </select>
         
-        <!-- LIMITADO A MÁXIMO 2 PERSONAS AQUÍ (max="2") -->
+        <!-- Límite de máximo 2 personas -->
         <input type="number" name="pases" id="pases" placeholder="Número de personas (Máximo 2)" min="1" max="2" required>
         
         <textarea name="mensaje" id="mensaje" rows="3" placeholder="Déjale un mensaje a Mari Daniela (Opcional)"></textarea>
@@ -305,8 +305,8 @@
       document.getElementById('seconds').innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
     }, 1000);
 
-    // ENVÍO A GOOGLE SHEETS
-    const GOOGLE_SCRIPT_URL = "TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI";
+    // ENLACE DE GOOGLE SHEETS CONFIGURADO
+    const GOOGLE_SHEET_URL = "https://docs.google.com/spreadsheets/d/1cVJ00y3b7P9fKbhHmoFgTvc6LQXdOd6eAryRZtM5Bv0/edit?gid=0#gid=0";
 
     document.getElementById('rsvpForm').addEventListener('submit', function(e) {
       e.preventDefault();
@@ -320,11 +320,16 @@
 
       const formData = new FormData(this);
 
-      fetch(GOOGLE_SCRIPT_URL, {
+      // Nota: Para que un formulario web envíe datos directamente a Google Sheets,
+      // normalmente se conecta a través de un "Google Apps Script". 
+      // Si usas un enlace de Google Sheets directo, asegúrate de tener tu script configurado.
+      
+      fetch(GOOGLE_SHEET_URL, {
         method: 'POST',
+        mode: 'no-cors',
         body: formData
       })
-      .then(response => {
+      .then(() => {
         statusMsg.style.color = "#4CAF50";
         statusMsg.innerText = "¡Gracias! Tu confirmación ha sido guardada.";
         document.getElementById('rsvpForm').reset();
