@@ -262,7 +262,8 @@
 
     <div class="rsvp-section">
       <h3>Confirmar Asistencia</h3>
-      <form id="rsvpForm">
+      <!-- Añadimos target e iframe oculto para evitar problemas de CORS -->
+      <form id="rsvpForm" action="https://script.google.com/macros/s/AKfycbzrymL9OAmSVkM4OOTQ2z2LUBGRg77gqOBG518cIk2Too0Vq_ekXHzlmAj_yVP5mqB5gQ/exec" method="POST" target="hidden_iframe">
         <input type="text" name="nombre" id="nombre" placeholder="Tu Nombre y Apellido" required>
         
         <select name="asistencia" id="asistencia" required>
@@ -278,6 +279,8 @@
         
         <button type="submit" id="submitBtn">Enviar Confirmación</button>
       </form>
+      <!-- Iframe oculto para recibir la respuesta sin errores de navegador -->
+      <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
       <p id="statusMessage"></p>
     </div>
   </div>
@@ -302,46 +305,28 @@
       document.getElementById('seconds').innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
     }, 1000);
 
-    // URL de la Aplicación Web de Google Apps Script
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzrymL9OAmSVkM4OOTQ2z2LUBGRg77gqOBG518cIk2Too0Vq_ekXHzlmAj_yVP5mqB5gQ/exec";
+    // Manejo del formulario con iframe oculto
+    const form = document.getElementById('rsvpForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const statusMsg = document.getElementById('statusMessage');
+    const iframe = document.getElementById('hidden_iframe');
 
-    document.getElementById('rsvpForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const submitBtn = document.getElementById('submitBtn');
-      const statusMsg = document.getElementById('statusMessage');
-      
+    form.addEventListener('submit', function() {
       submitBtn.disabled = true;
       submitBtn.innerText = "Enviando respuesta...";
       submitBtn.style.opacity = "0.7";
+    });
 
-      const formData = new FormData(this);
-      const urlEncodedData = new URLSearchParams();
-      for (const pair of formData) {
-        urlEncodedData.append(pair[0], pair[1]);
-      }
-
-      // Usamos mode: 'no-cors' para evitar restricciones del navegador
-      fetch(SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: urlEncodedData
-      })
-      .then(() => {
+    iframe.addEventListener('load', function() {
+      // Validar si ya se había enviado para mostrar el mensaje de éxito
+      if (submitBtn.disabled) {
         statusMsg.style.color = "#4CAF50";
         statusMsg.innerText = "¡Gracias! Tu confirmación ha sido guardada con éxito.";
-        document.getElementById('rsvpForm').reset();
+        form.reset();
         submitBtn.disabled = false;
         submitBtn.innerText = "Enviar Confirmación";
         submitBtn.style.opacity = "1";
-      })
-      .catch(error => {
-        statusMsg.style.color = "#f44336";
-        statusMsg.innerText = "Hubo un error al guardar. Inténtalo de nuevo.";
-        submitBtn.disabled = false;
-        submitBtn.innerText = "Enviar Confirmación";
-        submitBtn.style.opacity = "1";
-      });
+      }
     });
   </script>
 
