@@ -1,227 +1,170 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mis 15 Años - ¡Estás Invitado!</title>
-  <style>
-    :root {
-      --primary: #d4af37; /* Dorado */
-      --secondary: #6b2d5c; /* Púrpura / Vino */
-      --bg: #fcf8f6;
-      --text: #333333;
-    }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis 15 Años - ¡Estás Invitado!</title>
+  <style>
+    :root {
+      --primary: #d4af37; /* Dorado */
+      --secondary: #6b2d5c; /* Púrpura / Vino */
+      --bg: #fcf8f6;
+      --text: #333333;
+    }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      text-align: center;
-      padding: 20px;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      text-align: center;
+      padding: 20px;
+    }
 
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-      background: #ffffff;
-      padding: 30px 20px;
-      border-radius: 15px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      border: 1px solid #eee;
-    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 30px 20px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      border: 1px solid #eee;
+    }
 
-    h1 {
-      font-size: 2.5rem;
-      color: var(--secondary);
-      margin-bottom: 10px;
-      font-family: 'Georgia', serif;
-    }
+    h1 {
+      font-size: 2.5rem;
+      color: var(--secondary);
+      margin-bottom: 10px;
+      font-family: 'Georgia', serif;
+    }
 
-    .subtitle {
-      font-size: 1.2rem;
-      color: var(--primary);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 25px;
-    }
+    .subtitle {
+      font-size: 1.2rem;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 25px;
+    }
 
-    p { line-height: 1.6; color: #555; margin-bottom: 20px; }
+    p { line-height: 1.6; color: #555; margin-bottom: 20px; }
 
-    /* Contador Regresivo */
-    .countdown-title {
-      font-weight: bold;
-      color: var(--secondary);
-      margin-top: 15px;
-      margin-bottom: 10px;
-    }
-    
-    .countdown-container {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 25px;
-    }
+    /* Contador Regresivo */
+    .countdown-title {
+      font-weight: bold;
+      color: var(--secondary);
+      margin-top: 15px;
+      margin-bottom: 10px;
+    }
+    
+    .countdown-container {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 25px;
+    }
 
-    .time-box {
-      background: var(--secondary);
-      color: #fff;
-      padding: 10px;
-      border-radius: 8px;
-      min-width: 65px;
-    }
+    .time-box {
+      background: var(--secondary);
+      color: #fff;
+      padding: 10px;
+      border-radius: 8px;
+      min-width: 65px;
+    }
 
-    .time-box span {
-      display: block;
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
+    .time-box span {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
 
-    .time-box label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-    }
+    .time-box label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+    }
 
-    .details-box {
-      background: #fdfaf6;
-      border-left: 4px solid var(--primary);
-      padding: 15px;
-      margin: 20px 0;
-      text-align: left;
-    }
+    .details-box {
+      background: #fdfaf6;
+      border-left: 4px solid var(--primary);
+      padding: 15px;
+      margin: 20px 0;
+      text-align: left;
+    }
 
-    .details-box p { margin-bottom: 8px; }
+    .details-box p { margin-bottom: 8px; }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-top: 25px;
-    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 25px;
+    }
 
-    input, select, textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
 
-    button {
-      background-color: var(--secondary);
-      color: #fff;
-      border: none;
-      padding: 14px;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
+    button {
+      background-color: var(--secondary);
+      color: #fff;
+      border: none;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
 
-    button:hover {
-      background-color: #522146;
-    }
+    button:hover {
+      background-color: #522146;
+    }
 
-    #statusMessage {
-      font-weight: bold;
-      color: green;
-      margin-top: 15px;
-    }
-  </style>
+    #statusMessage {
+      font-weight: bold;
+      color: green;
+      margin-top: 15px;
+    }
+  </style>
 </head>
 <body>
 
-  <div class="container">
-    <p class="subtitle">¡Celebra con nosotros!</p>
-    <h1>Mis 15 Años</h1>
-    <p>Hay momentos en la vida que son inolvidables, y compartirlos con las personas que más quiero los hace aún más especiales.</p>
+  <div class="container">
+    <p class="subtitle">¡Celebra con nosotros!</p>
+    <h1>Mis 15 Años</h1>
+    <p>Hay momentos en la vida que son inolvidables, y compartirlos con las personas que más quiero los hace aún más especiales.</p>
 
-    <!-- Contador Regresivo -->
-    <p class="countdown-title">¡Faltan tan solo!</p>
-    <div class="countdown-container">
-      <div class="time-box"><span id="days">00</span><label>Días</label></div>
-      <div class="time-box"><span id="hours">00</span><label>Horas</label></div>
-      <div class="time-box"><span id="minutes">00</span><label>Min</label></div>
-      <div class="time-box"><span id="seconds">00</span><label>Seg</label></div>
-    </div>
+    <!-- Contador Regresivo -->
+    <p class="countdown-title">¡Faltan tan solo!</p>
+    <div class="countdown-container">
+      <div class="time-box"><span id="days">00</span><label>Días</label></div>
+      <div class="time-box"><span id="hours">00</span><label>Horas</label></div>
+      <div class="time-box"><span id="minutes">00</span><label>Min</label></div>
+      <div class="time-box"><span id="seconds">00</span><label>Seg</label></div>
+    </div>
 
-    <div class="details-box">
-      <p><strong>📅 Fecha:</strong> Sábado, 15 de Noviembre de 2026</p>
-      <p><strong>⏰ Hora:</strong> 18:00 hrs</p>
-      <p><strong>📍 Lugar:</strong> Salón de Eventos "El Encanto"</p>
-      <p><strong>👗 Código de vestir:</strong> Formal / Gala</p>
-    </div>
+    <div class="details-box">
+      <p><strong>📅 Fecha:</strong> Sábado, 15 de Noviembre de 2026</p>
+      <p><strong>⏰ Hora:</strong> 18:00 hrs</p>
+      <p><strong>📍 Lugar:</strong> Salón de Eventos "El Encanto"</p>
+      <p><strong>👗 Código de vestir:</strong> Formal / Gala</p>
+    </div>
 
-    <h3>Confirmar Asistencia</h3>
-    <form id="rsvpForm">
-      <input type="text" name="nombre" id="nombre" placeholder="Nombre y Apellido" required>
-      <select name="asistencia" id="asistencia" required>
-        <option value="" disabled selected>¿Asistirás?</option>
-        <option value="Sí, asistiré">Sí, asistiré con gusto</option>
-        <option value="No asistiré">Lo siento, no podré asistir</option>
-      </select>
-      <input type="number" name="pases" id="pases" placeholder="Número de pases" min="1" max="5" value="1" required>
-      <textarea name="mensaje" id="mensaje" rows="3" placeholder="Envía un mensaje o felicitación (opcional)"></textarea>
-      
-      <button type="submit" id="submitBtn">Confirmar Asistencia</button>
-    </form>
-    <p id="statusMessage"></p>
-  </div>
-
-  <script>
-    // 1. LÓGICA DEL CONTADOR REGRESIVO
-    // Ajusta la fecha objetivo (Año, Mes - 1, Día, Hora, Minuto)
-    const eventDate = new Date(2026, 10, 15, 18, 0, 0).getTime(); // 10 = Noviembre (los meses van de 0 a 11)
-
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = eventDate - now;
-
-      if (distance < 0) {
-        clearInterval(timer);
-        document.querySelector('.countdown-container').innerHTML = "<b>¡Hoy es el gran día!</b>";
-        return;
-      }
-
-      document.getElementById('days').innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
-      document.getElementById('hours').innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      document.getElementById('minutes').innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      document.getElementById('seconds').innerText = Math.floor((distance % (1000 * 60)) / 1000);
-    }, 1000);
-
-    // 2. ENVÍO A GOOGLE SHEETS
-    // Pega aquí la URL de tu Web App desplegada en Google Apps Script
-    const GOOGLE_SCRIPT_URL = "TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI";
-
-    document.getElementById('rsvpForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const submitBtn = document.getElementById('submitBtn');
-      const statusMsg = document.getElementById('statusMessage');
-      submitBtn.disabled = true;
-      submitBtn.innerText = "Guardando...";
-
-      const formData = new FormData(this);
-
-      fetch(GOOGLE_SCRIPT_URL, {
-        method: 'POST',
-        body: formData
-      })
-      .then(response => {
-        statusMsg.innerText = "¡Gracias! Tu asistencia ha sido registrada exitosamente.";
-        document.getElementById('rsvpForm').reset();
-        submitBtn.disabled = false;
-        submitBtn.innerText = "Confirmar Asistencia";
-      })
-      .catch(error => {
-        statusMsg.style.color = "red";
-        statusMsg.innerText = "Hubo un error al registrar tu respuesta. Intenta de nuevo.";
-        submitBtn.disabled = false;
-        submitBtn.innerText = "Confirmar Asistencia";
-      });
-    });
-  </script>
-
-</body>
-</html>
+    <h3>Confirmar Asistencia</h3>
+    <form id="rsvpForm">
+      <input type="text" name="nombre" id="nombre" placeholder="Nombre y Apellido" required>
+      <select name="asistencia" id="asistencia" required>
+        <option value="" disabled selected>¿Asistirás?</option>
+        <option value="Sí, asistiré">Sí, asistiré con gusto</option>
+        <option value="No asistiré">Lo siento, no podré asistir</option>
+      </select>
+      <input type="number" name="pases" id="pases" placeholder="Número de pases" min="1" max="5" value="1" required>
+      <textarea name="mensaje" id="mensaje" rows="3" placeholder="Envía un mensaje o felicitación (opcional)"></textarea>
+      
+      <button type="submit" id="submitBtn">Confirmar Asistencia</button>
+    </form>
+    <p id="statusMessage"></p>
+  </div>
