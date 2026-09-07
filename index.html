@@ -321,12 +321,13 @@
         urlEncodedData.append(pair[0], pair[1]);
       }
 
+      // Usamos mode: 'no-cors' para evitar restricciones del navegador
       fetch(SCRIPT_URL, {
         method: 'POST',
+        mode: 'no-cors',
         body: urlEncodedData
       })
-      .then(response => response.json())
-      .then(data => {
+      .then(() => {
         statusMsg.style.color = "#4CAF50";
         statusMsg.innerText = "¡Gracias! Tu confirmación ha sido guardada con éxito.";
         document.getElementById('rsvpForm').reset();
