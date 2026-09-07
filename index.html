@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mis 15 Años - Maria Daniela Priego Ic</title>
+  <title>Mis 15 Años - Mari Daniela</title>
   
   <!-- Fuentes de Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -122,7 +122,7 @@
       margin-top: 5px;
     }
 
-    /* Nueva Sección de Video */
+    /* Sección de Video */
     .video-section {
       margin-bottom: 35px;
       background: #fff;
@@ -232,7 +232,7 @@
 
   <div class="invitation-card">
     <p class="subtitle">¡Estás Invitado!</p>
-    <h1>Maria Daniela Priego</h1>
+    <h1>Mari Daniela</h1>
     <p class="age-title">Mis 15 Años</p>
     
     <div class="divider"></div>
@@ -247,11 +247,10 @@
       </div>
     </div>
 
-    <!-- AQUÍ ESTÁ LA NUEVA SECCIÓN DE VIDEO -->
+    <!-- Sección de Video -->
     <div class="video-section">
       <h3>Un momento especial...</h3>
-      <!-- Asegúrate de subir el video a GitHub con el nombre video.mp4 -->
-      <video controls poster="">
+      <video controls>
         <source src="video.mp4" type="video/mp4">
         Tu navegador no soporta la reproducción de video.
       </video>
@@ -275,7 +274,8 @@
           <option value="No asistiré">Lo siento, no podré asistir</option>
         </select>
         
-        <input type="number" name="pases" id="pases" placeholder="Número de invitados (Ej. 2)" min="1" max="5" required>
+        <!-- LIMITADO A MÁXIMO 2 PERSONAS AQUÍ (max="2") -->
+        <input type="number" name="pases" id="pases" placeholder="Número de personas (Máximo 2)" min="1" max="2" required>
         
         <textarea name="mensaje" id="mensaje" rows="3" placeholder="Déjale un mensaje a Mari Daniela (Opcional)"></textarea>
         
@@ -341,9 +341,6 @@
       });
     });
   </script>
-
-</body>
-</html>
 
 </body>
 </html>
