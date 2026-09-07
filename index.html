@@ -285,7 +285,7 @@
     </div>
   </div>
 
-<script>
+  <script>
     // Fecha: 8 de Diciembre de 2026
     const eventDate = new Date(2026, 11, 8, 18, 0, 0).getTime();
 
@@ -306,7 +306,7 @@
     }, 1000);
 
     // PEGA AQUÍ LA URL DE TU APLICACIÓN WEB DE GOOGLE APPS SCRIPT (Termina en /exec)
-    const SCRIPT_URL = "https://script.google.com/macros/s/TU_CODIGO_DE_EJEMPLO_TERMINADO_EN_EXEC/exec";
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzrymL9OAmSVkM4OOTQ2z2LUBGRg77gqOBG518cIk2Too0Vq_ekXHzlmAj_yVP5mqB5gQ/exec";
 
     document.getElementById('rsvpForm').addEventListener('submit', function(e) {
       e.preventDefault();
@@ -332,7 +332,7 @@
       .then(data => {
         statusMsg.style.color = "#4CAF50";
         statusMsg.innerText = "¡Gracias! Tu confirmación ha sido guardada con éxito.";
-        document.getElementById('rsvpForm').reset(); // Corregido el corchete por paréntesis
+        document.getElementById('rsvpForm').reset();
         submitBtn.disabled = false;
         submitBtn.innerText = "Enviar Confirmación";
         submitBtn.style.opacity = "1";
