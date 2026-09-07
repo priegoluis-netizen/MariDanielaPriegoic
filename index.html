@@ -122,6 +122,31 @@
       margin-top: 5px;
     }
 
+    /* Nueva Sección de Video */
+    .video-section {
+      margin-bottom: 35px;
+      background: #fff;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      border: 1px solid rgba(212, 175, 55, 0.1);
+    }
+
+    .video-section h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    video {
+      width: 100%;
+      border-radius: 8px;
+      outline: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
     /* Detalles */
     .details {
       background: #fff;
@@ -146,7 +171,7 @@
     .icon { font-size: 1.2rem; }
 
     /* Formulario */
-    h3 {
+    .rsvp-section h3 {
       font-family: 'Playfair Display', serif;
       font-size: 1.4rem;
       margin-bottom: 20px;
@@ -222,8 +247,17 @@
       </div>
     </div>
 
+    <!-- AQUÍ ESTÁ LA NUEVA SECCIÓN DE VIDEO -->
+    <div class="video-section">
+      <h3>Un momento especial...</h3>
+      <!-- Asegúrate de subir el video a GitHub con el nombre video.mp4 -->
+      <video controls poster="">
+        <source src="video.mp4" type="video/mp4">
+        Tu navegador no soporta la reproducción de video.
+      </video>
+    </div>
+
     <div class="details">
-      <!-- AQUÍ ACTUALICÉ LA FECHA VISUAL -->
       <p><span class="icon">📅</span> <strong>8 de Diciembre de 2026</strong></p>
       <p><span class="icon">⏰</span> <strong>18:00 hrs</strong></p>
       <p><span class="icon">📍</span> Salón de Eventos "El Encanto"</p>
@@ -252,7 +286,7 @@
   </div>
 
   <script>
-    // AQUÍ ACTUALICÉ LA FECHA DEL CONTADOR (Año, Mes [Diciembre es 11], Día, Hora, Minuto, Segundo)
+    // Fecha: 8 de Diciembre de 2026
     const eventDate = new Date(2026, 11, 8, 18, 0, 0).getTime();
 
     const timer = setInterval(() => {
@@ -271,7 +305,7 @@
       document.getElementById('seconds').innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
     }, 1000);
 
-    // 2. ENVÍO A GOOGLE SHEETS
+    // ENVÍO A GOOGLE SHEETS
     const GOOGLE_SCRIPT_URL = "TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI";
 
     document.getElementById('rsvpForm').addEventListener('submit', function(e) {
@@ -307,6 +341,9 @@
       });
     });
   </script>
+
+</body>
+</html>
 
 </body>
 </html>
