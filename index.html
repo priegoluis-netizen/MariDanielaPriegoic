@@ -139,9 +139,11 @@
 
     video {
       width: 100%;
+      height: auto;
       border-radius: 8px;
       outline: none;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      background: #000;
     }
 
     /* Detalles */
@@ -273,7 +275,7 @@
     <!-- Sección de Video -->
     <div class="video-section">
       <h3>Un momento especial...</h3>
-      <video controls>
+      <video controls playsinline preload="metadata">
         <source src="video.mp4" type="video/mp4">
         Tu navegador no soporta la reproducción de video.
       </video>
@@ -282,19 +284,19 @@
     <div class="details">
       <p><span class="icon">📅</span> <strong>Sábado 7 de Noviembre de 2026</strong></p>
       <p><span class="icon">⏰</span> <strong>19:00 a 24:00 hrs (7:00 PM - 12:00 AM)</strong></p>
-      <p><span class="icon">📍</span> Salón de Eventos "Zona Portales Jadin"</p>
-      <p><span class="icon">🛣️</span> Km 4.5 Carretera al Atlántico</p>
+      <p><span class="icon">📍</span> Salón de Eventos "El Encanto"</p>
+      <p><span class="icon">🛣️</span> Km 4.5 Carretera al Atlántico, Zona Portales</p>
       <p><span class="icon">👗</span> Etiqueta: Formal / Gala</p>
       
       <!-- Botón de Navegación a Google Maps -->
-      <a href="https://www.google.com/maps/place/Centro+Comercial+Zona+Portales/@14.6466238,-90.484727,1325m/data=!3m1!1e3!4m10!1m2!2m1!1szona+portales+zona+17!3m6!1s0x8589a28f775740af:0xf2cbea5aff428d59!8m2!3d14.6462044!4d-90.4825409!15sChV6b25hIHBvcnRhbGVzIHpvbmEgMTeSAQ9zaG9wcGluZ19jZW50ZXLgAQA!16s%2Fg%2F11gb3wg6t7?authuser=0&entry=ttu&g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-btn">
+      <a href="https://maps.google.com/?q=Centro+Comercial+Portales+Km+4.5+Carretera+al+Atlantico+zona+17+Guatemala" target="_blank" class="map-btn">
         <span>🗺️</span> Ver Ubicación / Cómo llegar
       </a>
     </div>
 
     <div class="rsvp-section">
       <h3>Confirmar Asistencia</h3>
-      <!-- Formulario configurado con iframe oculto para evitar problemas de CORS -->
+      <!-- Formulario con iframe oculto -->
       <form id="rsvpForm" action="https://script.google.com/macros/s/AKfycbzrymL9OAmSVkM4OOTQ2z2LUBGRg77gqOBG518cIk2Too0Vq_ekXHzlmAj_yVP5mqB5gQ/exec" method="POST" target="hidden_iframe">
         <input type="text" name="nombre" id="nombre" placeholder="Tu Nombre y Apellido" required>
         
@@ -304,21 +306,19 @@
           <option value="No asistiré">Lo siento, no podré asistir</option>
         </select>
         
-        <!-- Límite de máximo 2 personas -->
         <input type="number" name="pases" id="pases" placeholder="Número de personas (Máximo 2)" min="1" max="2" required>
         
         <textarea name="mensaje" id="mensaje" rows="3" placeholder="Déjale un mensaje a Maria Daniela (Opcional)"></textarea>
         
         <button type="submit" id="submitBtn">Enviar Confirmación</button>
       </form>
-      <!-- Iframe oculto para recibir la respuesta sin errores -->
+      <!-- Iframe oculto -->
       <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
       <p id="statusMessage"></p>
     </div>
   </div>
 
   <script>
-    // Fecha: Sábado 7 de Noviembre de 2026 a las 19:00 hrs (7 PM)
     const eventDate = new Date(2026, 10, 7, 19, 0, 0).getTime();
 
     const timer = setInterval(() => {
@@ -337,7 +337,6 @@
       document.getElementById('seconds').innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
     }, 1000);
 
-    // Manejo del formulario con iframe oculto
     const form = document.getElementById('rsvpForm');
     const submitBtn = document.getElementById('submitBtn');
     const statusMsg = document.getElementById('statusMessage');
