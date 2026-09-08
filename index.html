@@ -1,364 +1,2076 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mis 15 Años - Maria Daniela</title>
-  <!-- Fuentes de Google -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-  
-  <style>
-    :root {
-      --gold: #d4af37;
-      --text-dark: #333333;
-      --text-light: #666666;
-      --card-bg: #ffffff;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    <title>Mis 15 Años - Maria Daniela</title>
 
-    body {
-      background-color: #fcf8f2;
-      font-family: 'Poppins', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px;
-    }
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    .invitation-card {
-      background: var(--card-bg);
-      max-width: 500px;
-      width: 100%;
-      border-radius: 20px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-      padding: 40px 30px;
-      text-align: center;
-      border: 1px solid rgba(212, 175, 55, 0.2);
-    }
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap"
+          rel="stylesheet">
 
-    .subtitle {
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      color: var(--gold);
-      margin-bottom: 10px;
-    }
+    <style>
 
-    h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 4rem;
-      color: var(--text-dark);
-      margin-bottom: 5px;
-      line-height: 1.2;
-    }
+        /* =========================================================
+           VARIABLES
+        ========================================================= */
 
-    .age-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      font-style: italic;
-      color: var(--text-light);
-      margin-bottom: 30px;
-    }
+        :root {
+            --gold: #d4af37;
+            --gold-light: #f4df9b;
+            --gold-dark: #a98520;
 
-    .divider {
-      width: 60px;
-      height: 2px;
-      background: var(--gold);
-      margin: 0 auto 25px auto;
-    }
+            --cream: #fffaf2;
+            --cream-dark: #f7efe2;
 
-    /* Contador */
-    .countdown-wrapper {
-      margin-bottom: 35px;
-    }
-    
-    .countdown-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      margin-bottom: 15px;
-      color: var(--text-dark);
-    }
+            --text-dark: #302b2b;
+            --text-light: #777;
 
-    .countdown {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-    }
+            --white: #ffffff;
 
-    .time-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background: #fff;
-      padding: 10px 15px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      border: 1px solid #f0f0f0;
-      min-width: 70px;
-    }
+            --shadow:
+                0 25px 70px rgba(73, 55, 20, 0.15);
 
-    .time-box span {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: var(--gold);
-    }
+            --transition:
+                all 0.4s ease;
+        }
 
-    .time-box label {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--text-light);
-      margin-top: 5px;
-    }
 
-    /* Sección de Video */
-    .video-section {
-      margin-bottom: 35px;
-      background: #fff;
-      padding: 15px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-      border: 1px solid rgba(212, 175, 55, 0.1);
-    }
+        /* =========================================================
+           RESET
+        ========================================================= */
 
-    .video-section h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      margin-bottom: 15px;
-      color: var(--gold);
-      font-style: italic;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    video {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      outline: none;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      background: #000;
-    }
 
-    /* Detalles */
-    .details {
-      background: #fff;
-      padding: 25px 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-      margin-bottom: 35px;
-      text-align: center;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    .details p {
-      margin-bottom: 12px;
-      font-size: 0.95rem;
-      color: var(--text-dark);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
 
-    .details p:last-of-type { margin-bottom: 18px; }
-    .icon { font-size: 1.2rem; }
+        body {
+            min-height: 100vh;
 
-    /* Botón de Navegación / Mapas */
-    .map-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background-color: #ffffff;
-      color: var(--gold);
-      border: 1.5px solid var(--gold);
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 500;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      width: 100%;
-      margin-top: 5px;
-    }
+            font-family: 'Poppins', sans-serif;
 
-    .map-btn:hover {
-      background-color: var(--gold);
-      color: #ffffff;
-      transform: translateY(-2px);
-    }
+            color: var(--text-dark);
 
-    /* Formulario */
-    .rsvp-section h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      margin-bottom: 20px;
-      color: var(--text-dark);
-    }
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(212,175,55,0.10),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 80% 80%,
+                    rgba(212,175,55,0.10),
+                    transparent 25%
+                ),
+                linear-gradient(
+                    135deg,
+                    #fffdf8,
+                    #f9f0e3
+                );
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
 
-    input, select, textarea {
-      width: 100%;
-      padding: 14px;
-      border: 1px solid #eaeaea;
-      border-radius: 8px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.95rem;
-      background: #fafafa;
-    }
+            padding: 40px 15px;
 
-    input:focus, select:focus, textarea:focus {
-      outline: none;
-      border-color: var(--gold);
-      background: #fff;
-      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
-    }
+            overflow-x: hidden;
+        }
 
-    button {
-      background: var(--gold);
-      color: #fff;
-      border: none;
-      padding: 15px;
-      border-radius: 8px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 1rem;
-      font-weight: 500;
-      letter-spacing: 1px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      margin-top: 10px;
-    }
 
-    button:hover {
-      background: #b5952f;
-      transform: translateY(-2px);
-    }
+        /* =========================================================
+           FONDO ANIMADO
+        ========================================================= */
 
-    #statusMessage {
-      margin-top: 15px;
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
-  </style>
+        .background {
+            position: fixed;
+            inset: 0;
+
+            pointer-events: none;
+
+            overflow: hidden;
+
+            z-index: 0;
+        }
+
+
+        .sparkle {
+            position: absolute;
+
+            width: 5px;
+            height: 5px;
+
+            background: var(--gold);
+
+            border-radius: 50%;
+
+            opacity: 0;
+
+            animation:
+                floatSparkle 8s linear infinite;
+        }
+
+
+        .sparkle:nth-child(1) {
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .sparkle:nth-child(2) {
+            left: 25%;
+            animation-delay: 2s;
+        }
+
+        .sparkle:nth-child(3) {
+            left: 40%;
+            animation-delay: 4s;
+        }
+
+        .sparkle:nth-child(4) {
+            left: 60%;
+            animation-delay: 1s;
+        }
+
+        .sparkle:nth-child(5) {
+            left: 75%;
+            animation-delay: 3s;
+        }
+
+        .sparkle:nth-child(6) {
+            left: 90%;
+            animation-delay: 5s;
+        }
+
+
+        @keyframes floatSparkle {
+
+            0% {
+                transform:
+                    translateY(110vh)
+                    scale(0.3);
+
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 0.6;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            85% {
+                opacity: 0.5;
+            }
+
+            100% {
+                transform:
+                    translateY(-10vh)
+                    scale(1);
+
+                opacity: 0;
+            }
+        }
+
+
+        /* =========================================================
+           TARJETA PRINCIPAL
+        ========================================================= */
+
+        .invitation-card {
+
+            position: relative;
+
+            z-index: 2;
+
+            width: 100%;
+            max-width: 560px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(255,255,255,0.98),
+                    rgba(255,250,242,0.98)
+                );
+
+            border-radius: 30px;
+
+            padding: 45px 30px;
+
+            text-align: center;
+
+            box-shadow: var(--shadow);
+
+            border: 1px solid rgba(212,175,55,0.30);
+
+            overflow: hidden;
+
+            animation:
+                cardEntrance 1.2s ease forwards;
+        }
+
+
+        @keyframes cardEntrance {
+
+            0% {
+                opacity: 0;
+                transform:
+                    translateY(50px)
+                    scale(0.96);
+            }
+
+            100% {
+                opacity: 1;
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+
+        /* Bordes decorativos */
+
+        .invitation-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 12px;
+
+            border: 1px solid rgba(212,175,55,0.28);
+
+            border-radius: 22px;
+
+            pointer-events: none;
+        }
+
+
+        .invitation-card::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+            height: 250px;
+
+            top: -150px;
+            right: -100px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(212,175,55,0.18),
+                    transparent 70%
+                );
+
+            border-radius: 50%;
+
+            pointer-events: none;
+        }
+
+
+        /* =========================================================
+           PORTADA
+        ========================================================= */
+
+        .hero {
+
+            position: relative;
+
+            padding: 10px 10px 25px;
+
+            animation:
+                fadeUp 1s ease 0.2s both;
+        }
+
+
+        .subtitle {
+
+            font-size: 0.78rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: 5px;
+
+            color: var(--gold-dark);
+
+            margin-bottom: 18px;
+
+            font-weight: 500;
+        }
+
+
+        .crown {
+
+            font-size: 2rem;
+
+            margin-bottom: 10px;
+
+            display: inline-block;
+
+            animation:
+                crownFloat 3s ease-in-out infinite;
+        }
+
+
+        @keyframes crownFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-7px);
+            }
+        }
+
+
+        h1 {
+
+            position: relative;
+
+            font-family: 'Great Vibes', cursive;
+
+            font-size: clamp(3.2rem, 11vw, 5rem);
+
+            font-weight: 400;
+
+            line-height: 1.1;
+
+            color: var(--text-dark);
+
+            margin-bottom: 12px;
+
+            text-shadow:
+                0 2px 0 rgba(255,255,255,0.9);
+
+            animation:
+                nameGlow 4s ease-in-out infinite;
+        }
+
+
+        @keyframes nameGlow {
+
+            0%,
+            100% {
+                text-shadow:
+                    0 2px 0 rgba(255,255,255,0.9);
+            }
+
+            50% {
+                text-shadow:
+                    0 2px 0 white,
+                    0 0 20px rgba(212,175,55,0.35);
+            }
+        }
+
+
+        .age-title {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 1.45rem;
+
+            font-style: italic;
+
+            color: var(--text-light);
+
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================================================
+           DIVISOR
+        ========================================================= */
+
+        .divider {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            margin: 5px auto 30px;
+
+            color: var(--gold);
+        }
+
+
+        .divider::before,
+        .divider::after {
+
+            content: "";
+
+            width: 70px;
+
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--gold)
+                );
+        }
+
+
+        .divider::after {
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--gold),
+                    transparent
+                );
+        }
+
+
+        .divider span {
+
+            font-size: 0.9rem;
+        }
+
+
+        /* =========================================================
+           CONTADOR
+        ========================================================= */
+
+        .countdown-wrapper {
+
+            margin-bottom: 35px;
+
+            animation:
+                fadeUp 1s ease 0.4s both;
+        }
+
+
+        .countdown-title {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 1.15rem;
+
+            font-style: italic;
+
+            margin-bottom: 18px;
+
+            color: var(--text-dark);
+        }
+
+
+        .countdown {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 10px;
+
+            max-width: 440px;
+
+            margin: auto;
+        }
+
+
+        .time-box {
+
+            position: relative;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #fff,
+                    #faf4e8
+                );
+
+            padding: 13px 7px;
+
+            border-radius: 15px;
+
+            border:
+                1px solid rgba(212,175,55,0.22);
+
+            box-shadow:
+                0 8px 20px rgba(0,0,0,0.06);
+
+            overflow: hidden;
+
+            transition:
+                var(--transition);
+        }
+
+
+        .time-box::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: -100%;
+
+            width: 100%;
+            height: 2px;
+
+            background: var(--gold);
+
+            transition:
+                left 0.5s ease;
+        }
+
+
+        .time-box:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 12px 25px rgba(212,175,55,0.15);
+        }
+
+
+        .time-box:hover::before {
+            left: 0;
+        }
+
+
+        .time-box span {
+
+            display: block;
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 1.8rem;
+
+            font-weight: 600;
+
+            color: var(--gold-dark);
+
+            transition:
+                transform 0.25s ease;
+        }
+
+
+        .time-box.animate span {
+
+            animation:
+                numberChange 0.35s ease;
+        }
+
+
+        @keyframes numberChange {
+
+            0% {
+                transform:
+                    translateY(-5px);
+
+                opacity: 0.3;
+            }
+
+            100% {
+                transform:
+                    translateY(0);
+
+                opacity: 1;
+            }
+        }
+
+
+        .time-box label {
+
+            display: block;
+
+            margin-top: 3px;
+
+            font-size: 0.62rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+            color: var(--text-light);
+        }
+
+
+        /* =========================================================
+           SECCIONES
+        ========================================================= */
+
+        .section {
+
+            animation:
+                fadeUp 1s ease both;
+        }
+
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        /* =========================================================
+           VIDEO
+        ========================================================= */
+
+        .video-section {
+
+            position: relative;
+
+            margin-bottom: 35px;
+
+            padding: 18px;
+
+            background: rgba(255,255,255,0.75);
+
+            border-radius: 18px;
+
+            border:
+                1px solid rgba(212,175,55,0.18);
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.06);
+
+            backdrop-filter:
+                blur(5px);
+
+            transition:
+                var(--transition);
+        }
+
+
+        .video-section:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 15px 35px rgba(212,175,55,0.12);
+        }
+
+
+        .video-section h3 {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 1.3rem;
+
+            margin-bottom: 15px;
+
+            color: var(--gold-dark);
+
+            font-style: italic;
+        }
+
+
+        .video-frame {
+
+            position: relative;
+
+            border-radius: 13px;
+
+            padding: 4px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--gold),
+                    #f8e7ad,
+                    var(--gold-dark)
+                );
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.15);
+        }
+
+
+        video {
+
+            display: block;
+
+            width: 100%;
+
+            height: auto;
+
+            border-radius: 10px;
+
+            background: #000;
+
+            outline: none;
+        }
+
+
+        /* =========================================================
+           DETALLES
+        ========================================================= */
+
+        .details {
+
+            margin-bottom: 35px;
+
+            padding: 25px 20px;
+
+            background:
+                rgba(255,255,255,0.85);
+
+            border-radius: 18px;
+
+            border:
+                1px solid rgba(212,175,55,0.18);
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.05);
+        }
+
+
+        .details-title {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 1.4rem;
+
+            font-style: italic;
+
+            color: var(--gold-dark);
+
+            margin-bottom: 20px;
+        }
+
+
+        .detail-item {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: flex-start;
+
+            text-align: left;
+
+            gap: 12px;
+
+            padding: 10px 5px;
+
+            font-size: 0.88rem;
+
+            color: var(--text-dark);
+
+            border-bottom:
+                1px solid rgba(212,175,55,0.10);
+        }
+
+
+        .detail-item:last-of-type {
+
+            border-bottom: none;
+
+            margin-bottom: 15px;
+        }
+
+
+        .icon {
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 35px;
+            height: 35px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(212,175,55,0.10);
+
+            font-size: 1rem;
+        }
+
+
+        .detail-item strong {
+            font-weight: 500;
+        }
+
+
+        /* =========================================================
+           BOTÓN MAPA
+        ========================================================= */
+
+        .map-btn {
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 9px;
+
+            width: 100%;
+
+            padding: 13px 18px;
+
+            margin-top: 15px;
+
+            border-radius: 10px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff,
+                    #fbf5e9
+                );
+
+            color: var(--gold-dark);
+
+            border:
+                1.5px solid var(--gold);
+
+            text-decoration: none;
+
+            font-size: 0.88rem;
+
+            font-weight: 500;
+
+            overflow: hidden;
+
+            transition:
+                var(--transition);
+        }
+
+
+        .map-btn::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: -120%;
+
+            width: 100%;
+
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,0.7),
+                    transparent
+                );
+
+            transition:
+                left 0.7s ease;
+        }
+
+
+        .map-btn:hover {
+
+            background:
+                var(--gold);
+
+            color: white;
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 8px 20px rgba(212,175,55,0.25);
+        }
+
+
+        .map-btn:hover::before {
+            left: 120%;
+        }
+
+
+        /* =========================================================
+           RSVP
+        ========================================================= */
+
+        .rsvp-section {
+
+            padding-top: 5px;
+
+            animation:
+                fadeUp 1s ease 0.8s both;
+        }
+
+
+        .rsvp-section h3 {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 1.5rem;
+
+            font-weight: 500;
+
+            font-style: italic;
+
+            margin-bottom: 22px;
+
+            color: var(--text-dark);
+        }
+
+
+        form {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 14px;
+        }
+
+
+        input,
+        select,
+        textarea {
+
+            width: 100%;
+
+            padding: 14px 15px;
+
+            border:
+                1px solid #e8dfd1;
+
+            border-radius: 10px;
+
+            font-family: 'Poppins', sans-serif;
+
+            font-size: 0.88rem;
+
+            color: var(--text-dark);
+
+            background:
+                rgba(255,255,255,0.85);
+
+            transition:
+                var(--transition);
+        }
+
+
+        input::placeholder,
+        textarea::placeholder {
+
+            color: #aaa;
+        }
+
+
+        input:hover,
+        select:hover,
+        textarea:hover {
+
+            border-color:
+                rgba(212,175,55,0.5);
+        }
+
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+
+            outline: none;
+
+            border-color:
+                var(--gold);
+
+            background: white;
+
+            box-shadow:
+                0 0 0 4px rgba(212,175,55,0.10);
+        }
+
+
+        textarea {
+
+            resize: vertical;
+
+            min-height: 85px;
+        }
+
+
+        /* =========================================================
+           BOTÓN ENVIAR
+        ========================================================= */
+
+        button {
+
+            position: relative;
+
+            width: 100%;
+
+            padding: 15px;
+
+            margin-top: 5px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--gold),
+                    var(--gold-dark)
+                );
+
+            color: white;
+
+            font-family: 'Poppins', sans-serif;
+
+            font-size: 0.95rem;
+
+            font-weight: 500;
+
+            letter-spacing: 0.7px;
+
+            cursor: pointer;
+
+            overflow: hidden;
+
+            transition:
+                var(--transition);
+
+            box-shadow:
+                0 8px 20px rgba(212,175,55,0.20);
+        }
+
+
+        button::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: -120%;
+
+            width: 80%;
+
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,0.35),
+                    transparent
+                );
+
+            transform:
+                skewX(-20deg);
+
+            transition:
+                left 0.7s ease;
+        }
+
+
+        button:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 12px 25px rgba(212,175,55,0.30);
+        }
+
+
+        button:hover::before {
+            left: 130%;
+        }
+
+
+        button:active {
+
+            transform:
+                translateY(0);
+        }
+
+
+        button:disabled {
+
+            cursor:
+                not-allowed;
+
+            transform:
+                none;
+
+            box-shadow:
+                none;
+
+            opacity:
+                0.7;
+        }
+
+
+        /* =========================================================
+           MENSAJE DE ESTADO
+        ========================================================= */
+
+        #statusMessage {
+
+            min-height: 24px;
+
+            margin-top: 15px;
+
+            font-size: 0.85rem;
+
+            font-weight: 500;
+        }
+
+
+        .success-message {
+
+            animation:
+                successPop 0.5s ease;
+        }
+
+
+        @keyframes successPop {
+
+            0% {
+                opacity: 0;
+
+                transform:
+                    scale(0.9);
+            }
+
+            70% {
+                transform:
+                    scale(1.05);
+            }
+
+            100% {
+                opacity: 1;
+
+                transform:
+                    scale(1);
+            }
+        }
+
+
+        /* =========================================================
+           PIE
+        ========================================================= */
+
+        .footer {
+
+            margin-top: 30px;
+
+            padding-top: 20px;
+
+            border-top:
+                1px solid rgba(212,175,55,0.18);
+
+            font-family:
+                'Playfair Display',
+                serif;
+
+            font-size: 0.9rem;
+
+            font-style: italic;
+
+            color: var(--text-light);
+        }
+
+
+        .footer span {
+
+            color: var(--gold-dark);
+
+            font-family:
+                'Great Vibes',
+                cursive;
+
+            font-size: 1.5rem;
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 480px) {
+
+            body {
+                padding: 15px 8px;
+            }
+
+
+            .invitation-card {
+
+                padding:
+                    35px 18px;
+
+                border-radius: 24px;
+            }
+
+
+            .invitation-card::before {
+
+                inset: 8px;
+
+                border-radius: 18px;
+            }
+
+
+            .subtitle {
+
+                font-size: 0.68rem;
+
+                letter-spacing: 3px;
+            }
+
+
+            h1 {
+
+                font-size: 3.4rem;
+            }
+
+
+            .age-title {
+
+                font-size: 1.25rem;
+            }
+
+
+            .countdown {
+
+                gap: 6px;
+            }
+
+
+            .time-box {
+
+                padding:
+                    11px 4px;
+            }
+
+
+            .time-box span {
+
+                font-size: 1.45rem;
+            }
+
+
+            .time-box label {
+
+                font-size: 0.55rem;
+            }
+
+
+            .details {
+
+                padding:
+                    20px 14px;
+            }
+
+
+            .detail-item {
+
+                font-size: 0.82rem;
+            }
+
+
+            .video-section {
+
+                padding: 12px;
+            }
+        }
+
+
+        /* =========================================================
+           REDUCIR ANIMACIONES SI EL USUARIO LO PREFIERE
+        ========================================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration:
+                    0.01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    0.01ms !important;
+
+                scroll-behavior:
+                    auto !important;
+            }
+        }
+
+    </style>
 </head>
+
+
 <body>
 
-  <div class="invitation-card">
-    <p class="subtitle">¡Estás Invitado! A Mis 15 Años</p>
-    <h1>Maria Daniela Priego Ic</h1>
-   
-    
-    <div class="divider"></div>
+    <!-- =========================================================
+         FONDO
+    ========================================================= -->
 
-    <div class="countdown-wrapper">
-      <p class="countdown-title">Faltan tan solo:</p>
-      <div class="countdown">
-        <div class="time-box"><span id="days">00</span><label>Días</label></div>
-        <div class="time-box"><span id="hours">00</span><label>Hrs</label></div>
-        <div class="time-box"><span id="minutes">00</span><label>Min</label></div>
-        <div class="time-box"><span id="seconds">00</span><label>Seg</label></div>
-      </div>
+    <div class="background">
+
+        <span class="sparkle"></span>
+        <span class="sparkle"></span>
+        <span class="sparkle"></span>
+        <span class="sparkle"></span>
+        <span class="sparkle"></span>
+        <span class="sparkle"></span>
+
     </div>
 
-    <!-- Sección de Video -->
-    <div class="video-section">
-      <h3>Un momento especial...</h3>
-      <video controls playsinline preload="metadata">
-        <source src="video.mp4" type="video/mp4">
-        Tu navegador no soporta la reproducción de video.
-      </video>
-    </div>
 
-    <div class="details">
-      <p><span class="icon">📅</span> <strong>Sábado 7 de Noviembre de 2026</strong></p>
-      <p><span class="icon">⏰</span> <strong>19:00 a 24:00 hrs (7:00 PM - 12:00 AM)</strong></p>
-      <p><span class="icon">📍</span> Salón de Eventos "El Encanto"</p>
-      <p><span class="icon">🛣️</span> Km 4.5 Carretera al Atlántico, Zona Portales</p>
-      <p><span class="icon">👗</span> Etiqueta: Formal / Gala</p>
-      
-      <!-- Botón de Navegación a Google Maps -->
-      <a href="https://maps.google.com/?q=Centro+Comercial+Portales+Km+4.5+Carretera+al+Atlantico+zona+17+Guatemala" target="_blank" class="map-btn">
-        <span>🗺️</span> Ver Ubicación / Cómo llegar
-      </a>
-    </div>
+    <!-- =========================================================
+         INVITACIÓN
+    ========================================================= -->
 
-    <div class="rsvp-section">
-      <h3>Confirmar Asistencia</h3>
-      <!-- Formulario con iframe oculto -->
-      <form id="rsvpForm" action="https://script.google.com/macros/s/AKfycbzrymL9OAmSVkM4OOTQ2z2LUBGRg77gqOBG518cIk2Too0Vq_ekXHzlmAj_yVP5mqB5gQ/exec" method="POST" target="hidden_iframe">
-        <input type="text" name="nombre" id="nombre" placeholder="Tu Nombre y Apellido" required>
-        
-        <select name="asistencia" id="asistencia" required>
-          <option value="" disabled selected>¿Nos acompañarás?</option>
-          <option value="Sí, asistiré">¡Sí, ahí estaré!</option>
-          <option value="No asistiré">Lo siento, no podré asistir</option>
-        </select>
-        
-        <input type="number" name="pases" id="pases" placeholder="Número de personas (Máximo 2)" min="1" max="2" required>
-        
-        <textarea name="mensaje" id="mensaje" rows="3" placeholder="Déjale un mensaje a Maria Daniela (Opcional)"></textarea>
-        
-        <button type="submit" id="submitBtn">Enviar Confirmación</button>
-      </form>
-      <!-- Iframe oculto -->
-      <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-      <p id="statusMessage"></p>
-    </div>
-  </div>
+    <main class="invitation-card">
 
-  <script>
-    const eventDate = new Date(2026, 10, 7, 19, 0, 0).getTime();
 
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = eventDate - now;
+        <!-- =====================================================
+             PORTADA
+        ===================================================== -->
 
-      if (distance < 0) {
-        clearInterval(timer);
-        document.querySelector('.countdown').innerHTML = "<p style='font-family: Playfair Display; font-size: 1.5rem; color: #d4af37;'>¡Hoy es el gran día!</p>";
-        return;
-      }
+        <section class="hero">
 
-      document.getElementById('days').innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
-      document.getElementById('hours').innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-      document.getElementById('minutes').innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-      document.getElementById('seconds').innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
-    }, 1000);
+            <div class="crown">
+                👑
+            </div>
 
-    const form = document.getElementById('rsvpForm');
-    const submitBtn = document.getElementById('submitBtn');
-    const statusMsg = document.getElementById('statusMessage');
-    const iframe = document.getElementById('hidden_iframe');
+            <p class="subtitle">
+                ¡Estás Invitado! A Mis 15 Años
+            </p>
 
-    form.addEventListener('submit', function() {
-      submitBtn.disabled = true;
-      submitBtn.innerText = "Enviando respuesta...";
-      submitBtn.style.opacity = "0.7";
-    });
+            <h1>
+                Maria Daniela Priego Ic
+            </h1>
 
-    iframe.addEventListener('load', function() {
-      if (submitBtn.disabled) {
-        statusMsg.style.color = "#4CAF50";
-        statusMsg.innerText = "¡Gracias! Tu confirmación ha sido guardada con éxito.";
-        form.reset();
-        submitBtn.disabled = false;
-        submitBtn.innerText = "Enviar Confirmación";
-        submitBtn.style.opacity = "1";
-      }
-    });
-  </script>
+            <p class="age-title">
+                Mis Quince Años
+            </p>
+
+        </section>
+
+
+        <!-- =====================================================
+             DIVISOR
+        ===================================================== -->
+
+        <div class="divider">
+            <span>✦</span>
+        </div>
+
+
+        <!-- =====================================================
+             CONTADOR
+        ===================================================== -->
+
+        <section class="countdown-wrapper">
+
+            <p class="countdown-title">
+                Faltan tan solo...
+            </p>
+
+            <div class="countdown">
+
+                <div class="time-box" id="boxDays">
+                    <span id="days">00</span>
+                    <label>Días</label>
+                </div>
+
+                <div class="time-box" id="boxHours">
+                    <span id="hours">00</span>
+                    <label>Horas</label>
+                </div>
+
+                <div class="time-box" id="boxMinutes">
+                    <span id="minutes">00</span>
+                    <label>Minutos</label>
+                </div>
+
+                <div class="time-box" id="boxSeconds">
+                    <span id="seconds">00</span>
+                    <label>Segundos</label>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             VIDEO
+        ===================================================== -->
+
+        <section class="video-section">
+
+            <h3>
+                Un momento especial...
+            </h3>
+
+            <div class="video-frame">
+
+                <video
+                    controls
+                    playsinline
+                    preload="metadata">
+
+                    <source
+                        src="video.mp4"
+                        type="video/mp4">
+
+                    Tu navegador no soporta la reproducción de video.
+
+                </video>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             DETALLES
+        ===================================================== -->
+
+        <section class="details">
+
+            <h3 class="details-title">
+                Detalles de la celebración
+            </h3>
+
+
+            <div class="detail-item">
+
+                <span class="icon">
+                    📅
+                </span>
+
+                <strong>
+                    Sábado 7 de Noviembre de 2026
+                </strong>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span class="icon">
+                    ⏰
+                </span>
+
+                <strong>
+                    19:00 a 24:00 hrs
+                </strong>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span class="icon">
+                    📍
+                </span>
+
+                <span>
+                    Salón de Eventos "El Encanto"
+                </span>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span class="icon">
+                    🛣️
+                </span>
+
+                <span>
+                    Km 4.5 Carretera al Atlántico,
+                    Zona Portales
+                </span>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span class="icon">
+                    👗
+                </span>
+
+                <span>
+                    Etiqueta: <strong>Formal / Gala</strong>
+                </span>
+
+            </div>
+
+
+            <!-- =================================================
+                 GOOGLE MAPS
+            ================================================= -->
+
+            <a
+                href="https://maps.google.com/?q=Centro+Comercial+Portales+Km+4.5+Carretera+al+Atlantico+zona+17+Guatemala"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="map-btn">
+
+                <span>
+                    🗺️
+                </span>
+
+                <span>
+                    Ver ubicación / Cómo llegar
+                </span>
+
+            </a>
+
+        </section>
+
+
+        <!-- =====================================================
+             RSVP
+        ===================================================== -->
+
+        <section class="rsvp-section">
+
+            <h3>
+                Confirmar Asistencia
+            </h3>
+
+
+            <form
+                id="rsvpForm"
+                action="https://script.google.com/macros/s/AKfycbzrymL9OAmSVkM4OOTQ2z2LUBGRg77gqOBG518cIk2Too0Vq_ekXHzlmAj_yVP5mqB5gQ/exec"
+                method="POST"
+                target="hidden_iframe">
+
+
+                <!-- NOMBRE -->
+
+                <input
+                    type="text"
+                    name="nombre"
+                    id="nombre"
+                    placeholder="Tu Nombre y Apellido"
+                    autocomplete="name"
+                    required>
+
+
+                <!-- ASISTENCIA -->
+
+                <select
+                    name="asistencia"
+                    id="asistencia"
+                    required>
+
+                    <option
+                        value=""
+                        disabled
+                        selected>
+
+                        ¿Nos acompañarás?
+
+                    </option>
+
+                    <option value="Sí, asistiré">
+
+                        ¡Sí, ahí estaré! 💖
+
+                    </option>
+
+                    <option value="No asistiré">
+
+                        Lo siento, no podré asistir
+
+                    </option>
+
+                </select>
+
+
+                <!-- PASES -->
+
+                <input
+                    type="number"
+                    name="pases"
+                    id="pases"
+                    placeholder="Número de personas (Máximo 2)"
+                    min="1"
+                    max="2"
+                    required>
+
+
+                <!-- MENSAJE -->
+
+                <textarea
+                    name="mensaje"
+                    id="mensaje"
+                    rows="3"
+                    placeholder="Déjale un mensaje a Maria Daniela (Opcional)"></textarea>
+
+
+                <!-- BOTÓN -->
+
+                <button
+                    type="submit"
+                    id="submitBtn">
+
+                    Enviar Confirmación
+
+                </button>
+
+            </form>
+
+
+            <!-- IFRAME OCULTO -->
+
+            <iframe
+                name="hidden_iframe"
+                id="hidden_iframe"
+                style="display:none;">
+            </iframe>
+
+
+            <!-- MENSAJE -->
+
+            <p id="statusMessage"></p>
+
+        </section>
+
+
+        <!-- =====================================================
+             FOOTER
+        ===================================================== -->
+
+        <footer class="footer">
+
+            Con cariño,
+
+            <br>
+
+            <span>
+                Maria Daniela
+            </span>
+
+        </footer>
+
+
+    </main>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================= -->
+
+    <script>
+
+        /* =====================================================
+           FECHA DEL EVENTO
+           
+           7 de noviembre de 2026
+           19:00 horas
+        ===================================================== */
+
+        const eventDate =
+            new Date(
+                2026,
+                10,
+                7,
+                19,
+                0,
+                0
+            ).getTime();
+
+
+        /* =====================================================
+           ELEMENTOS DEL CONTADOR
+        ===================================================== */
+
+        const daysElement =
+            document.getElementById("days");
+
+        const hoursElement =
+            document.getElementById("hours");
+
+        const minutesElement =
+            document.getElementById("minutes");
+
+        const secondsElement =
+            document.getElementById("seconds");
+
+
+        const boxes = {
+
+            days:
+                document.getElementById("boxDays"),
+
+            hours:
+                document.getElementById("boxHours"),
+
+            minutes:
+                document.getElementById("boxMinutes"),
+
+            seconds:
+                document.getElementById("boxSeconds")
+        };
+
+
+        /* =====================================================
+           ACTUALIZAR NÚMERO CON ANIMACIÓN
+        ===================================================== */
+
+        function updateNumber(
+            element,
+            box,
+            value
+        ) {
+
+            const newValue =
+                String(value).padStart(2, "0");
+
+
+            if (
+                element.innerText !== newValue
+            ) {
+
+                element.innerText =
+                    newValue;
+
+
+                box.classList.remove(
+                    "animate"
+                );
+
+
+                void box.offsetWidth;
+
+
+                box.classList.add(
+                    "animate"
+                );
+
+            }
+
+        }
+
+
+        /* =====================================================
+           CONTADOR
+        ===================================================== */
+
+        function updateCountdown() {
+
+            const now =
+                new Date().getTime();
+
+
+            const distance =
+                eventDate - now;
+
+
+            /* Evento terminado */
+
+            if (distance <= 0) {
+
+                document.querySelector(
+                    ".countdown"
+                ).innerHTML = `
+
+                    <p style="
+                        grid-column:1/-1;
+                        font-family:'Playfair Display',serif;
+                        font-size:1.5rem;
+                        font-style:italic;
+                        color:#d4af37;
+                        padding:15px;
+                    ">
+
+                        ✨ ¡Hoy es el gran día! ✨
+
+                    </p>
+
+                `;
+
+                clearInterval(timer);
+
+                return;
+            }
+
+
+            /* Cálculos */
+
+            const days =
+                Math.floor(
+                    distance /
+                    (1000 * 60 * 60 * 24)
+                );
+
+
+            const hours =
+                Math.floor(
+                    (
+                        distance %
+                        (1000 * 60 * 60 * 24)
+                    ) /
+                    (1000 * 60 * 60)
+                );
+
+
+            const minutes =
+                Math.floor(
+                    (
+                        distance %
+                        (1000 * 60 * 60)
+                    ) /
+                    (1000 * 60)
+                );
+
+
+            const seconds =
+                Math.floor(
+                    (
+                        distance %
+                        (1000 * 60)
+                    ) /
+                    1000
+                );
+
+
+            /* Mostrar */
+
+            updateNumber(
+                daysElement,
+                boxes.days,
+                days
+            );
+
+
+            updateNumber(
+                hoursElement,
+                boxes.hours,
+                hours
+            );
+
+
+            updateNumber(
+                minutesElement,
+                boxes.minutes,
+                minutes
+            );
+
+
+            updateNumber(
+                secondsElement,
+                boxes.seconds,
+                seconds
+            );
+
+        }
+
+
+        /* Ejecutar inmediatamente */
+
+        updateCountdown();
+
+
+        /* Actualizar cada segundo */
+
+        const timer =
+            setInterval(
+                updateCountdown,
+                1000
+            );
+
+
+        /* =====================================================
+           FORMULARIO
+        ===================================================== */
+
+        const form =
+            document.getElementById(
+                "rsvpForm"
+            );
+
+
+        const submitBtn =
+            document.getElementById(
+                "submitBtn"
+            );
+
+
+        const statusMsg =
+            document.getElementById(
+                "statusMessage"
+            );
+
+
+        const iframe =
+            document.getElementById(
+                "hidden_iframe"
+            );
+
+
+        let formSubmitting = false;
+
+
+        /* =====================================================
+           VALIDACIÓN DE PASES
+        ===================================================== */
+
+        const pases =
+            document.getElementById(
+                "pases"
+            );
+
+
+        pases.addEventListener(
+            "input",
+            function () {
+
+                if (
+                    this.value > 2
+                ) {
+
+                    this.value = 2;
+
+                }
+
+                if (
+                    this.value < 1 &&
+                    this.value !== ""
+                ) {
+
+                    this.value = 1;
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           ENVÍO DEL FORMULARIO
+        ===================================================== */
+
+        form.addEventListener(
+            "submit",
+            function () {
+
+                formSubmitting = true;
+
+
+                submitBtn.disabled =
+                    true;
+
+
+                submitBtn.innerHTML =
+                    "✨ Enviando respuesta...";
+
+
+                statusMsg.innerText =
+                    "";
+
+
+                statusMsg.className =
+                    "";
+
+            }
+        );
+
+
+        /* =====================================================
+           RESPUESTA DEL GOOGLE SCRIPT
+        ===================================================== */
+
+        iframe.addEventListener(
+            "load",
+            function () {
+
+                if (!formSubmitting) {
+                    return;
+                }
+
+
+                statusMsg.style.color =
+                    "#4CAF50";
+
+
+                statusMsg.innerText =
+                    "¡Gracias! Tu confirmación ha sido guardada con éxito. 💖";
+
+
+                statusMsg.classList.add(
+                    "success-message"
+                );
+
+
+                form.reset();
+
+
+                submitBtn.disabled =
+                    false;
+
+
+                submitBtn.innerHTML =
+                    "Enviar Confirmación";
+
+
+                formSubmitting =
+                    false;
+
+            }
+        );
+
+
+    </script>
 
 </body>
+
 </html>
