@@ -2521,7 +2521,7 @@
                     name="pases"
                     id="pases"
                     placeholder="Número de personas (Máximo 2)"
-                    min="1"
+                    min="0"
                     max="2"
                     required>
 
@@ -2981,11 +2981,11 @@
 
 
                 if (
-                    value < 1 &&
+                    value < 0 &&
                     this.value !== ""
                 ) {
 
-                    this.value = 1;
+                    this.value = 0;
                 }
 
             }
