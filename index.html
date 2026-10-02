@@ -400,6 +400,76 @@
 
 
 
+
+        /* =========================================================
+           TARJETA PERSONALIZADA
+        ========================================================= */
+        .personal-card {
+            display: none;
+            width: min(420px, 92%);
+            margin: 0 auto 40px;
+            text-align: center;
+            padding: 28px 24px 24px;
+            background: linear-gradient(160deg, rgba(255,255,255,.97), rgba(255,241,246,.94));
+            border: 1px solid rgba(199,161,74,.35);
+            box-shadow: var(--sombra);
+            border-radius: 6px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .personal-card.visible {
+            display: block;
+            animation: aparecer 1s ease both;
+        }
+
+        .personal-card::before,
+        .personal-card::after {
+            content: "✦";
+            position: absolute;
+            color: var(--dorado);
+            font-size: 14px;
+            opacity: .7;
+        }
+
+        .personal-card::before { top: 12px; left: 16px; }
+        .personal-card::after  { bottom: 12px; right: 16px; }
+
+        .personal-kicker {
+            font-size: 9px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--dorado-oscuro);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .personal-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(26px, 6vw, 34px);
+            color: var(--vino);
+            font-weight: 500;
+            line-height: 1.25;
+            margin-bottom: 8px;
+        }
+
+        .personal-passes {
+            display: inline-block;
+            margin-top: 6px;
+            padding: 6px 18px;
+            border-top: 1px solid rgba(199,161,74,.3);
+            border-bottom: 1px solid rgba(199,161,74,.3);
+            font-size: 13px;
+            color: var(--rosa-profundo);
+            letter-spacing: 1px;
+        }
+
+        .personal-passes strong {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            color: var(--vino);
+        }
+
         /* =========================================================
            HERO
         ========================================================= */
@@ -1491,6 +1561,18 @@
         </div>
     </header>
 
+
+    <!-- =========================================================
+         TARJETA PERSONALIZADA (nombre + pases)
+    ========================================================== -->
+    <div class="personal-card" id="personalCard">
+        <div class="personal-kicker">Invitación especial para</div>
+        <div class="personal-name" id="guestName">Invitado especial</div>
+        <div class="personal-passes" id="guestPasses">
+            Pases: <strong id="passesCount">1</strong>
+        </div>
+    </div>
+
     <!-- =========================================================
          INTRO
     ========================================================== -->
@@ -1988,6 +2070,40 @@
                 pases.disabled = false;
             }
         });
+
+        /* =====================================================
+           TARJETA PERSONALIZADA (URL params)
+           Ejemplo de enlace:
+           invitacion.html?nombre=María%20Priego&pases=2
+        ===================================================== */
+        (function () {
+            const params = new URLSearchParams(window.location.search);
+            const nombre = params.get('nombre') || params.get('name') || params.get('para');
+            const pases  = params.get('pases') || params.get('invitados') || params.get('passes');
+
+            const card = document.getElementById('personalCard');
+            const nameEl = document.getElementById('guestName');
+            const passesEl = document.getElementById('passesCount');
+            const passesWrap = document.getElementById('guestPasses');
+
+            if (nombre && nombre.trim()) {
+                nameEl.textContent = nombre.trim();
+                card.classList.add('visible');
+
+                if (pases && !isNaN(parseInt(pases))) {
+                    const n = parseInt(pases);
+                    passesEl.textContent = n;
+                    if (n === 1) {
+                        passesWrap.innerHTML = 'Pase: <strong>1</strong>';
+                    } else {
+                        passesWrap.innerHTML = 'Pases: <strong>' + n + '</strong>';
+                    }
+                } else {
+                    passesWrap.style.display = 'none';
+                }
+            }
+        })();
+
     </script>
 </body>
 </html>
