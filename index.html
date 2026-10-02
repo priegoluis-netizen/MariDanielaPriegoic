@@ -216,19 +216,26 @@
         }
 
         .opening-kicker {
-            font-size: 10px;
-            letter-spacing: 4.5px;
-            text-transform: uppercase;
-            color: var(--dorado-oscuro);
-            margin-bottom: 18px;
+            max-width: 360px;
+            margin: 0 auto 22px;
+            color: var(--vino);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(22px, 5vw, 29px);
+            line-height: 1.25;
             font-weight: 500;
+        }
+
+        .opening-kicker strong {
+            color: var(--rosa-profundo);
+            font-weight: 600;
         }
 
         .opening-name {
             font-family: 'Great Vibes', cursive;
-            font-size: clamp(56px, 14vw, 92px);
-            line-height: 1.08;
-            padding: 0 10px 10px;
+            font-size: clamp(48px, 12vw, 78px);
+            line-height: 1.2;
+            padding: 4px 18px 8px;
+            overflow: visible;
             background: linear-gradient(100deg, var(--rosa-profundo), var(--dorado), var(--rosa-profundo));
             -webkit-background-clip: text;
             background-clip: text;
@@ -241,19 +248,29 @@
             50%      { filter: drop-shadow(0 6px 14px rgba(199,161,74,.32)); }
         }
 
-        .opening-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 26px;
-            letter-spacing: 6px;
+        .opening-passes {
+            display: inline-block;
+            margin: 8px auto 22px;
+            padding: 7px 22px;
+            border-top: 1px solid rgba(199,161,74,.42);
+            border-bottom: 1px solid rgba(199,161,74,.42);
+            color: var(--rosa-profundo);
+            font-size: 11px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            color: var(--vino);
-            margin: 8px 0 18px;
             font-weight: 500;
+        }
+
+        .opening-passes strong {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 21px;
+            color: var(--vino);
+            letter-spacing: 0;
         }
 
         .opening-date {
             font-size: 11px;
-            letter-spacing: 3.5px;
+            letter-spacing: 3.2px;
             color: var(--rosa-profundo);
             margin-bottom: 32px;
             font-weight: 500;
@@ -454,11 +471,13 @@
             background:
                 linear-gradient(
                     to top,
-                    rgba(77,36,53,.88) 0%,
-                    rgba(120,54,76,.45) 35%,
-                    rgba(255,255,255,.04) 100%
+                    rgba(77,36,53,.92) 0%,
+                    rgba(110,50,72,.78) 40%,
+                    rgba(156,82,109,.55) 70%,
+                    rgba(201,121,150,.35) 100%
                 ),
-                url('foto-portada.jpg') center center / cover no-repeat;
+                url('foto-portada.jpg') center center / cover no-repeat,
+                linear-gradient(160deg, #9c526d, #6e394e);
         }
 
         .hero::before {
@@ -486,20 +505,22 @@
         }
 
         .hero-kicker {
-            color: rgba(255,255,255,.9);
-            font-size: 10px;
-            letter-spacing: 5.5px;
+            color: #ffffff;
+            font-size: 11px;
+            letter-spacing: 4px;
             text-transform: uppercase;
             margin-bottom: 16px;
-            font-weight: 400;
+            font-weight: 500;
+            text-shadow: 0 2px 12px rgba(0,0,0,.35);
             animation: aparecer 1.4s ease both;
         }
 
         .hero-name {
             font-family: 'Great Vibes', cursive;
             font-size: clamp(68px, 16vw, 142px);
-            line-height: 1.05;
-            padding: 0 14px 12px;
+            line-height: 1.2;
+            padding: 16px 28px 20px;
+            overflow: visible;
             color: #fff;
             text-shadow: 0 4px 22px rgba(0,0,0,.28);
             animation: aparecer 1.6s ease both .15s;
@@ -536,10 +557,11 @@
 
         .hero-date {
             margin-top: 18px;
-            color: rgba(255,255,255,.92);
-            font-size: 11px;
-            letter-spacing: 4px;
-            font-weight: 400;
+            color: #ffffff;
+            font-size: 12px;
+            letter-spacing: 3.5px;
+            font-weight: 500;
+            text-shadow: 0 2px 10px rgba(0,0,0,.3);
             animation: aparecer 1.6s ease both .5s;
         }
 
@@ -1119,8 +1141,9 @@
             align-items: center;
             text-align: center;
             background:
-                linear-gradient(rgba(91,39,57,.78), rgba(91,39,57,.88)),
-                url('foto-portada.jpg') center / cover;
+                linear-gradient(rgba(91,39,57,.85), rgba(91,39,57,.92)),
+                url('foto-portada.jpg') center / cover,
+                linear-gradient(160deg, #6e394e, #4d2435);
             color: white;
         }
 
@@ -1142,8 +1165,8 @@
         .closing-name {
             font-family: 'Great Vibes', cursive;
             font-size: clamp(66px, 15vw, 118px);
-            line-height: 1.05;
-            padding: 0 12px 12px;
+            line-height: 1.2;
+            padding: 16px 28px 20px;
             color: white;
             text-shadow: 0 4px 22px rgba(0,0,0,.28);
         }
@@ -1215,9 +1238,8 @@
 
             .hero-name {
                 font-size: clamp(62px, 18vw, 100px);
-                padding-left: 16px;
-                padding-right: 16px;
-                padding-bottom: 16px;
+                padding: 18px 28px 22px;
+                overflow: visible;
             }
 
             .hero-lastname {
@@ -1235,14 +1257,18 @@
             }
 
             .opening-name {
-                font-size: 64px;
-                padding-left: 12px;
-                padding-right: 12px;
+                font-size: 58px;
+                padding: 8px 18px 10px;
+                overflow: visible;
             }
 
-            .opening-title {
+            .opening-kicker {
                 font-size: 22px;
-                letter-spacing: 4px;
+                line-height: 1.25;
+            }
+
+            .opening-passes {
+                margin-bottom: 20px;
             }
 
             .countdown {
@@ -1490,9 +1516,20 @@
     <div class="opening" id="opening">
         <div class="opening-card">
             <div class="opening-ornament">✦</div>
-              <div class="opening-name">Una invitación muy especial</div>
-            <div class="opening-title">Mis 15 Años</div>
+
+            <div class="opening-kicker">
+                María Daniela te hace una invitación especial<br>
+                <strong>a celebrar sus 15 años</strong>
+            </div>
+
+            <div class="opening-name" id="openingGuestName">Invitado especial</div>
+
+            <div class="opening-passes" id="openingPasses">
+                <strong id="openingPassesCount">3</strong>&nbsp; pases
+            </div>
+
             <div class="opening-date">SÁBADO · 7 DE NOVIEMBRE · 2026</div>
+
             <button class="open-btn" id="openInvitation">Abrir invitación</button>
         </div>
     </div>
@@ -1591,7 +1628,7 @@
     <section class="ella-section" id="ella">
         <div class="ella-inner reveal">
             <div class="ella-kicker">La protagonista de este día</div>
-            <h2 class="ella-title">Maria Daniela</h2>
+            <h2 class="ella-title">María Daniela</h2>
 
             <div class="ella-divider">
                 <span>✦</span>
@@ -1770,7 +1807,7 @@
 
                     <div class="form-group">
                         <label for="nombre">Nombre y apellido</label>
-                        <input class="form-control" type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre Completo" required>
+                        <input class="form-control" type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre completo" required>
                     </div>
 
                     <div class="form-group">
@@ -1796,7 +1833,7 @@
 
                     <div class="form-group">
                         <label for="mensaje">Un mensaje para María Daniela</label>
-                        <textarea class="form-control" id="mensaje" name="mensaje" placeholder="Escribe un mensaje bonito para María Daniela (opcional) o Algo que requieras"></textarea>
+                        <textarea class="form-control" id="mensaje" name="mensaje" placeholder="Puedes dejarle un mensaje a María Daniela"></textarea>
                     </div>
 
                     <button class="submit-btn" type="submit" id="submitButton">
@@ -1984,9 +2021,19 @@
             const nameEl = document.getElementById('guestName');
             const passesEl = document.getElementById('passesCount');
             const passesWrap = document.getElementById('guestPasses');
+
+            const openingGuestName = document.getElementById('openingGuestName');
+            const openingPasses = document.getElementById('openingPasses');
+            const openingPassesCount = document.getElementById('openingPassesCount');
             const inputNombre = document.getElementById('nombre');
             const selectPases = document.getElementById('pases');
             const selectAsistencia = document.getElementById('asistencia');
+
+            if (nombre && nombre.trim()) {
+                if (openingGuestName) {
+                    openingGuestName.textContent = nombre.trim();
+                }
+            }
 
             if (nombre && nombre.trim() && card && nameEl) {
                 nameEl.textContent = nombre.trim();
@@ -1994,6 +2041,12 @@
                 if (pasesParam && !isNaN(parseInt(pasesParam)) && parseInt(pasesParam) > 0) {
                     const n = parseInt(pasesParam);
                     if (passesEl) passesEl.textContent = n;
+                    if (openingPassesCount) openingPassesCount.textContent = n;
+                    if (openingPasses) {
+                        openingPasses.innerHTML = n === 1
+                            ? '<strong>1</strong>&nbsp; pase'
+                            : '<strong>' + n + '</strong>&nbsp; pases';
+                    }
                     if (passesWrap) {
                         passesWrap.innerHTML = n === 1
                             ? 'Pase: <strong>1</strong>'
