@@ -1174,7 +1174,163 @@
                 transition-duration: .01ms !important;
             }
         }
-    </style>
+    
+        /* ============================================================
+           SECCIÓN ESPECIAL · MARÍA DANIELA
+           ============================================================ */
+        .ella-section {
+            position: relative;
+            padding: 90px 20px 85px;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(234, 215, 157, .22), transparent 28%),
+                radial-gradient(circle at 85% 80%, rgba(232, 185, 200, .28), transparent 30%),
+                linear-gradient(180deg, #fff8fa 0%, #fdf0f5 48%, #fff8fa 100%);
+            overflow: hidden;
+        }
+
+        .ella-section::before,
+        .ella-section::after {
+            content: "✦";
+            position: absolute;
+            color: var(--dorado);
+            font-size: 22px;
+            opacity: .45;
+            animation: sparkleFloat 4s ease-in-out infinite;
+        }
+
+        .ella-section::before {
+            left: 8%;
+            top: 18%;
+        }
+
+        .ella-section::after {
+            right: 9%;
+            bottom: 18%;
+            animation-delay: 1.8s;
+        }
+
+        .ella-inner {
+            max-width: 920px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .ella-kicker {
+            margin-bottom: 10px;
+            color: var(--dorado-oscuro);
+            font-family: "Montserrat", sans-serif;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .28em;
+            text-transform: uppercase;
+        }
+
+        .ella-title {
+            margin: 0 0 14px;
+            color: var(--vino-oscuro);
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(2.8rem, 8vw, 5rem);
+            font-weight: 500;
+            line-height: .95;
+        }
+
+        .ella-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 0 auto 25px;
+            color: var(--dorado);
+        }
+
+        .ella-divider::before,
+        .ella-divider::after {
+            content: "";
+            width: 58px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--dorado));
+        }
+
+        .ella-divider::after {
+            background: linear-gradient(90deg, var(--dorado), transparent);
+        }
+
+        .ella-intro {
+            max-width: 650px;
+            margin: 0 auto 32px;
+            color: var(--texto-suave);
+            font-family: "Montserrat", sans-serif;
+            font-size: .96rem;
+            line-height: 1.9;
+        }
+
+        .ella-photo-frame {
+            position: relative;
+            max-width: 520px;
+            margin: 0 auto;
+            padding: 10px;
+            background: linear-gradient(135deg, rgba(199,161,74,.85), rgba(255,255,255,.9), rgba(199,161,74,.65));
+            border-radius: 24px;
+            box-shadow: 0 22px 55px rgba(110,57,78,.16);
+        }
+
+        .ella-photo-frame::before {
+            content: "";
+            position: absolute;
+            inset: 5px;
+            border: 1px solid rgba(255,255,255,.9);
+            border-radius: 20px;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .ella-photo {
+            display: block;
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #f7e2e9, #fffafc);
+        }
+
+        .ella-caption {
+            margin: 22px auto 0;
+            color: var(--vino);
+            font-family: "Cormorant Garamond", serif;
+            font-size: 1.45rem;
+            font-style: italic;
+        }
+
+        .ella-caption::before {
+            content: "“";
+            color: var(--dorado);
+            font-size: 2rem;
+            vertical-align: -.2em;
+            margin-right: 4px;
+        }
+
+        @keyframes sparkleFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: .35; }
+            50% { transform: translateY(-10px) rotate(12deg); opacity: .75; }
+        }
+
+        @media (max-width: 600px) {
+            .ella-section {
+                padding: 70px 18px 65px;
+            }
+
+            .ella-photo-frame {
+                max-width: 430px;
+                padding: 8px;
+                border-radius: 20px;
+            }
+
+            .ella-photo {
+                border-radius: 15px;
+            }
+        }
+
+</style>
 </head>
 <body>
 
@@ -1305,7 +1461,42 @@
     <!-- =========================================================
          MISA
     ========================================================== -->
-    <section class="mass-section reveal">
+    
+    <!-- ============================================================
+         ELLA · MARÍA DANIELA
+         La imagen se reemplazará cuando el usuario suba su fotografía.
+         ============================================================ -->
+    <section class="ella-section" id="ella">
+        <div class="ella-inner reveal">
+            <div class="ella-kicker">La protagonista de este día</div>
+            <h2 class="ella-title">Ella</h2>
+
+            <div class="ella-divider">
+                <span>✦</span>
+            </div>
+
+            <p class="ella-intro">
+                Hoy comienza una nueva etapa, llena de sueños, ilusiones
+                y momentos que quedarán para siempre en el corazón.
+                Esta celebración es una forma de compartir contigo
+                la alegría de llegar a mis quince años.
+            </p>
+
+            <div class="ella-photo-frame">
+                <img
+                    src="foto-maria-daniela.jpg"
+                    alt="María Daniela"
+                    class="ella-photo"
+                >
+            </div>
+
+            <div class="ella-caption">
+                Un día soñado, una historia que comienza
+            </div>
+        </div>
+    </section>
+
+<section class="mass-section reveal">
         <div class="container">
             <div class="section-kicker">Antes de celebrar juntos</div>
             <h2 class="section-title">La Misa</h2>
