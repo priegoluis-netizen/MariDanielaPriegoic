@@ -1492,6 +1492,34 @@
             }
         }
 
+
+        .mass-actions {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 22px;
+        }
+
+        .mass-actions .btn {
+            min-width: 190px;
+        }
+
+        .mass-actions .btn-secondary {
+            opacity: .92;
+        }
+
+        @media (max-width: 520px) {
+            .mass-actions {
+                flex-direction: column;
+            }
+
+            .mass-actions .btn {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
 </style>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 </head>
@@ -1694,9 +1722,14 @@
                     en este momento tan importante para mí.
                 </p>
 
-                <a class="btn" href="https://www.instagram.com/p/CsyamcQuskT/" target="_blank" rel="noopener">
-                    ✦ Conocer la capilla
-                </a>
+                <div class="mass-actions">
+                    <a class="btn" href="https://www.waze.com/ul?q=Capilla%20San%20Francisco%20de%20As%C3%ADs%20Zona%20Portales%20Guatemala&navigate=yes" target="_blank" rel="noopener">
+                        <span aria-hidden="true">⌖</span> Abrir en Waze
+                    </a>
+                    <a class="btn btn-secondary" href="https://www.instagram.com/p/CsyamcQuskT/" target="_blank" rel="noopener">
+                        ✦ Conocer la capilla
+                    </a>
+                </div>
             </div>
         </div>
     </section>
