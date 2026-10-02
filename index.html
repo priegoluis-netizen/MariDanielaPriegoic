@@ -18,7 +18,7 @@
 
 
     <!-- =========================================================
-         GOOGLE FONTS
+         FUENTES
     ========================================================== -->
 
     <link rel="preconnect"
@@ -37,10 +37,6 @@
     ========================================================== -->
 
     <style>
-
-        /* =====================================================
-           VARIABLES
-        ===================================================== */
 
         :root {
 
@@ -99,7 +95,8 @@
                 'Montserrat',
                 sans-serif;
 
-            color: var(--text);
+            color:
+                var(--text);
 
             background:
                 #f8f0e2;
@@ -117,7 +114,6 @@
         input,
         select,
         textarea {
-
             font-family:
                 'Montserrat',
                 sans-serif;
@@ -130,7 +126,7 @@
 
 
         /* =====================================================
-           PANTALLA DE APERTURA
+           APERTURA
         ===================================================== */
 
         .opening {
@@ -144,6 +140,7 @@
             display: flex;
 
             justify-content: center;
+
             align-items: center;
 
             text-align: center;
@@ -219,7 +216,9 @@
 
             z-index: 2;
 
-            max-width: 600px;
+            width: 100%;
+
+            max-width: 650px;
 
             animation:
                 openingContent 1.4s var(--ease);
@@ -233,8 +232,7 @@
 
             font-size: 11px;
 
-            letter-spacing:
-                6px;
+            letter-spacing: 6px;
 
             text-transform:
                 uppercase;
@@ -253,11 +251,19 @@
                 var(--gold-light);
 
             font-size:
-                clamp(70px, 14vw, 130px);
+                clamp(65px, 13vw, 125px);
 
-            font-weight: 400;
+            font-weight:
+                400;
 
-            line-height: .9;
+            line-height:
+                .95;
+
+            white-space:
+                nowrap;
+
+            padding:
+                0 15px;
 
             text-shadow:
                 0 0 15px rgba(212,175,55,.35),
@@ -306,7 +312,8 @@
 
         .open-button {
 
-            position: relative;
+            position:
+                relative;
 
             border:
                 1px solid
@@ -325,11 +332,14 @@
             padding:
                 16px 42px;
 
-            min-width: 210px;
+            min-width:
+                210px;
 
-            cursor: pointer;
+            cursor:
+                pointer;
 
-            font-size: 11px;
+            font-size:
+                11px;
 
             letter-spacing:
                 4px;
@@ -340,7 +350,8 @@
             transition:
                 all .45s var(--ease);
 
-            overflow: hidden;
+            overflow:
+                hidden;
         }
 
 
@@ -348,7 +359,8 @@
 
             content: "";
 
-            position: absolute;
+            position:
+                absolute;
 
             top: 0;
 
@@ -388,19 +400,20 @@
 
 
         .open-button:hover::before {
-
             left: 140%;
         }
 
 
         .opening-note {
 
-            margin-top: 18px;
+            margin-top:
+                18px;
 
             color:
                 rgba(255,255,255,.45);
 
-            font-size: 10px;
+            font-size:
+                10px;
 
             letter-spacing:
                 1px;
@@ -430,20 +443,24 @@
 
 
         /* =====================================================
-           FONDO
+           PARTÍCULAS
         ===================================================== */
 
         .luxury-background {
 
-            position: fixed;
+            position:
+                fixed;
 
             inset: 0;
 
-            pointer-events: none;
+            pointer-events:
+                none;
 
-            z-index: 0;
+            z-index:
+                0;
 
-            overflow: hidden;
+            overflow:
+                hidden;
 
             background:
 
@@ -463,13 +480,17 @@
 
         .gold-particle {
 
-            position: absolute;
+            position:
+                absolute;
 
-            width: 4px;
+            width:
+                4px;
 
-            height: 4px;
+            height:
+                4px;
 
-            border-radius: 50%;
+            border-radius:
+                50%;
 
             background:
                 var(--gold);
@@ -478,7 +499,8 @@
                 0 0 8px
                 rgba(212,175,55,.9);
 
-            opacity: 0;
+            opacity:
+                0;
 
             animation:
                 floatParticle
@@ -583,16 +605,19 @@
 
 
         /* =====================================================
-           CONTENEDOR PRINCIPAL
+           SITIO
         ===================================================== */
 
         .site {
 
-            position: relative;
+            position:
+                relative;
 
-            z-index: 1;
+            z-index:
+                1;
 
-            width: 100%;
+            width:
+                100%;
         }
 
 
@@ -605,17 +630,23 @@
             min-height:
                 100vh;
 
-            position: relative;
+            position:
+                relative;
 
-            display: flex;
+            display:
+                flex;
 
-            align-items: center;
+            align-items:
+                center;
 
-            justify-content: center;
+            justify-content:
+                center;
 
-            text-align: center;
+            text-align:
+                center;
 
-            overflow: hidden;
+            overflow:
+                hidden;
 
             color:
                 var(--white);
@@ -640,19 +671,15 @@
         }
 
 
-        /*
-           Si no existe foto-portada.jpg,
-           se seguirá viendo el fondo oscuro.
-        */
-
-
         .hero::before {
 
             content: "";
 
-            position: absolute;
+            position:
+                absolute;
 
-            inset: 0;
+            inset:
+                0;
 
             background:
 
@@ -662,7 +689,8 @@
                     rgba(0,0,0,.42) 80%
                 );
 
-            pointer-events: none;
+            pointer-events:
+                none;
         }
 
 
@@ -670,28 +698,49 @@
 
             content: "";
 
-            position: absolute;
+            position:
+                absolute;
 
-            inset: 25px;
+            inset:
+                25px;
 
             border:
                 1px solid
                 rgba(212,175,55,.5);
 
-            pointer-events: none;
+            pointer-events:
+                none;
         }
 
 
+        /*
+           IMPORTANTE:
+           El contenedor ahora tiene ancho completo y
+           overflow visible para evitar cortar la M y la D.
+        */
+
         .hero-content {
 
-            position: relative;
+            position:
+                relative;
 
-            z-index: 2;
+            z-index:
+                2;
+
+            width:
+                100%;
+
+            max-width:
+                1000px;
+
+            margin:
+                0 auto;
 
             padding:
-                100px 25px 80px;
+                100px 35px 80px;
 
-            max-width: 900px;
+            overflow:
+                visible;
 
             animation:
                 heroAppear 1.5s var(--ease);
@@ -702,7 +751,8 @@
 
             from {
 
-                opacity: 0;
+                opacity:
+                    0;
 
                 transform:
                     translateY(45px);
@@ -710,7 +760,8 @@
 
             to {
 
-                opacity: 1;
+                opacity:
+                    1;
 
                 transform:
                     translateY(0);
@@ -720,9 +771,11 @@
 
         .crown {
 
-            font-size: 35px;
+            font-size:
+                35px;
 
-            margin-bottom: 20px;
+            margin-bottom:
+                20px;
 
             filter:
                 drop-shadow(
@@ -752,7 +805,8 @@
 
         .hero-kicker {
 
-            font-size: 11px;
+            font-size:
+                11px;
 
             letter-spacing:
                 7px;
@@ -763,7 +817,8 @@
             text-transform:
                 uppercase;
 
-            margin-bottom: 22px;
+            margin-bottom:
+                22px;
         }
 
 
@@ -776,33 +831,69 @@
             font-size:
                 clamp(24px, 4vw, 38px);
 
-            font-style: italic;
+            font-style:
+                italic;
 
             color:
                 rgba(255,255,255,.9);
 
-            margin-bottom: 8px;
+            margin-bottom:
+                8px;
         }
 
 
+        /*
+           NOMBRE PRINCIPAL
+        */
+
         .hero-name {
 
-            position: relative;
+            position:
+                relative;
 
-            display: inline-block;
+            display:
+                inline-block;
+
+            max-width:
+                100%;
 
             font-family:
                 'Great Vibes',
                 cursive;
 
+            /*
+               Antes era demasiado grande en móviles.
+               Esta escala mantiene las letras completas.
+            */
+
             font-size:
-                clamp(75px, 13vw, 150px);
+                clamp(60px, 13vw, 150px);
 
-            font-weight: 400;
+            font-weight:
+                400;
 
-            line-height: .95;
+            line-height:
+                1.05;
 
-            margin: 5px 0;
+            margin:
+                5px 0;
+
+            white-space:
+                nowrap;
+
+            padding-left:
+                15px;
+
+            padding-right:
+                15px;
+
+            /*
+               Permite que los trazos de Great Vibes
+               sobresalgan sin ser recortados.
+            */
+
+            overflow:
+                visible;
 
             background:
 
@@ -871,13 +962,15 @@
             color:
                 var(--gold-light);
 
-            margin-top: 5px;
+            margin-top:
+                5px;
         }
 
 
         .hero-age {
 
-            margin-top: 30px;
+            margin-top:
+                30px;
 
             font-family:
                 'Cormorant Garamond',
@@ -896,9 +989,11 @@
 
         .hero-date {
 
-            margin-top: 25px;
+            margin-top:
+                25px;
 
-            font-size: 11px;
+            font-size:
+                11px;
 
             letter-spacing:
                 5px;
@@ -916,11 +1011,14 @@
             margin:
                 25px auto;
 
-            width: 120px;
+            width:
+                120px;
 
-            height: 1px;
+            height:
+                1px;
 
             background:
+
                 linear-gradient(
                     90deg,
                     transparent,
@@ -928,7 +1026,8 @@
                     transparent
                 );
 
-            position: relative;
+            position:
+                relative;
         }
 
 
@@ -937,11 +1036,14 @@
             content:
                 "✦";
 
-            position: absolute;
+            position:
+                absolute;
 
-            left: 50%;
+            left:
+                50%;
 
-            top: 50%;
+            top:
+                50%;
 
             transform:
                 translate(-50%,-50%);
@@ -949,7 +1051,8 @@
             color:
                 var(--gold);
 
-            font-size: 12px;
+            font-size:
+                12px;
 
             background:
                 rgba(20,17,11,.8);
@@ -961,21 +1064,26 @@
 
         .scroll-indicator {
 
-            position: absolute;
+            position:
+                absolute;
 
-            bottom: 25px;
+            bottom:
+                25px;
 
-            left: 50%;
+            left:
+                50%;
 
             transform:
                 translateX(-50%);
 
-            z-index: 3;
+            z-index:
+                3;
 
             color:
                 rgba(255,255,255,.65);
 
-            font-size: 9px;
+            font-size:
+                9px;
 
             letter-spacing:
                 3px;
@@ -987,14 +1095,17 @@
 
         .scroll-line {
 
-            width: 1px;
+            width:
+                1px;
 
-            height: 35px;
+            height:
+                35px;
 
             margin:
                 9px auto 0;
 
             background:
+
                 linear-gradient(
                     to bottom,
                     var(--gold),
@@ -1009,17 +1120,25 @@
         @keyframes scrollLine {
 
             0% {
-                opacity: 0;
+
+                opacity:
+                    0;
+
                 transform:
                     translateY(-5px);
             }
 
             50% {
-                opacity: 1;
+
+                opacity:
+                    1;
             }
 
             100% {
-                opacity: 0;
+
+                opacity:
+                    0;
+
                 transform:
                     translateY(8px);
             }
@@ -1035,11 +1154,14 @@
             position:
                 sticky;
 
-            top: 0;
+            top:
+                0;
 
-            z-index: 100;
+            z-index:
+                100;
 
-            width: 100%;
+            width:
+                100%;
 
             background:
                 rgba(17,16,13,.94);
@@ -1055,41 +1177,51 @@
 
         .nav-inner {
 
-            max-width: 900px;
+            max-width:
+                900px;
 
-            margin: auto;
+            margin:
+                auto;
 
-            display: flex;
+            display:
+                flex;
 
             justify-content:
                 center;
 
-            align-items: center;
+            align-items:
+                center;
 
-            gap: 30px;
+            gap:
+                30px;
 
             padding:
                 13px 15px;
 
-            overflow-x: auto;
+            overflow-x:
+                auto;
 
-            scrollbar-width: none;
+            scrollbar-width:
+                none;
         }
 
 
         .nav-inner::-webkit-scrollbar {
-            display: none;
+            display:
+                none;
         }
 
 
         .nav a {
 
-            flex-shrink: 0;
+            flex-shrink:
+                0;
 
             color:
                 rgba(255,255,255,.7);
 
-            font-size: 9px;
+            font-size:
+                9px;
 
             letter-spacing:
                 2px;
@@ -1115,12 +1247,14 @@
 
         .section {
 
-            position: relative;
+            position:
+                relative;
 
             padding:
                 95px 20px;
 
-            overflow: hidden;
+            overflow:
+                hidden;
         }
 
 
@@ -1258,7 +1392,8 @@
 
         .reveal {
 
-            opacity: 0;
+            opacity:
+                0;
 
             transform:
                 translateY(45px);
@@ -1271,7 +1406,8 @@
 
         .reveal.visible {
 
-            opacity: 1;
+            opacity:
+                1;
 
             transform:
                 translateY(0);
@@ -1279,7 +1415,7 @@
 
 
         /* =====================================================
-           INTRODUCCIÓN
+           INTRO
         ===================================================== */
 
         .intro-card {
@@ -1356,7 +1492,8 @@
             align-items:
                 center;
 
-            gap: 15px;
+            gap:
+                15px;
 
             max-width:
                 180px;
@@ -1369,11 +1506,14 @@
         .gold-divider::before,
         .gold-divider::after {
 
-            content: "";
+            content:
+                "";
 
-            height: 1px;
+            height:
+                1px;
 
-            flex: 1;
+            flex:
+                1;
 
             background:
                 linear-gradient(
@@ -1457,7 +1597,8 @@
 
         .time-box::before {
 
-            content: "";
+            content:
+                "";
 
             position:
                 absolute;
@@ -1534,14 +1675,17 @@
             }
 
             50% {
+
                 transform:
                     scale(1.06);
+
                 box-shadow:
                     0 0 25px
                     rgba(212,175,55,.25);
             }
 
             100% {
+
                 transform:
                     scale(1);
             }
@@ -1571,6 +1715,7 @@
                 8px;
 
             background:
+
                 linear-gradient(
                     135deg,
                     #8e6d19,
@@ -1727,9 +1872,6 @@
 
             margin-bottom:
                 15px;
-
-            filter:
-                grayscale(.2);
         }
 
 
@@ -1767,7 +1909,7 @@
 
 
         /* =====================================================
-           MAPA
+           UBICACIÓN
         ===================================================== */
 
         .location-box {
@@ -1878,27 +2020,6 @@
         }
 
 
-        .map-button::before {
-
-            content: "";
-
-            position:
-                absolute;
-
-            inset: 0;
-
-            transform:
-                translateX(-110%)
-                skewX(-20deg);
-
-            background:
-                rgba(255,255,255,.18);
-
-            transition:
-                transform .6s ease;
-        }
-
-
         .map-button:hover {
 
             transform:
@@ -1906,14 +2027,6 @@
 
             box-shadow:
                 var(--gold-shadow);
-        }
-
-
-        .map-button:hover::before {
-
-            transform:
-                translateX(110%)
-                skewX(-20deg);
         }
 
 
@@ -1949,7 +2062,8 @@
 
         .dress-card::before {
 
-            content: "";
+            content:
+                "";
 
             position:
                 absolute;
@@ -2007,7 +2121,7 @@
 
 
         /* =====================================================
-           REGALO
+           REGALOS
         ===================================================== */
 
         .gift-box {
@@ -2108,7 +2222,6 @@
 
 
         .form-group {
-
             position:
                 relative;
         }
@@ -2169,9 +2282,6 @@
 
 
         .submit-button {
-
-            position:
-                relative;
 
             border:
                 1px solid
@@ -2327,7 +2437,7 @@
                 cursive;
 
             font-size:
-                clamp(70px, 13vw, 130px);
+                clamp(65px, 13vw, 130px);
 
             font-weight:
                 400;
@@ -2337,6 +2447,12 @@
 
             color:
                 var(--gold-light);
+
+            padding:
+                0 15px;
+
+            white-space:
+                nowrap;
 
             text-shadow:
                 0 0 25px
@@ -2420,7 +2536,7 @@
 
 
         /* =====================================================
-           BOTÓN MÚSICA
+           MÚSICA
         ===================================================== */
 
         .music-button {
@@ -2492,12 +2608,14 @@
 
             0%,
             100% {
+
                 box-shadow:
                     0 0 0
                     rgba(212,175,55,0);
             }
 
             50% {
+
                 box-shadow:
                     0 0 20px
                     rgba(212,175,55,.45);
@@ -2506,10 +2624,64 @@
 
 
         /* =====================================================
-           RESPONSIVE
+           TABLET / MÓVIL
         ===================================================== */
 
         @media (max-width: 700px) {
+
+            .hero-content {
+
+                width:
+                    100%;
+
+                max-width:
+                    100%;
+
+                padding:
+                    90px 18px 80px;
+
+                overflow:
+                    visible;
+            }
+
+
+            .hero-name {
+
+                /*
+                   El tamaño se adapta al ancho disponible.
+                   Esto evita que la M y D se corten.
+                */
+
+                font-size:
+                    clamp(58px, 17vw, 82px);
+
+                white-space:
+                    nowrap;
+
+                padding-left:
+                    12px;
+
+                padding-right:
+                    12px;
+
+                line-height:
+                    1.08;
+            }
+
+
+            .hero-kicker {
+
+                letter-spacing:
+                    4px;
+            }
+
+
+            .hero-lastname {
+
+                letter-spacing:
+                    5px;
+            }
+
 
             .nav-inner {
 
@@ -2545,27 +2717,6 @@
             }
 
 
-            .hero-content {
-
-                padding:
-                    90px 20px 80px;
-            }
-
-
-            .hero-kicker {
-
-                letter-spacing:
-                    4px;
-            }
-
-
-            .hero-lastname {
-
-                letter-spacing:
-                    5px;
-            }
-
-
             .section {
 
                 padding:
@@ -2581,6 +2732,10 @@
 
         }
 
+
+        /* =====================================================
+           CELULARES PEQUEÑOS
+        ===================================================== */
 
         @media (max-width: 420px) {
 
@@ -2603,6 +2758,16 @@
             }
 
 
+            .opening-title {
+
+                font-size:
+                    clamp(52px, 15vw, 70px);
+
+                padding:
+                    0 8px;
+            }
+
+
             .opening-subtitle {
 
                 letter-spacing:
@@ -2617,6 +2782,60 @@
 
                 letter-spacing:
                     2px;
+
+                font-size:
+                    10px;
+            }
+
+
+            .hero {
+
+                min-height:
+                    100svh;
+            }
+
+
+            .hero-content {
+
+                padding:
+                    80px 8px 75px;
+            }
+
+
+            /*
+               CORRECCIÓN PRINCIPAL PARA M Y D
+            */
+
+            .hero-name {
+
+                font-size:
+                    clamp(
+                        54px,
+                        16.5vw,
+                        72px
+                    );
+
+                padding-left:
+                    8px;
+
+                padding-right:
+                    8px;
+
+                letter-spacing:
+                    0;
+
+                line-height:
+                    1.1;
+            }
+
+
+            .hero-lastname {
+
+                font-size:
+                    14px;
+
+                letter-spacing:
+                    4px;
             }
 
 
@@ -2631,6 +2850,9 @@
 
                 letter-spacing:
                     2px;
+
+                font-size:
+                    9px;
             }
 
 
@@ -2669,6 +2891,20 @@
             }
 
 
+            .closing-title {
+
+                font-size:
+                    clamp(
+                        54px,
+                        16vw,
+                        75px
+                    );
+
+                padding:
+                    0 8px;
+            }
+
+
             .music-button {
 
                 right:
@@ -2682,7 +2918,48 @@
 
 
         /* =====================================================
-           REDUCIR ANIMACIONES SI EL USUARIO LO PREFIERE
+           CELULARES MUY PEQUEÑOS
+        ===================================================== */
+
+        @media (max-width: 350px) {
+
+            .hero-name {
+
+                font-size:
+                    51px;
+
+                padding-left:
+                    5px;
+
+                padding-right:
+                    5px;
+            }
+
+
+            .hero-lastname {
+
+                font-size:
+                    12px;
+
+                letter-spacing:
+                    3px;
+            }
+
+
+            .hero-kicker {
+
+                font-size:
+                    9px;
+
+                letter-spacing:
+                    3px;
+            }
+
+        }
+
+
+        /* =====================================================
+           REDUCIR ANIMACIONES
         ===================================================== */
 
         @media (prefers-reduced-motion: reduce) {
@@ -2715,7 +2992,7 @@
 
 
     <!-- =========================================================
-         PANTALLA DE APERTURA
+         PORTADA DE APERTURA
     ========================================================== -->
 
     <div class="opening"
@@ -2727,24 +3004,30 @@
                 Una invitación especial
             </div>
 
+
             <div class="opening-title">
                 María Daniela
             </div>
+
 
             <div class="opening-subtitle">
                 Mis Quince Años
             </div>
 
+
             <div class="opening-date">
                 Sábado · 7 de Noviembre · 2026
             </div>
 
-            <button class="open-button"
-                    id="openInvitation">
+
+            <button
+                class="open-button"
+                id="openInvitation">
 
                 Abrir invitación
 
             </button>
+
 
             <div class="opening-note">
                 ✦ Te espera una noche para recordar ✦
@@ -2757,7 +3040,7 @@
 
 
     <!-- =========================================================
-         FONDO
+         PARTÍCULAS
     ========================================================== -->
 
     <div class="luxury-background"
@@ -2789,8 +3072,9 @@
              HERO
         ====================================================== -->
 
-        <section class="hero"
-                 id="inicio">
+        <section
+            class="hero"
+            id="inicio">
 
             <div class="hero-content">
 
@@ -2798,27 +3082,34 @@
                     ♕
                 </div>
 
+
                 <div class="hero-kicker">
                     Estás cordialmente invitado
                 </div>
+
 
                 <div class="hero-intro">
                     A celebrar conmigo
                 </div>
 
+
                 <h1 class="hero-name">
                     Maria Daniela
                 </h1>
+
 
                 <div class="hero-lastname">
                     Priego Ic
                 </div>
 
+
                 <div class="hero-age">
                     Mis Quince Años
                 </div>
 
+
                 <div class="hero-ornament"></div>
+
 
                 <div class="hero-date">
                     Sábado · 7 de Noviembre · 2026
@@ -2881,8 +3172,9 @@
              INTRODUCCIÓN
         ====================================================== -->
 
-        <section class="section section-light"
-                 id="historia">
+        <section
+            class="section section-light"
+            id="historia">
 
             <div class="section-inner">
 
@@ -2891,6 +3183,7 @@
                     <div class="gold-divider">
                         <span>✦</span>
                     </div>
+
 
                     <p>
 
@@ -2906,6 +3199,7 @@
                         especiales de mi vida:
 
                         <br>
+
 
                         <strong>
                             Mis Quince Años
@@ -2935,9 +3229,11 @@
                         Cuenta regresiva
                     </div>
 
+
                     <h2 class="section-title">
                         Falta muy poco
                     </h2>
+
 
                     <p class="section-subtitle">
                         para compartir juntos esta noche tan especial
@@ -2946,11 +3242,14 @@
                 </div>
 
 
-                <div class="countdown reveal"
-                     id="countdown">
+                <div
+                    class="countdown reveal"
+                    id="countdown">
 
-                    <div class="time-box"
-                         id="boxDays">
+
+                    <div
+                        class="time-box"
+                        id="boxDays">
 
                         <span id="days">
                             00
@@ -2963,8 +3262,9 @@
                     </div>
 
 
-                    <div class="time-box"
-                         id="boxHours">
+                    <div
+                        class="time-box"
+                        id="boxHours">
 
                         <span id="hours">
                             00
@@ -2977,8 +3277,9 @@
                     </div>
 
 
-                    <div class="time-box"
-                         id="boxMinutes">
+                    <div
+                        class="time-box"
+                        id="boxMinutes">
 
                         <span id="minutes">
                             00
@@ -2991,8 +3292,9 @@
                     </div>
 
 
-                    <div class="time-box"
-                         id="boxSeconds">
+                    <div
+                        class="time-box"
+                        id="boxSeconds">
 
                         <span id="seconds">
                             00
@@ -3016,8 +3318,9 @@
              VIDEO
         ====================================================== -->
 
-        <section class="section section-dark"
-                 id="video">
+        <section
+            class="section section-dark"
+            id="video">
 
             <div class="section-inner">
 
@@ -3027,9 +3330,11 @@
                         Un momento especial
                     </div>
 
+
                     <h2 class="section-title">
                         Para compartir contigo
                     </h2>
+
 
                     <p class="section-subtitle">
                         Una pequeña sorpresa antes de nuestra gran noche.
@@ -3081,8 +3386,9 @@
              EVENTO
         ====================================================== -->
 
-        <section class="section section-light"
-                 id="evento">
+        <section
+            class="section section-light"
+            id="evento">
 
             <div class="section-inner">
 
@@ -3092,9 +3398,11 @@
                         La celebración
                     </div>
 
+
                     <h2 class="section-title">
                         Detalles del evento
                     </h2>
+
 
                     <p class="section-subtitle">
                         Todo está preparado para celebrar juntos.
@@ -3106,17 +3414,17 @@
                 <div class="details-grid">
 
 
-                    <!-- FECHA -->
-
                     <div class="detail-card reveal">
 
                         <div class="detail-icon">
                             ✦
                         </div>
 
+
                         <div class="detail-title">
                             Fecha
                         </div>
+
 
                         <div class="detail-text">
 
@@ -3129,7 +3437,6 @@
                     </div>
 
 
-                    <!-- HORA -->
 
                     <div class="detail-card reveal">
 
@@ -3137,9 +3444,11 @@
                             ♡
                         </div>
 
+
                         <div class="detail-title">
                             Hora
                         </div>
+
 
                         <div class="detail-text">
 
@@ -3152,7 +3461,6 @@
                     </div>
 
 
-                    <!-- LUGAR -->
 
                     <div class="detail-card reveal">
 
@@ -3160,9 +3468,11 @@
                             ♧
                         </div>
 
+
                         <div class="detail-title">
                             Lugar
                         </div>
+
 
                         <div class="detail-text">
 
@@ -3174,7 +3484,6 @@
                     </div>
 
 
-                    <!-- DIRECCIÓN -->
 
                     <div class="detail-card reveal">
 
@@ -3182,9 +3491,11 @@
                             ♢
                         </div>
 
+
                         <div class="detail-title">
                             Dirección
                         </div>
+
 
                         <div class="detail-text">
 
@@ -3208,8 +3519,9 @@
              UBICACIÓN
         ====================================================== -->
 
-        <section class="section section-dark"
-                 id="ubicacion">
+        <section
+            class="section section-dark"
+            id="ubicacion">
 
             <div class="section-inner">
 
@@ -3218,6 +3530,7 @@
                     <div class="section-kicker">
                         Cómo llegar
                     </div>
+
 
                     <h2 class="section-title">
                         Te esperamos
@@ -3232,6 +3545,7 @@
                         Salón de Eventos "El Encanto"
                     </h3>
 
+
                     <p>
 
                         Km 4.5 Carretera al Atlántico,
@@ -3244,10 +3558,11 @@
                     </p>
 
 
-                    <a class="map-button"
-                       href="https://maps.google.com/?q=Centro+Comercial+Portales+Km+4.5+Carretera+al+Atlantico+zona+17+Guatemala"
-                       target="_blank"
-                       rel="noopener">
+                    <a
+                        class="map-button"
+                        href="https://maps.google.com/?q=Centro+Comercial+Portales+Km+4.5+Carretera+al+Atlantico+zona+17+Guatemala"
+                        target="_blank"
+                        rel="noopener">
 
                         📍 Ver ubicación
 
@@ -3265,7 +3580,8 @@
              VESTIMENTA
         ====================================================== -->
 
-        <section class="section section-light">
+        <section
+            class="section section-light">
 
             <div class="section-inner">
 
@@ -3274,6 +3590,7 @@
                     <div class="section-kicker">
                         Para la ocasión
                     </div>
+
 
                     <h2 class="section-title">
                         Código de vestimenta
@@ -3288,9 +3605,11 @@
                         ✨
                     </div>
 
+
                     <h3>
                         Formal / Gala
                     </h3>
+
 
                     <p>
                         Una noche para vestir elegante
@@ -3308,7 +3627,8 @@
              REGALOS
         ====================================================== -->
 
-        <section class="section section-dark">
+        <section
+            class="section section-dark">
 
             <div class="section-inner">
 
@@ -3317,6 +3637,7 @@
                     <div class="section-kicker">
                         Con cariño
                     </div>
+
 
                     <h2 class="section-title">
                         Tu presencia es el mejor regalo
@@ -3331,9 +3652,11 @@
                         🎁
                     </div>
 
+
                     <h3>
                         Gracias por acompañarme
                     </h3>
+
 
                     <p>
 
@@ -3362,8 +3685,9 @@
              CONFIRMACIÓN
         ====================================================== -->
 
-        <section class="section section-light"
-                 id="confirmacion">
+        <section
+            class="section section-light"
+            id="confirmacion">
 
             <div class="section-inner">
 
@@ -3373,9 +3697,11 @@
                         RSVP
                     </div>
 
+
                     <h2 class="section-title">
                         ¿Nos acompañarás?
                     </h2>
+
 
                     <p class="section-subtitle">
 
@@ -3393,15 +3719,12 @@
 
                 <div class="rsvp-card reveal">
 
-
                     <form
                         id="rsvpForm"
                         action="https://script.google.com/macros/s/AKfycbzrymL9OAmSVkM4OOTQ2z2LUBGRg77gqOBG518cIk2Too0Vq_ekXHzlmAj_yVP5mqB5gQ/exec"
                         method="POST"
                         target="hidden_iframe">
 
-
-                        <!-- NOMBRE -->
 
                         <div class="form-group">
 
@@ -3414,8 +3737,6 @@
 
                         </div>
 
-
-                        <!-- ASISTENCIA -->
 
                         <div class="form-group">
 
@@ -3433,12 +3754,14 @@
 
                                 </option>
 
+
                                 <option
                                     value="Sí, asistiré">
 
                                     ¡Sí, ahí estaré! 💖
 
                                 </option>
+
 
                                 <option
                                     value="No asistiré">
@@ -3451,8 +3774,6 @@
 
                         </div>
 
-
-                        <!-- PASES -->
 
                         <div class="form-group">
 
@@ -3468,8 +3789,6 @@
                         </div>
 
 
-                        <!-- MENSAJE -->
-
                         <div class="form-group">
 
                             <textarea
@@ -3481,8 +3800,6 @@
                         </div>
 
 
-                        <!-- BOTÓN -->
-
                         <button
                             type="submit"
                             class="submit-button"
@@ -3492,11 +3809,8 @@
 
                         </button>
 
-
                     </form>
 
-
-                    <!-- IFRAME -->
 
                     <iframe
                         name="hidden_iframe"
@@ -3505,8 +3819,6 @@
 
                     </iframe>
 
-
-                    <!-- MENSAJE -->
 
                     <p id="statusMessage"></p>
 
@@ -3530,9 +3842,11 @@
                     Gracias por formar parte
                 </div>
 
+
                 <div class="closing-title">
                     María Daniela
                 </div>
+
 
                 <div class="closing-text">
 
@@ -3543,10 +3857,9 @@
 
                 </div>
 
+
                 <div class="closing-date">
-
                     Mis Quince Años · 2026
-
                 </div>
 
             </div>
@@ -3612,15 +3925,6 @@
 
     <script>
 
-
-        /* =====================================================
-           BODY
-        ===================================================== */
-
-        document.body.classList.add("locked");
-
-
-
         /* =====================================================
            APERTURA
         ===================================================== */
@@ -3645,22 +3949,17 @@
                     "hidden"
                 );
 
+
                 document.body.classList.remove(
                     "locked"
                 );
 
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
-                });
-
-
-                /* Intentar iniciar música */
 
                 const music =
                     document.getElementById(
                         "backgroundMusic"
                     );
+
 
                 music.play()
                     .then(function () {
@@ -3670,13 +3969,18 @@
                         );
 
                         musicButton.innerHTML =
-                            "♫";
+                            "🔊";
+
+                        musicPlaying =
+                            true;
 
                     })
                     .catch(function () {
 
-                        /* El navegador puede bloquear
-                           la reproducción */
+                        /*
+                           Algunos navegadores pueden
+                           bloquear la música.
+                        */
 
                     });
 
@@ -3799,8 +4103,6 @@
                 eventDate - now;
 
 
-            /* EVENTO TERMINADO */
-
             if (distance <= 0) {
 
                 const countdown =
@@ -3841,16 +4143,12 @@
             }
 
 
-            /* DÍAS */
-
             const days =
                 Math.floor(
                     distance /
                     (1000 * 60 * 60 * 24)
                 );
 
-
-            /* HORAS */
 
             const hours =
                 Math.floor(
@@ -3862,8 +4160,6 @@
                 );
 
 
-            /* MINUTOS */
-
             const minutes =
                 Math.floor(
                     (
@@ -3873,8 +4169,6 @@
                     (1000 * 60)
                 );
 
-
-            /* SEGUNDOS */
 
             const seconds =
                 Math.floor(
@@ -3928,7 +4222,7 @@
 
 
         /* =====================================================
-           ANIMACIONES AL HACER SCROLL
+           ANIMACIONES SCROLL
         ===================================================== */
 
         const revealElements =
@@ -3955,6 +4249,7 @@
                                     "visible"
                                 );
 
+
                                 observer.unobserve(
                                     entry.target
                                 );
@@ -3966,7 +4261,8 @@
 
                 },
                 {
-                    threshold: .12
+                    threshold:
+                        .12
                 }
             );
 
@@ -4078,9 +4374,7 @@
             function () {
 
                 if (!formSubmitting) {
-
                     return;
-
                 }
 
 
@@ -4135,18 +4429,19 @@
             "click",
             function () {
 
-                if (
-                    musicPlaying
-                ) {
+                if (musicPlaying) {
 
                     backgroundMusic.pause();
+
 
                     musicPlaying =
                         false;
 
+
                     musicButton.classList.remove(
                         "playing"
                     );
+
 
                     musicButton.innerHTML =
                         "♫";
@@ -4161,9 +4456,11 @@
                             musicPlaying =
                                 true;
 
+
                             musicButton.classList.add(
                                 "playing"
                             );
+
 
                             musicButton.innerHTML =
                                 "🔊";
@@ -4180,7 +4477,6 @@
 
             }
         );
-
 
     </script>
 
