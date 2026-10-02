@@ -2,54 +2,82 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Mis 15 Años - Maria Daniela</title>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color"
+          content="#15120e">
+
+    <meta name="description"
+          content="Invitación de XV años de Maria Daniela Priego Ic">
+
+    <title>Maria Daniela | Mis 15 Años</title>
+
 
     <!-- =========================================================
-         FUENTES
+         GOOGLE FONTS
     ========================================================== -->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
 
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap"
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
           rel="stylesheet">
 
 
+    <!-- =========================================================
+         ESTILOS
+    ========================================================== -->
+
     <style>
 
-        /* =========================================================
+        /* =====================================================
            VARIABLES
-        ========================================================== */
+        ===================================================== */
 
         :root {
 
             --gold: #d4af37;
-            --gold-light: #f4df9b;
-            --gold-soft: #ead58a;
-            --gold-dark: #a98520;
+            --gold-light: #f5e4a8;
+            --gold-soft: #ead38a;
+            --gold-dark: #9d7a1c;
 
-            --cream: #fffaf2;
-            --cream-dark: #f7efe2;
+            --cream: #fffaf0;
+            --cream-2: #f7efe0;
 
-            --text-dark: #302b2b;
-            --text-light: #777;
+            --black: #11100d;
+            --black-2: #1b1812;
+            --black-3: #252015;
+
+            --brown: #493b27;
 
             --white: #ffffff;
 
-            --shadow:
-                0 25px 70px rgba(73, 55, 20, 0.15);
+            --text: #342d22;
+            --muted: #8b806e;
 
-            --transition:
-                all 0.4s ease;
+            --shadow:
+                0 25px 80px rgba(0,0,0,.25);
+
+            --gold-shadow:
+                0 0 15px rgba(212,175,55,.45),
+                0 0 35px rgba(212,175,55,.20);
+
+            --ease:
+                cubic-bezier(.22,.61,.36,1);
         }
 
 
-        /* =========================================================
+        /* =====================================================
            RESET
-        ========================================================== */
+        ===================================================== */
 
         * {
             box-sizing: border-box;
@@ -67,926 +95,256 @@
 
             min-height: 100vh;
 
-            font-family: 'Poppins', sans-serif;
+            font-family:
+                'Montserrat',
+                sans-serif;
 
-            color: var(--text-dark);
+            color: var(--text);
 
             background:
-                radial-gradient(
-                    circle at 15% 15%,
-                    rgba(212,175,55,0.12),
-                    transparent 28%
-                ),
-
-                radial-gradient(
-                    circle at 85% 80%,
-                    rgba(212,175,55,0.10),
-                    transparent 30%
-                ),
-
-                linear-gradient(
-                    135deg,
-                    #fffdf8,
-                    #f9f0e3
-                );
-
-            display: flex;
-
-            justify-content: center;
-
-            align-items: flex-start;
-
-            padding: 40px 15px;
+                #f8f0e2;
 
             overflow-x: hidden;
         }
 
 
-        /* =========================================================
-           FONDO ANIMADO
-        ========================================================== */
+        body.locked {
+            overflow: hidden;
+        }
 
-        .background {
+
+        button,
+        input,
+        select,
+        textarea {
+
+            font-family:
+                'Montserrat',
+                sans-serif;
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =====================================================
+           PANTALLA DE APERTURA
+        ===================================================== */
+
+        .opening {
 
             position: fixed;
 
             inset: 0;
 
-            overflow: hidden;
-
-            pointer-events: none;
-
-            z-index: 0;
-        }
-
-
-        /* =========================================================
-           BRILLOS PEQUEÑOS
-        ========================================================== */
-
-        .sparkle {
-
-            position: absolute;
-
-            bottom: -20px;
-
-            width: 5px;
-
-            height: 5px;
-
-            border-radius: 50%;
-
-            background: var(--gold);
-
-            box-shadow:
-                0 0 8px rgba(212,175,55,0.9),
-                0 0 18px rgba(212,175,55,0.45);
-
-            opacity: 0;
-
-            animation:
-                sparkleFloat linear infinite;
-        }
-
-
-        .s1 {
-            left: 5%;
-            animation-duration: 11s;
-            animation-delay: 1s;
-        }
-
-        .s2 {
-            left: 14%;
-            animation-duration: 14s;
-            animation-delay: 4s;
-        }
-
-        .s3 {
-            left: 25%;
-            animation-duration: 10s;
-            animation-delay: 2s;
-        }
-
-        .s4 {
-            left: 37%;
-            animation-duration: 16s;
-            animation-delay: 7s;
-        }
-
-        .s5 {
-            left: 48%;
-            animation-duration: 12s;
-            animation-delay: 3s;
-        }
-
-        .s6 {
-            left: 61%;
-            animation-duration: 15s;
-            animation-delay: 8s;
-        }
-
-        .s7 {
-            left: 73%;
-            animation-duration: 11s;
-            animation-delay: 5s;
-        }
-
-        .s8 {
-            left: 84%;
-            animation-duration: 17s;
-            animation-delay: 1s;
-        }
-
-        .s9 {
-            left: 92%;
-            animation-duration: 13s;
-            animation-delay: 6s;
-        }
-
-        .s10 {
-            left: 56%;
-            animation-duration: 18s;
-            animation-delay: 10s;
-        }
-
-
-        @keyframes sparkleFloat {
-
-            0% {
-
-                transform:
-                    translateY(110vh)
-                    translateX(0)
-                    scale(0);
-
-                opacity: 0;
-            }
-
-            15% {
-                opacity: 0.8;
-            }
-
-            50% {
-
-                transform:
-                    translateY(50vh)
-                    translateX(15px)
-                    scale(1.2);
-
-                opacity: 1;
-            }
-
-            85% {
-                opacity: 0.5;
-            }
-
-            100% {
-
-                transform:
-                    translateY(-10vh)
-                    translateX(-10px)
-                    scale(0.2);
-
-                opacity: 0;
-            }
-        }
-
-
-        /* =========================================================
-           DESTELLOS GRANDES
-        ========================================================== */
-
-        .petal {
-
-            position: absolute;
-
-            color: var(--gold);
-
-            font-size: 18px;
-
-            opacity: 0;
-
-            text-shadow:
-                0 0 8px rgba(212,175,55,0.8),
-                0 0 20px rgba(212,175,55,0.5);
-
-            animation:
-                starTwinkle 4s ease-in-out infinite;
-        }
-
-
-        .p1 {
-            top: 15%;
-            left: 8%;
-            animation-delay: 0s;
-        }
-
-        .p2 {
-            top: 25%;
-            right: 8%;
-            animation-delay: 1.2s;
-        }
-
-        .p3 {
-            top: 50%;
-            left: 4%;
-            animation-delay: 2.3s;
-        }
-
-        .p4 {
-            top: 65%;
-            right: 5%;
-            animation-delay: 0.8s;
-        }
-
-        .p5 {
-            top: 82%;
-            left: 10%;
-            animation-delay: 3s;
-        }
-
-
-        @keyframes starTwinkle {
-
-            0%,
-            100% {
-
-                transform:
-                    scale(0.4)
-                    rotate(0deg);
-
-                opacity: 0.1;
-            }
-
-            50% {
-
-                transform:
-                    scale(1.5)
-                    rotate(90deg);
-
-                opacity: 1;
-            }
-        }
-
-
-        /* =========================================================
-           TARJETA PRINCIPAL
-        ========================================================== */
-
-        .invitation-card {
-
-            position: relative;
-
-            z-index: 2;
-
-            width: 100%;
-
-            max-width: 560px;
-
-            background:
-                linear-gradient(
-                    180deg,
-                    rgba(255,255,255,0.98),
-                    rgba(255,250,242,0.98)
-                );
-
-            border-radius: 30px;
-
-            padding: 45px 30px;
-
-            text-align: center;
-
-            box-shadow: var(--shadow);
-
-            border:
-                1px solid rgba(212,175,55,0.30);
-
-            overflow: hidden;
-
-            animation:
-                cardEntrance 1.2s ease forwards;
-        }
-
-
-        @keyframes cardEntrance {
-
-            0% {
-
-                opacity: 0;
-
-                transform:
-                    translateY(50px)
-                    scale(0.96);
-            }
-
-            100% {
-
-                opacity: 1;
-
-                transform:
-                    translateY(0)
-                    scale(1);
-            }
-        }
-
-
-        /* =========================================================
-           BORDE DECORATIVO
-        ========================================================== */
-
-        .invitation-card::before {
-
-            content: "";
-
-            position: absolute;
-
-            inset: 12px;
-
-            border:
-                1px solid rgba(212,175,55,0.28);
-
-            border-radius: 22px;
-
-            pointer-events: none;
-
-            z-index: 5;
-        }
-
-
-        .invitation-card::after {
-
-            content: "";
-
-            position: absolute;
-
-            width: 280px;
-
-            height: 280px;
-
-            top: -160px;
-
-            right: -120px;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(212,175,55,0.18),
-                    transparent 70%
-                );
-
-            border-radius: 50%;
-
-            pointer-events: none;
-        }
-
-
-        /* =========================================================
-           HERO / PORTADA
-        ========================================================== */
-
-        .hero {
-
-            position: relative;
-
-            padding:
-                15px 10px 30px;
-
-            animation:
-                heroEntrance 1.5s ease both;
-        }
-
-
-        @keyframes heroEntrance {
-
-            0% {
-
-                opacity: 0;
-
-                transform:
-                    translateY(35px)
-                    scale(0.96);
-            }
-
-            100% {
-
-                opacity: 1;
-
-                transform:
-                    translateY(0)
-                    scale(1);
-            }
-        }
-
-
-        .crown {
-
-            font-size: 2.4rem;
-
-            margin-bottom: 10px;
-
-            display: inline-block;
-
-            filter:
-                drop-shadow(
-                    0 0 10px
-                    rgba(212,175,55,0.45)
-                );
-
-            animation:
-                crownFloat 3s ease-in-out infinite;
-        }
-
-
-        @keyframes crownFloat {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-7px);
-            }
-        }
-
-
-        .subtitle {
-
-            font-size: 0.72rem;
-
-            text-transform: uppercase;
-
-            letter-spacing: 5px;
-
-            color: var(--gold-dark);
-
-            margin-bottom: 15px;
-
-            font-weight: 500;
-        }
-
-
-        .intro-text {
-
-            font-family:
-                'Playfair Display',
-                serif;
-
-            font-size: 1rem;
-
-            font-style: italic;
-
-            color: var(--text-light);
-
-            margin-bottom: 4px;
-        }
-
-
-        /* =========================================================
-           ORNAMENTOS
-        ========================================================== */
-
-        .ornament {
-
-            position: absolute;
-
-            font-size: 4.5rem;
-
-            color: var(--gold);
-
-            opacity: 0.30;
-
-            font-family: serif;
-
-            pointer-events: none;
-        }
-
-
-        .ornament-left {
-
-            left: 0;
-
-            top: 75px;
-
-            transform:
-                scaleX(-1)
-                rotate(-15deg);
-        }
-
-
-        .ornament-right {
-
-            right: 0;
-
-            top: 75px;
-
-            transform:
-                rotate(-15deg);
-        }
-
-
-        /* =========================================================
-           NOMBRE
-        ========================================================== */
-
-        .name-container h1{
-
-         position: relative;
-    display: inline-block;
-    margin: 18px auto 8px;
-    padding: 8px 15px 5px;
-
-        }
-
-
-      .name-container h1 {
-    position: relative;
-    z-index: 2;
-
-    margin: 0;
-
-    font-family:
-        'Great Vibes',
-        cursive;
-
-    font-size:
-        clamp(3.3rem, 12vw, 5.2rem);
-
-    font-weight: 400;
-
-    line-height: 1.15;
-    
-    /* resto de tu código igual */
-
-            background:
-                linear-gradient(
-                    90deg,
-                    #302b2b 0%,
-                    #d4af37 30%,
-                    #fff1a8 50%,
-                    #d4af37 70%,
-                    #302b2b 100%
-                );
-
-            background-size: 250% auto;
-
-            -webkit-background-clip: text;
-
-            background-clip: text;
-
-            -webkit-text-fill-color:
-                transparent;
-
-            animation:
-                goldenShine 5s linear infinite;
-
-            filter:
-                drop-shadow(
-                    0 3px 4px
-                    rgba(0,0,0,0.08)
-                );
-        }
-
-
-        @keyframes goldenShine {
-
-            0% {
-                background-position:
-                    200% center;
-            }
-
-            100% {
-                background-position:
-                    -200% center;
-            }
-        }
-
-
-        .last-name {
-
-            position: relative;
-
-            z-index: 2;
-
-            font-family:
-                'Playfair Display',
-                serif;
-
-            font-size: 1.4rem;
-
-            letter-spacing: 7px;
-
-            text-transform: uppercase;
-
-            color: #8f7324;
-
-            margin-top: 10px;
-        }
-
-
-        /* =========================================================
-           DESTELLOS ALREDEDOR DEL NOMBRE
-        ========================================================== */
-
-        .name-sparkle {
-
-            position: absolute;
-
-            z-index: 3;
-
-            color: var(--gold);
-
-            font-size: 1.3rem;
-
-            text-shadow:
-                0 0 5px var(--gold),
-                0 0 15px rgba(212,175,55,0.8);
-
-            animation:
-                nameSparkle 2.5s ease-in-out infinite;
-        }
-
-
-        .sparkle-a {
-
-            left: -28px;
-
-            top: 20px;
-
-            animation-delay: 0s;
-        }
-
-
-        .sparkle-b {
-
-            right: -28px;
-
-            top: 5px;
-
-            animation-delay: 0.8s;
-        }
-
-
-        .sparkle-c {
-
-            left: -5px;
-
-            bottom: 2px;
-
-            animation-delay: 1.5s;
-        }
-
-
-        .sparkle-d {
-
-            right: 5px;
-
-            bottom: -10px;
-
-            animation-delay: 2s;
-        }
-
-
-        @keyframes nameSparkle {
-
-            0%,
-            100% {
-
-                opacity: 0.15;
-
-                transform:
-                    scale(0.5)
-                    rotate(0deg);
-            }
-
-            50% {
-
-                opacity: 1;
-
-                transform:
-                    scale(1.5)
-                    rotate(90deg);
-            }
-        }
-
-
-        .age-title {
-
-            font-family:
-                'Playfair Display',
-                serif;
-
-            font-size: 1.45rem;
-
-            font-style: italic;
-
-            color: var(--text-light);
-
-            margin-top: 25px;
-        }
-
-
-        .hero-line {
-
-            width: 110px;
-
-            height: 1px;
-
-            margin:
-                22px auto 0;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    transparent,
-                    var(--gold),
-                    transparent
-                );
-
-            position: relative;
-        }
-
-
-        .hero-line::after {
-
-            content: "✦";
-
-            position: absolute;
-
-            left: 50%;
-
-            top: 50%;
-
-            transform:
-                translate(-50%, -50%);
-
-            background: var(--cream);
-
-            padding: 0 8px;
-
-            color: var(--gold);
-
-            font-size: 12px;
-        }
-
-
-        /* =========================================================
-           DIVISOR
-        ========================================================== */
-
-        .divider {
+            z-index: 9999;
 
             display: flex;
 
+            justify-content: center;
             align-items: center;
 
-            justify-content: center;
+            text-align: center;
 
-            gap: 12px;
-
-            margin:
-                5px auto 30px;
-
-            color: var(--gold);
-        }
-
-
-        .divider::before,
-        .divider::after {
-
-            content: "";
-
-            width: 70px;
-
-            height: 1px;
+            padding: 25px;
 
             background:
+
+                radial-gradient(
+                    circle at center,
+                    rgba(212,175,55,.12),
+                    transparent 35%
+                ),
+
                 linear-gradient(
-                    90deg,
-                    transparent,
-                    var(--gold)
+                    135deg,
+                    #0d0c09,
+                    #1d1910,
+                    #0c0b09
                 );
+
+            transition:
+                opacity 1s var(--ease),
+                visibility 1s;
         }
 
 
-        .divider::after {
-
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--gold),
-                    transparent
-                );
-        }
-
-
-        .divider span {
-            font-size: 0.9rem;
-        }
-
-
-        /* =========================================================
-           REVEAL AL HACER SCROLL
-        ========================================================== */
-
-        .reveal {
+        .opening.hidden {
 
             opacity: 0;
 
-            transform:
-                translateY(45px);
+            visibility: hidden;
 
-            transition:
-                opacity 0.9s ease,
-                transform 0.9s ease;
+            pointer-events: none;
         }
 
 
-        .reveal.visible {
+        .opening::before {
 
-            opacity: 1;
+            content: "";
 
-            transform:
-                translateY(0);
-        }
+            position: absolute;
 
-
-        /* =========================================================
-           CONTADOR
-        ========================================================== */
-
-        .countdown-wrapper {
-
-            margin-bottom: 35px;
-
-            animation:
-                fadeUp 1s ease 0.4s both;
-        }
-
-
-        .countdown-title {
-
-            font-family:
-                'Playfair Display',
-                serif;
-
-            font-size: 1.15rem;
-
-            font-style: italic;
-
-            margin-bottom: 18px;
-
-            color: var(--text-dark);
-        }
-
-
-        .countdown {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
-            gap: 10px;
-
-            max-width: 440px;
-
-            margin: auto;
-        }
-
-
-        .time-box {
-
-            position: relative;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #fff,
-                    #faf4e8
-                );
-
-            padding:
-                13px 7px;
-
-            border-radius: 15px;
+            inset: 20px;
 
             border:
                 1px solid
-                rgba(212,175,55,0.22);
+                rgba(212,175,55,.55);
 
-            box-shadow:
-                0 8px 20px
-                rgba(0,0,0,0.06);
-
-            overflow: hidden;
-
-            transition:
-                var(--transition);
+            pointer-events: none;
         }
 
 
-        .time-box::before {
+        .opening::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 35px;
+
+            border:
+                1px solid
+                rgba(212,175,55,.15);
+
+            pointer-events: none;
+        }
+
+
+        .opening-content {
+
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 600px;
+
+            animation:
+                openingContent 1.4s var(--ease);
+        }
+
+
+        .opening-small {
+
+            color:
+                var(--gold-light);
+
+            font-size: 11px;
+
+            letter-spacing:
+                6px;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom: 20px;
+        }
+
+
+        .opening-title {
+
+            font-family:
+                'Great Vibes',
+                cursive;
+
+            color:
+                var(--gold-light);
+
+            font-size:
+                clamp(70px, 14vw, 130px);
+
+            font-weight: 400;
+
+            line-height: .9;
+
+            text-shadow:
+                0 0 15px rgba(212,175,55,.35),
+                0 0 40px rgba(212,175,55,.18);
+
+            margin-bottom: 15px;
+        }
+
+
+        .opening-subtitle {
+
+            font-family:
+                'Cormorant Garamond',
+                serif;
+
+            color:
+                rgba(255,255,255,.9);
+
+            font-size:
+                clamp(24px, 5vw, 42px);
+
+            letter-spacing:
+                4px;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom: 38px;
+        }
+
+
+        .opening-date {
+
+            color:
+                var(--gold-soft);
+
+            font-size:
+                12px;
+
+            letter-spacing:
+                4px;
+
+            margin-bottom: 35px;
+        }
+
+
+        .open-button {
+
+            position: relative;
+
+            border:
+                1px solid
+                var(--gold);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(212,175,55,.18),
+                    rgba(212,175,55,.04)
+                );
+
+            color:
+                var(--gold-light);
+
+            padding:
+                16px 42px;
+
+            min-width: 210px;
+
+            cursor: pointer;
+
+            font-size: 11px;
+
+            letter-spacing:
+                4px;
+
+            text-transform:
+                uppercase;
+
+            transition:
+                all .45s var(--ease);
+
+            overflow: hidden;
+        }
+
+
+        .open-button::before {
 
             content: "";
 
@@ -994,114 +352,360 @@
 
             top: 0;
 
-            left: -100%;
+            left: -120%;
 
-            width: 100%;
+            width: 70%;
 
-            height: 2px;
+            height: 100%;
 
             background:
                 linear-gradient(
                     90deg,
                     transparent,
-                    var(--gold),
+                    rgba(255,255,255,.35),
                     transparent
                 );
 
+            transform:
+                skewX(-20deg);
+
             transition:
-                left 0.5s ease;
+                left .7s ease;
         }
 
 
-        .time-box:hover {
+        .open-button:hover {
 
             transform:
-                translateY(-5px);
+                translateY(-4px);
 
             box-shadow:
-                0 12px 25px
-                rgba(212,175,55,0.15);
+                var(--gold-shadow);
+
+            background:
+                rgba(212,175,55,.16);
         }
 
 
-        .time-box:hover::before {
-            left: 100%;
+        .open-button:hover::before {
+
+            left: 140%;
         }
 
 
-        .time-box span {
+        .opening-note {
 
-            display: block;
+            margin-top: 18px;
 
-            font-family:
-                'Playfair Display',
-                serif;
+            color:
+                rgba(255,255,255,.45);
 
-            font-size: 1.8rem;
+            font-size: 10px;
 
-            font-weight: 600;
-
-            color: var(--gold-dark);
+            letter-spacing:
+                1px;
         }
 
 
-        .time-box.animate span {
-
-            animation:
-                numberChange 0.35s ease;
-        }
-
-
-        @keyframes numberChange {
-
-            0% {
-
-                transform:
-                    translateY(-6px)
-                    scale(1.08);
-
-                opacity: 0.2;
-            }
-
-            100% {
-
-                transform:
-                    translateY(0)
-                    scale(1);
-
-                opacity: 1;
-            }
-        }
-
-
-        .time-box label {
-
-            display: block;
-
-            margin-top: 3px;
-
-            font-size: 0.62rem;
-
-            text-transform: uppercase;
-
-            letter-spacing: 1px;
-
-            color: var(--text-light);
-        }
-
-
-        /* =========================================================
-           ANIMACIÓN GENERAL
-        ========================================================== */
-
-        @keyframes fadeUp {
+        @keyframes openingContent {
 
             from {
 
                 opacity: 0;
 
                 transform:
-                    translateY(25px);
+                    translateY(35px)
+                    scale(.96);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+
+        /* =====================================================
+           FONDO
+        ===================================================== */
+
+        .luxury-background {
+
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            z-index: 0;
+
+            overflow: hidden;
+
+            background:
+
+                radial-gradient(
+                    circle at 15% 15%,
+                    rgba(212,175,55,.08),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 85% 75%,
+                    rgba(212,175,55,.08),
+                    transparent 30%
+                );
+        }
+
+
+        .gold-particle {
+
+            position: absolute;
+
+            width: 4px;
+
+            height: 4px;
+
+            border-radius: 50%;
+
+            background:
+                var(--gold);
+
+            box-shadow:
+                0 0 8px
+                rgba(212,175,55,.9);
+
+            opacity: 0;
+
+            animation:
+                floatParticle
+                linear infinite;
+        }
+
+
+        .gold-particle:nth-child(1) {
+            left: 8%;
+            animation-duration: 13s;
+            animation-delay: 1s;
+        }
+
+        .gold-particle:nth-child(2) {
+            left: 18%;
+            animation-duration: 18s;
+            animation-delay: 5s;
+        }
+
+        .gold-particle:nth-child(3) {
+            left: 31%;
+            animation-duration: 15s;
+            animation-delay: 2s;
+        }
+
+        .gold-particle:nth-child(4) {
+            left: 45%;
+            animation-duration: 20s;
+            animation-delay: 8s;
+        }
+
+        .gold-particle:nth-child(5) {
+            left: 58%;
+            animation-duration: 14s;
+            animation-delay: 4s;
+        }
+
+        .gold-particle:nth-child(6) {
+            left: 69%;
+            animation-duration: 19s;
+            animation-delay: 7s;
+        }
+
+        .gold-particle:nth-child(7) {
+            left: 80%;
+            animation-duration: 16s;
+            animation-delay: 3s;
+        }
+
+        .gold-particle:nth-child(8) {
+            left: 91%;
+            animation-duration: 21s;
+            animation-delay: 10s;
+        }
+
+        .gold-particle:nth-child(9) {
+            left: 38%;
+            animation-duration: 17s;
+            animation-delay: 11s;
+        }
+
+        .gold-particle:nth-child(10) {
+            left: 74%;
+            animation-duration: 22s;
+            animation-delay: 1s;
+        }
+
+
+        @keyframes floatParticle {
+
+            0% {
+
+                transform:
+                    translateY(110vh)
+                    scale(.3);
+
+                opacity: 0;
+            }
+
+            10% {
+                opacity: .8;
+            }
+
+            50% {
+                opacity: .5;
+            }
+
+            90% {
+                opacity: .7;
+            }
+
+            100% {
+
+                transform:
+                    translateY(-10vh)
+                    translateX(40px)
+                    scale(1);
+
+                opacity: 0;
+            }
+        }
+
+
+        /* =====================================================
+           CONTENEDOR PRINCIPAL
+        ===================================================== */
+
+        .site {
+
+            position: relative;
+
+            z-index: 1;
+
+            width: 100%;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+
+            min-height:
+                100vh;
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            overflow: hidden;
+
+            color:
+                var(--white);
+
+            background:
+
+                linear-gradient(
+                    to bottom,
+                    rgba(12,10,7,.35),
+                    rgba(12,10,7,.76)
+                ),
+
+                url("foto-portada.jpg")
+                center center /
+                cover no-repeat,
+
+                linear-gradient(
+                    135deg,
+                    #1b1810,
+                    #080807
+                );
+        }
+
+
+        /*
+           Si no existe foto-portada.jpg,
+           se seguirá viendo el fondo oscuro.
+        */
+
+
+        .hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+
+                radial-gradient(
+                    circle at center,
+                    transparent 15%,
+                    rgba(0,0,0,.42) 80%
+                );
+
+            pointer-events: none;
+        }
+
+
+        .hero::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 25px;
+
+            border:
+                1px solid
+                rgba(212,175,55,.5);
+
+            pointer-events: none;
+        }
+
+
+        .hero-content {
+
+            position: relative;
+
+            z-index: 2;
+
+            padding:
+                100px 25px 80px;
+
+            max-width: 900px;
+
+            animation:
+                heroAppear 1.5s var(--ease);
+        }
+
+
+        @keyframes heroAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(45px);
             }
 
             to {
@@ -1114,62 +718,24 @@
         }
 
 
-        /* =========================================================
-           VIDEO
-        ========================================================== */
+        .crown {
 
-        .video-section {
+            font-size: 35px;
 
-            position: relative;
+            margin-bottom: 20px;
 
-            margin-bottom: 35px;
-
-            padding: 18px;
-
-            background:
-                rgba(255,255,255,0.78);
-
-            border-radius: 18px;
-
-            border:
-                1px solid
-                rgba(212,175,55,0.18);
-
-            box-shadow:
-                0 10px 30px
-                rgba(0,0,0,0.06);
-
-            backdrop-filter:
-                blur(5px);
-
-            transition:
-                var(--transition);
-        }
-
-
-        .video-section:hover {
-
-            transform:
-                translateY(-3px);
-
-            box-shadow:
-                0 15px 35px
-                rgba(212,175,55,0.12);
-        }
-
-
-        .section-icon {
-
-            font-size: 1.4rem;
-
-            margin-bottom: 5px;
+            filter:
+                drop-shadow(
+                    0 0 10px
+                    rgba(212,175,55,.55)
+                );
 
             animation:
-                iconFloat 3s ease-in-out infinite;
+                crownFloat 4s ease-in-out infinite;
         }
 
 
-        @keyframes iconFloat {
+        @keyframes crownFloat {
 
             0%,
             100% {
@@ -1179,70 +745,854 @@
 
             50% {
                 transform:
-                    translateY(-5px);
+                    translateY(-7px);
             }
         }
 
 
-        .video-section h3 {
+        .hero-kicker {
+
+            font-size: 11px;
+
+            letter-spacing:
+                7px;
+
+            color:
+                var(--gold-light);
+
+            text-transform:
+                uppercase;
+
+            margin-bottom: 22px;
+        }
+
+
+        .hero-intro {
+
+            font-family:
+                'Cormorant Garamond',
+                serif;
+
+            font-size:
+                clamp(24px, 4vw, 38px);
+
+            font-style: italic;
+
+            color:
+                rgba(255,255,255,.9);
+
+            margin-bottom: 8px;
+        }
+
+
+        .hero-name {
+
+            position: relative;
+
+            display: inline-block;
+
+            font-family:
+                'Great Vibes',
+                cursive;
+
+            font-size:
+                clamp(75px, 13vw, 150px);
+
+            font-weight: 400;
+
+            line-height: .95;
+
+            margin: 5px 0;
+
+            background:
+
+                linear-gradient(
+                    110deg,
+                    #b58b25 0%,
+                    #f8e6a5 22%,
+                    #fff4c5 40%,
+                    #c69c32 58%,
+                    #f4df9b 78%,
+                    #a47b20 100%
+                );
+
+            background-size:
+                250% auto;
+
+            -webkit-background-clip:
+                text;
+
+            background-clip:
+                text;
+
+            color:
+                transparent;
+
+            animation:
+                goldShine 6s linear infinite;
+
+            filter:
+                drop-shadow(
+                    0 4px 15px
+                    rgba(0,0,0,.45)
+                );
+        }
+
+
+        @keyframes goldShine {
+
+            0% {
+                background-position:
+                    0% center;
+            }
+
+            100% {
+                background-position:
+                    250% center;
+            }
+        }
+
+
+        .hero-lastname {
 
             font-family:
                 'Playfair Display',
                 serif;
 
-            font-size: 1.3rem;
+            font-size:
+                clamp(16px, 3vw, 25px);
 
-            margin-bottom: 5px;
+            letter-spacing:
+                9px;
 
-            color: var(--gold-dark);
+            text-transform:
+                uppercase;
 
-            font-style: italic;
+            color:
+                var(--gold-light);
+
+            margin-top: 5px;
+        }
+
+
+        .hero-age {
+
+            margin-top: 30px;
+
+            font-family:
+                'Cormorant Garamond',
+                serif;
+
+            font-size:
+                clamp(32px, 6vw, 55px);
+
+            font-style:
+                italic;
+
+            color:
+                var(--white);
+        }
+
+
+        .hero-date {
+
+            margin-top: 25px;
+
+            font-size: 11px;
+
+            letter-spacing:
+                5px;
+
+            color:
+                var(--gold-light);
+
+            text-transform:
+                uppercase;
+        }
+
+
+        .hero-ornament {
+
+            margin:
+                25px auto;
+
+            width: 120px;
+
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--gold),
+                    transparent
+                );
+
+            position: relative;
+        }
+
+
+        .hero-ornament::after {
+
+            content:
+                "✦";
+
+            position: absolute;
+
+            left: 50%;
+
+            top: 50%;
+
+            transform:
+                translate(-50%,-50%);
+
+            color:
+                var(--gold);
+
+            font-size: 12px;
+
+            background:
+                rgba(20,17,11,.8);
+
+            padding:
+                0 8px;
+        }
+
+
+        .scroll-indicator {
+
+            position: absolute;
+
+            bottom: 25px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            z-index: 3;
+
+            color:
+                rgba(255,255,255,.65);
+
+            font-size: 9px;
+
+            letter-spacing:
+                3px;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        .scroll-line {
+
+            width: 1px;
+
+            height: 35px;
+
+            margin:
+                9px auto 0;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    var(--gold),
+                    transparent
+                );
+
+            animation:
+                scrollLine 2s infinite;
+        }
+
+
+        @keyframes scrollLine {
+
+            0% {
+                opacity: 0;
+                transform:
+                    translateY(-5px);
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                transform:
+                    translateY(8px);
+            }
+        }
+
+
+        /* =====================================================
+           NAVEGACIÓN
+        ===================================================== */
+
+        .nav {
+
+            position:
+                sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+            width: 100%;
+
+            background:
+                rgba(17,16,13,.94);
+
+            backdrop-filter:
+                blur(12px);
+
+            border-bottom:
+                1px solid
+                rgba(212,175,55,.2);
+        }
+
+
+        .nav-inner {
+
+            max-width: 900px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content:
+                center;
+
+            align-items: center;
+
+            gap: 30px;
+
+            padding:
+                13px 15px;
+
+            overflow-x: auto;
+
+            scrollbar-width: none;
+        }
+
+
+        .nav-inner::-webkit-scrollbar {
+            display: none;
+        }
+
+
+        .nav a {
+
+            flex-shrink: 0;
+
+            color:
+                rgba(255,255,255,.7);
+
+            font-size: 9px;
+
+            letter-spacing:
+                2px;
+
+            text-transform:
+                uppercase;
+
+            transition:
+                color .3s ease;
+        }
+
+
+        .nav a:hover {
+
+            color:
+                var(--gold-light);
+        }
+
+
+        /* =====================================================
+           SECCIONES
+        ===================================================== */
+
+        .section {
+
+            position: relative;
+
+            padding:
+                95px 20px;
+
+            overflow: hidden;
+        }
+
+
+        .section-light {
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #fffaf2,
+                    #f8efe1
+                );
+        }
+
+
+        .section-dark {
+
+            color:
+                var(--white);
+
+            background:
+
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(212,175,55,.08),
+                    transparent 25%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #13120f,
+                    #211c13
+                );
+        }
+
+
+        .section-inner {
+
+            max-width:
+                900px;
+
+            margin:
+                0 auto;
+        }
+
+
+        .section-heading {
+
+            text-align:
+                center;
+
+            margin-bottom:
+                50px;
+        }
+
+
+        .section-kicker {
+
+            color:
+                var(--gold-dark);
+
+            font-size:
+                10px;
+
+            letter-spacing:
+                4px;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                12px;
+        }
+
+
+        .section-dark .section-kicker {
+
+            color:
+                var(--gold-light);
+        }
+
+
+        .section-title {
+
+            font-family:
+                'Cormorant Garamond',
+                serif;
+
+            font-size:
+                clamp(38px, 7vw, 58px);
+
+            font-weight:
+                500;
+
+            line-height:
+                1;
+
+            color:
+                var(--brown);
+        }
+
+
+        .section-dark .section-title {
+
+            color:
+                var(--gold-light);
         }
 
 
         .section-subtitle {
 
-            font-size: 0.75rem;
+            margin-top:
+                15px;
 
-            color: #999;
+            color:
+                var(--muted);
 
-            margin-bottom: 15px;
+            font-size:
+                13px;
+
+            line-height:
+                1.8;
+        }
+
+
+        .section-dark .section-subtitle {
+
+            color:
+                rgba(255,255,255,.65);
+        }
+
+
+        /* =====================================================
+           REVEAL
+        ===================================================== */
+
+        .reveal {
+
+            opacity: 0;
+
+            transform:
+                translateY(45px);
+
+            transition:
+                opacity .9s var(--ease),
+                transform .9s var(--ease);
+        }
+
+
+        .reveal.visible {
+
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+
+        /* =====================================================
+           INTRODUCCIÓN
+        ===================================================== */
+
+        .intro-card {
+
+            max-width:
+                700px;
+
+            margin:
+                auto;
+
+            text-align:
+                center;
+        }
+
+
+        .intro-card p {
+
+            font-family:
+                'Cormorant Garamond',
+                serif;
+
+            font-size:
+                clamp(25px, 5vw, 36px);
+
+            line-height:
+                1.55;
+
+            color:
+                var(--brown);
+
+            font-style:
+                italic;
+        }
+
+
+        .intro-card strong {
+
+            display:
+                block;
+
+            margin-top:
+                25px;
+
+            font-family:
+                'Playfair Display',
+                serif;
+
+            font-size:
+                13px;
+
+            letter-spacing:
+                4px;
+
+            font-style:
+                normal;
+
+            text-transform:
+                uppercase;
+
+            color:
+                var(--gold-dark);
+        }
+
+
+        /* =====================================================
+           DIVISOR
+        ===================================================== */
+
+        .gold-divider {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap: 15px;
+
+            max-width:
+                180px;
+
+            margin:
+                0 auto 45px;
+        }
+
+
+        .gold-divider::before,
+        .gold-divider::after {
+
+            content: "";
+
+            height: 1px;
+
+            flex: 1;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--gold)
+                );
+        }
+
+
+        .gold-divider::after {
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--gold),
+                    transparent
+                );
+        }
+
+
+        .gold-divider span {
+
+            color:
+                var(--gold);
+
+            font-size:
+                13px;
+        }
+
+
+        /* =====================================================
+           CONTADOR
+        ===================================================== */
+
+        .countdown {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap:
+                15px;
+
+            max-width:
+                720px;
+
+            margin:
+                0 auto;
+        }
+
+
+        .time-box {
+
+            position:
+                relative;
+
+            padding:
+                25px 10px;
+
+            text-align:
+                center;
+
+            background:
+                rgba(255,255,255,.72);
+
+            border:
+                1px solid
+                rgba(212,175,55,.28);
+
+            box-shadow:
+                0 10px 30px
+                rgba(100,75,25,.08);
+
+            overflow:
+                hidden;
+        }
+
+
+        .time-box::before {
+
+            content: "";
+
+            position:
+                absolute;
+
+            inset:
+                5px;
+
+            border:
+                1px solid
+                rgba(212,175,55,.13);
+
+            pointer-events:
+                none;
+        }
+
+
+        .time-box span {
+
+            display:
+                block;
+
+            font-family:
+                'Cormorant Garamond',
+                serif;
+
+            font-size:
+                clamp(38px, 7vw, 55px);
+
+            font-weight:
+                500;
+
+            line-height:
+                1;
+
+            color:
+                var(--gold-dark);
+        }
+
+
+        .time-box label {
+
+            display:
+                block;
+
+            margin-top:
+                8px;
+
+            font-size:
+                9px;
+
+            letter-spacing:
+                2px;
+
+            text-transform:
+                uppercase;
+
+            color:
+                var(--muted);
+        }
+
+
+        .time-box.animate {
+
+            animation:
+                countPulse .45s ease;
+        }
+
+
+        @keyframes countPulse {
+
+            0% {
+                transform:
+                    scale(1);
+            }
+
+            50% {
+                transform:
+                    scale(1.06);
+                box-shadow:
+                    0 0 25px
+                    rgba(212,175,55,.25);
+            }
+
+            100% {
+                transform:
+                    scale(1);
+            }
+        }
+
+
+        /* =====================================================
+           VIDEO
+        ===================================================== */
+
+        .video-wrapper {
+
+            max-width:
+                760px;
+
+            margin:
+                auto;
         }
 
 
         .video-frame {
 
-            position: relative;
+            position:
+                relative;
 
-            padding: 5px;
-
-            border-radius: 15px;
+            padding:
+                8px;
 
             background:
                 linear-gradient(
                     135deg,
-                    #b08d27,
-                    #f5e2a4,
-                    #d4af37,
-                    #fff1b8,
-                    #b08d27
+                    #8e6d19,
+                    #f4df9b,
+                    #a47b20,
+                    #f4df9b,
+                    #8e6d19
                 );
 
             background-size:
                 300% 300%;
 
             animation:
-                borderMove 6s ease infinite;
+                borderGlow 7s ease infinite;
 
             box-shadow:
-                0 15px 35px
-                rgba(0,0,0,0.15);
-
-            overflow: hidden;
+                0 25px 70px
+                rgba(0,0,0,.25);
         }
 
 
-        @keyframes borderMove {
+        @keyframes borderGlow {
 
             0% {
                 background-position:
@@ -1261,838 +1611,1079 @@
         }
 
 
-        video {
+        .video-inner {
 
-            display: block;
-
-            width: 100%;
-
-            height: auto;
-
-            border-radius: 10px;
-
-            background: #000;
-
-            outline: none;
-        }
-
-
-        .video-shine {
-
-            position: absolute;
-
-            top: 0;
-
-            left: -100%;
-
-            width: 55%;
-
-            height: 100%;
-
-            z-index: 2;
-
-            pointer-events: none;
+            position:
+                relative;
 
             background:
-                linear-gradient(
-                    90deg,
-                    transparent,
-                    rgba(255,255,255,0.35),
-                    transparent
-                );
-
-            transform:
-                skewX(-20deg);
-
-            animation:
-                videoShine 5s ease-in-out infinite;
+                #111;
         }
 
 
-        @keyframes videoShine {
+        .video-inner video {
 
-            0% {
-                left: -100%;
-            }
+            display:
+                block;
 
-            45% {
-                left: 150%;
-            }
+            width:
+                100%;
 
-            100% {
-                left: 150%;
-            }
+            max-height:
+                600px;
+
+            background:
+                #000;
         }
 
 
-        /* =========================================================
+        .video-caption {
+
+            text-align:
+                center;
+
+            margin-top:
+                25px;
+
+            color:
+                var(--muted);
+
+            font-family:
+                'Cormorant Garamond',
+                serif;
+
+            font-size:
+                24px;
+
+            font-style:
+                italic;
+        }
+
+
+        /* =====================================================
            DETALLES
-        ========================================================== */
+        ===================================================== */
 
-        .details {
+        .details-grid {
 
-            margin-bottom: 35px;
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                18px;
+
+            max-width:
+                800px;
+
+            margin:
+                auto;
+        }
+
+
+        .detail-card {
+
+            position:
+                relative;
 
             padding:
-                25px 20px;
+                32px 25px;
+
+            text-align:
+                center;
 
             background:
-                rgba(255,255,255,0.85);
-
-            border-radius: 18px;
+                rgba(255,255,255,.68);
 
             border:
                 1px solid
-                rgba(212,175,55,0.18);
+                rgba(212,175,55,.25);
 
-            box-shadow:
-                0 8px 25px
-                rgba(0,0,0,0.05);
+            transition:
+                all .45s var(--ease);
         }
 
 
-        .details-title {
+        .detail-card:hover {
+
+            transform:
+                translateY(-7px);
+
+            box-shadow:
+                0 20px 45px
+                rgba(80,60,20,.12);
+
+            border-color:
+                rgba(212,175,55,.55);
+        }
+
+
+        .detail-icon {
+
+            font-size:
+                28px;
+
+            margin-bottom:
+                15px;
+
+            filter:
+                grayscale(.2);
+        }
+
+
+        .detail-title {
 
             font-family:
                 'Playfair Display',
                 serif;
 
-            font-size: 1.4rem;
+            font-size:
+                15px;
 
-            font-style: italic;
-
-            color: var(--gold-dark);
-
-            margin-bottom: 20px;
-        }
-
-
-        .detail-item {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: flex-start;
-
-            text-align: left;
-
-            gap: 12px;
-
-            padding:
-                10px 5px;
-
-            font-size: 0.88rem;
-
-            color: var(--text-dark);
-
-            border-bottom:
-                1px solid
-                rgba(212,175,55,0.10);
-        }
-
-
-        .detail-item:last-of-type {
-
-            border-bottom: none;
-
-            margin-bottom: 15px;
-        }
-
-
-        .icon {
-
-            flex-shrink: 0;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            width: 35px;
-
-            height: 35px;
-
-            border-radius: 50%;
-
-            background:
-                rgba(212,175,55,0.10);
-
-            font-size: 1rem;
-        }
-
-
-        .detail-item strong {
-            font-weight: 500;
-        }
-
-
-        /* =========================================================
-           BOTÓN MAPA
-        ========================================================== */
-
-        .map-btn {
-
-            position: relative;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            gap: 9px;
-
-            width: 100%;
-
-            padding:
-                13px 18px;
-
-            margin-top: 15px;
-
-            border-radius: 10px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #fff,
-                    #fbf5e9
-                );
+            letter-spacing:
+                1px;
 
             color:
                 var(--gold-dark);
 
-            border:
-                1.5px solid
-                var(--gold);
-
-            text-decoration: none;
-
-            font-size: 0.88rem;
-
-            font-weight: 500;
-
-            overflow: hidden;
-
-            transition:
-                var(--transition);
+            margin-bottom:
+                9px;
         }
 
 
-        .map-btn::before {
+        .detail-text {
+
+            color:
+                var(--text);
+
+            font-size:
+                12px;
+
+            line-height:
+                1.8;
+        }
+
+
+        /* =====================================================
+           MAPA
+        ===================================================== */
+
+        .location-box {
+
+            max-width:
+                720px;
+
+            margin:
+                45px auto 0;
+
+            padding:
+                40px 25px;
+
+            text-align:
+                center;
+
+            color:
+                white;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    rgba(212,175,55,.12),
+                    rgba(255,255,255,.025)
+                );
+
+            border:
+                1px solid
+                rgba(212,175,55,.32);
+        }
+
+
+        .location-box h3 {
+
+            font-family:
+                'Cormorant Garamond',
+                serif;
+
+            font-size:
+                35px;
+
+            color:
+                var(--gold-light);
+
+            margin-bottom:
+                12px;
+        }
+
+
+        .location-box p {
+
+            color:
+                rgba(255,255,255,.72);
+
+            font-size:
+                12px;
+
+            line-height:
+                1.8;
+        }
+
+
+        .map-button {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            position:
+                relative;
+
+            margin-top:
+                25px;
+
+            padding:
+                15px 30px;
+
+            min-width:
+                210px;
+
+            color:
+                var(--gold-light);
+
+            border:
+                1px solid
+                var(--gold);
+
+            overflow:
+                hidden;
+
+            font-size:
+                10px;
+
+            letter-spacing:
+                3px;
+
+            text-transform:
+                uppercase;
+
+            transition:
+                all .4s ease;
+        }
+
+
+        .map-button::before {
 
             content: "";
 
-            position: absolute;
+            position:
+                absolute;
 
-            top: 0;
-
-            left: -120%;
-
-            width: 80%;
-
-            height: 100%;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    transparent,
-                    rgba(255,255,255,0.75),
-                    transparent
-                );
+            inset: 0;
 
             transform:
+                translateX(-110%)
                 skewX(-20deg);
 
+            background:
+                rgba(255,255,255,.18);
+
             transition:
-                left 0.7s ease;
+                transform .6s ease;
         }
 
 
-        .map-btn:hover {
-
-            background:
-                var(--gold);
-
-            color:
-                white;
+        .map-button:hover {
 
             transform:
-                translateY(-3px);
+                translateY(-4px);
 
             box-shadow:
-                0 8px 20px
-                rgba(212,175,55,0.25);
+                var(--gold-shadow);
         }
 
 
-        .map-btn:hover::before {
-            left: 130%;
+        .map-button:hover::before {
+
+            transform:
+                translateX(110%)
+                skewX(-20deg);
         }
 
 
-        /* =========================================================
-           RSVP
-        ========================================================== */
+        /* =====================================================
+           VESTIMENTA
+        ===================================================== */
 
-        .rsvp-section {
+        .dress-card {
 
-            padding-top: 5px;
+            max-width:
+                650px;
 
-            margin-bottom: 5px;
-        }
+            margin:
+                auto;
 
-
-        .rsvp-section h3 {
-
-            font-family:
-                'Playfair Display',
-                serif;
-
-            font-size: 1.5rem;
-
-            font-weight: 500;
-
-            font-style: italic;
-
-            margin-bottom: 22px;
-
-            color:
-                var(--text-dark);
-        }
-
-
-        form {
-
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 14px;
-        }
-
-
-        input,
-        select,
-        textarea {
-
-            width: 100%;
+            text-align:
+                center;
 
             padding:
-                14px 15px;
-
-            border:
-                1px solid #e8dfd1;
-
-            border-radius: 10px;
-
-            font-family:
-                'Poppins',
-                sans-serif;
-
-            font-size: 0.88rem;
-
-            color:
-                var(--text-dark);
+                55px 25px;
 
             background:
-                rgba(255,255,255,0.85);
+                rgba(255,255,255,.75);
+
+            border:
+                1px solid
+                rgba(212,175,55,.35);
+
+            position:
+                relative;
+        }
+
+
+        .dress-card::before {
+
+            content: "";
+
+            position:
+                absolute;
+
+            inset:
+                8px;
+
+            border:
+                1px solid
+                rgba(212,175,55,.12);
+        }
+
+
+        .dress-icon {
+
+            font-size:
+                45px;
+
+            margin-bottom:
+                20px;
+        }
+
+
+        .dress-card h3 {
+
+            font-family:
+                'Cormorant Garamond',
+                serif;
+
+            font-size:
+                40px;
+
+            color:
+                var(--gold-dark);
+
+            margin-bottom:
+                10px;
+        }
+
+
+        .dress-card p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                11px;
+
+            letter-spacing:
+                4px;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        /* =====================================================
+           REGALO
+        ===================================================== */
+
+        .gift-box {
+
+            max-width:
+                650px;
+
+            margin:
+                auto;
+
+            text-align:
+                center;
+        }
+
+
+        .gift-icon {
+
+            font-size:
+                48px;
+
+            margin-bottom:
+                20px;
+        }
+
+
+        .gift-box h3 {
+
+            font-family:
+                'Cormorant Garamond',
+                serif;
+
+            font-size:
+                42px;
+
+            font-weight:
+                500;
+
+            color:
+                var(--gold-light);
+
+            margin-bottom:
+                20px;
+        }
+
+
+        .gift-box p {
+
+            color:
+                rgba(255,255,255,.72);
+
+            font-size:
+                13px;
+
+            line-height:
+                2;
+        }
+
+
+        /* =====================================================
+           RSVP
+        ===================================================== */
+
+        .rsvp-card {
+
+            max-width:
+                650px;
+
+            margin:
+                auto;
+
+            padding:
+                45px 30px;
+
+            background:
+                rgba(255,255,255,.82);
+
+            border:
+                1px solid
+                rgba(212,175,55,.3);
+
+            box-shadow:
+                0 25px 70px
+                rgba(80,60,20,.12);
+        }
+
+
+        .rsvp-card form {
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            gap:
+                15px;
+        }
+
+
+        .form-group {
+
+            position:
+                relative;
+        }
+
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+
+            width:
+                100%;
+
+            border:
+                1px solid
+                rgba(110,90,50,.22);
+
+            background:
+                rgba(255,255,255,.75);
+
+            padding:
+                16px 17px;
+
+            outline:
+                none;
+
+            color:
+                var(--text);
+
+            font-size:
+                12px;
 
             transition:
-                var(--transition);
+                all .3s ease;
         }
 
 
-        input::placeholder,
-        textarea::placeholder {
-            color: #aaa;
+        .form-group textarea {
+
+            resize:
+                vertical;
+
+            min-height:
+                110px;
         }
 
 
-        input:hover,
-        select:hover,
-        textarea:hover {
-
-            border-color:
-                rgba(212,175,55,0.5);
-        }
-
-
-        input:focus,
-        select:focus,
-        textarea:focus {
-
-            outline: none;
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
 
             border-color:
                 var(--gold);
 
-            background:
-                white;
-
             box-shadow:
-                0 0 0 4px
-                rgba(212,175,55,0.10);
+                0 0 0 3px
+                rgba(212,175,55,.09);
         }
 
 
-        textarea {
+        .submit-button {
 
-            resize: vertical;
+            position:
+                relative;
 
-            min-height: 85px;
-        }
-
-
-        /* =========================================================
-           BOTÓN ENVIAR
-        ========================================================== */
-
-        button {
-
-            position: relative;
-
-            width: 100%;
-
-            padding:
-                15px;
-
-            margin-top: 5px;
-
-            border: none;
-
-            border-radius: 10px;
+            border:
+                1px solid
+                var(--gold);
 
             background:
                 linear-gradient(
                     135deg,
-                    var(--gold),
-                    var(--gold-dark)
+                    #a78323,
+                    #d4af37,
+                    #a78323
                 );
+
+            background-size:
+                200% 200%;
 
             color:
                 white;
 
-            font-family:
-                'Poppins',
-                sans-serif;
+            padding:
+                17px;
 
-            font-size: 0.95rem;
+            cursor:
+                pointer;
 
-            font-weight: 500;
+            font-size:
+                10px;
 
-            letter-spacing: 0.7px;
+            letter-spacing:
+                3px;
 
-            cursor: pointer;
-
-            overflow: hidden;
+            text-transform:
+                uppercase;
 
             transition:
-                var(--transition);
-
-            box-shadow:
-                0 8px 20px
-                rgba(212,175,55,0.20);
+                all .4s ease;
         }
 
 
-        button::before {
+        .submit-button:hover {
 
-            content: "";
-
-            position: absolute;
-
-            top: 0;
-
-            left: -120%;
-
-            width: 80%;
-
-            height: 100%;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    transparent,
-                    rgba(255,255,255,0.35),
-                    transparent
-                );
-
-            transform:
-                skewX(-20deg);
-
-            transition:
-                left 0.7s ease;
-        }
-
-
-        button:hover {
+            background-position:
+                100% 50%;
 
             transform:
                 translateY(-3px);
 
             box-shadow:
-                0 12px 25px
-                rgba(212,175,55,0.30);
+                0 12px 30px
+                rgba(145,110,25,.25);
         }
 
 
-        button:hover::before {
-            left: 130%;
-        }
-
-
-        button:active {
-            transform:
-                translateY(0);
-        }
-
-
-        button:disabled {
-
-            cursor:
-                not-allowed;
-
-            transform:
-                none;
-
-            box-shadow:
-                none;
+        .submit-button:disabled {
 
             opacity:
-                0.7;
+                .6;
+
+            cursor:
+                wait;
+
+            transform:
+                none;
         }
 
-
-        /* =========================================================
-           MENSAJE DE ESTADO
-        ========================================================== */
 
         #statusMessage {
 
-            min-height: 24px;
+            text-align:
+                center;
 
-            margin-top: 15px;
+            margin-top:
+                20px;
 
-            font-size: 0.85rem;
+            font-size:
+                12px;
 
-            font-weight: 500;
+            line-height:
+                1.6;
         }
 
 
-        .success-message {
+        /* =====================================================
+           CIERRE
+        ===================================================== */
 
-            animation:
-                successPop 0.5s ease;
+        .closing {
+
+            min-height:
+                70vh;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            text-align:
+                center;
+
+            position:
+                relative;
+
+            background:
+
+                linear-gradient(
+                    rgba(8,7,5,.82),
+                    rgba(8,7,5,.92)
+                ),
+
+                url("foto-portada.jpg")
+                center /
+                cover no-repeat;
         }
 
 
-        @keyframes successPop {
+        .closing-content {
 
-            0% {
+            max-width:
+                750px;
 
-                opacity: 0;
-
-                transform:
-                    scale(0.9);
-            }
-
-            70% {
-
-                transform:
-                    scale(1.05);
-            }
-
-            100% {
-
-                opacity: 1;
-
-                transform:
-                    scale(1);
-            }
+            padding:
+                60px 20px;
         }
 
 
-        /* =========================================================
-           FOOTER
-        ========================================================== */
-
-        .footer {
-
-            margin-top: 30px;
-
-            padding-top: 20px;
-
-            border-top:
-                1px solid
-                rgba(212,175,55,0.18);
-
-            font-family:
-                'Playfair Display',
-                serif;
-
-            font-size: 0.9rem;
-
-            font-style: italic;
+        .closing-small {
 
             color:
-                var(--text-light);
+                var(--gold-light);
+
+            font-size:
+                10px;
+
+            letter-spacing:
+                5px;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                25px;
         }
 
 
-        .footer span {
-
-            color:
-                var(--gold-dark);
+        .closing-title {
 
             font-family:
                 'Great Vibes',
                 cursive;
 
-            font-size: 1.5rem;
+            font-size:
+                clamp(70px, 13vw, 130px);
+
+            font-weight:
+                400;
+
+            line-height:
+                1;
+
+            color:
+                var(--gold-light);
+
+            text-shadow:
+                0 0 25px
+                rgba(212,175,55,.35);
         }
 
 
-        /* =========================================================
-           RESPONSIVE - CELULAR
-        ========================================================== */
+        .closing-text {
 
-        @media (max-width: 480px) {
+            font-family:
+                'Cormorant Garamond',
+                serif;
 
-            body {
+            font-size:
+                clamp(23px, 4vw, 32px);
 
-                padding:
-                    15px 8px;
+            color:
+                rgba(255,255,255,.82);
+
+            font-style:
+                italic;
+
+            margin-top:
+                25px;
+
+            line-height:
+                1.5;
+        }
+
+
+        .closing-date {
+
+            color:
+                var(--gold-light);
+
+            font-size:
+                10px;
+
+            letter-spacing:
+                5px;
+
+            margin-top:
+                30px;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            padding:
+                25px 20px;
+
+            text-align:
+                center;
+
+            background:
+                #0b0a08;
+
+            color:
+                rgba(255,255,255,.45);
+
+            font-size:
+                9px;
+
+            letter-spacing:
+                2px;
+        }
+
+
+        footer span {
+
+            color:
+                var(--gold-light);
+        }
+
+
+        /* =====================================================
+           BOTÓN MÚSICA
+        ===================================================== */
+
+        .music-button {
+
+            position:
+                fixed;
+
+            right:
+                20px;
+
+            bottom:
+                20px;
+
+            z-index:
+                200;
+
+            width:
+                45px;
+
+            height:
+                45px;
+
+            border-radius:
+                50%;
+
+            border:
+                1px solid
+                var(--gold);
+
+            background:
+                rgba(17,16,13,.88);
+
+            color:
+                var(--gold-light);
+
+            cursor:
+                pointer;
+
+            font-size:
+                16px;
+
+            box-shadow:
+                0 5px 20px
+                rgba(0,0,0,.2);
+
+            transition:
+                all .3s ease;
+        }
+
+
+        .music-button:hover {
+
+            transform:
+                scale(1.08);
+
+            box-shadow:
+                var(--gold-shadow);
+        }
+
+
+        .music-button.playing {
+
+            animation:
+                musicPulse 2s infinite;
+        }
+
+
+        @keyframes musicPulse {
+
+            0%,
+            100% {
+                box-shadow:
+                    0 0 0
+                    rgba(212,175,55,0);
+            }
+
+            50% {
+                box-shadow:
+                    0 0 20px
+                    rgba(212,175,55,.45);
+            }
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 700px) {
+
+            .nav-inner {
+
+                justify-content:
+                    flex-start;
+
+                gap:
+                    22px;
             }
 
 
-            .invitation-card {
+            .details-grid {
 
-                padding:
-                    35px 18px;
-
-                border-radius:
-                    24px;
-            }
-
-
-            .invitation-card::before {
-
-                inset: 8px;
-
-                border-radius:
-                    18px;
-            }
-
-
-            .hero {
-
-                padding:
-                    10px 5px 25px;
-            }
-
-
-            .subtitle {
-
-                font-size:
-                    0.65rem;
-
-                letter-spacing:
-                    3px;
-            }
-
-
-            .intro-text {
-                font-size:
-                    0.9rem;
-            }
-
-
-            .ornament {
-
-                font-size:
-                    3rem;
-            }
-
-
-            .ornament-left {
-
-                left:
-                    -4px;
-
-                top:
-                    65px;
-            }
-
-
-            .ornament-right {
-
-                right:
-                    -4px;
-
-                top:
-                    65px;
-            }
-
-
-            .name-container h1 {
-
-                font-size:
-                    3.5rem;
-            }
-
-
-            .last-name {
-
-                font-size:
-                    1.1rem;
-
-                letter-spacing:
-                    5px;
-            }
-
-
-            .name-sparkle {
-
-                font-size:
-                    1rem;
-            }
-
-
-            .sparkle-a {
-                left:
-                    -18px;
-            }
-
-
-            .sparkle-b {
-                right:
-                    -18px;
-            }
-
-
-            .age-title {
-
-                font-size:
-                    1.25rem;
+                grid-template-columns:
+                    1fr;
             }
 
 
             .countdown {
 
-                gap:
-                    6px;
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                max-width:
+                    430px;
             }
 
 
-            .time-box {
+            .hero::after {
+
+                inset:
+                    14px;
+            }
+
+
+            .hero-content {
 
                 padding:
-                    11px 4px;
-
-                border-radius:
-                    12px;
+                    90px 20px 80px;
             }
 
 
-            .time-box span {
-
-                font-size:
-                    1.45rem;
-            }
-
-
-            .time-box label {
-
-                font-size:
-                    0.52rem;
-
-                letter-spacing:
-                    0.7px;
-            }
-
-
-            .video-section {
-
-                padding:
-                    12px;
-            }
-
-
-            .details {
-
-                padding:
-                    20px 14px;
-            }
-
-
-            .detail-item {
-
-                font-size:
-                    0.82rem;
-            }
-
-
-            .icon {
-
-                width:
-                    32px;
-
-                height:
-                    32px;
-            }
-        }
-
-
-        /* =========================================================
-           PANTALLAS MUY PEQUEÑAS
-        ========================================================== */
-
-        @media (max-width: 360px) {
-
-            .invitation-card {
-
-                padding:
-                    30px 14px;
-            }
-
-
-            .name-container h1 {
-
-                font-size:
-                    3rem;
-            }
-
-
-            .last-name {
-
-                font-size:
-                    0.95rem;
+            .hero-kicker {
 
                 letter-spacing:
                     4px;
             }
 
 
-            .time-box span {
+            .hero-lastname {
 
-                font-size:
-                    1.25rem;
+                letter-spacing:
+                    5px;
             }
 
 
-            .time-box label {
+            .section {
 
-                font-size:
-                    0.48rem;
+                padding:
+                    75px 17px;
             }
+
+
+            .rsvp-card {
+
+                padding:
+                    35px 18px;
+            }
+
         }
 
 
-        /* =========================================================
-           REDUCIR ANIMACIONES
-        ========================================================== */
+        @media (max-width: 420px) {
+
+            .opening::before {
+                inset:
+                    12px;
+            }
+
+
+            .opening::after {
+                inset:
+                    24px;
+            }
+
+
+            .opening-small {
+
+                letter-spacing:
+                    3px;
+            }
+
+
+            .opening-subtitle {
+
+                letter-spacing:
+                    2px;
+
+                font-size:
+                    20px;
+            }
+
+
+            .opening-date {
+
+                letter-spacing:
+                    2px;
+            }
+
+
+            .hero-age {
+
+                font-size:
+                    35px;
+            }
+
+
+            .hero-date {
+
+                letter-spacing:
+                    2px;
+            }
+
+
+            .time-box {
+
+                padding:
+                    20px 5px;
+            }
+
+
+            .time-box span {
+
+                font-size:
+                    40px;
+            }
+
+
+            .section-title {
+
+                font-size:
+                    42px;
+            }
+
+
+            .dress-card h3 {
+
+                font-size:
+                    34px;
+            }
+
+
+            .gift-box h3 {
+
+                font-size:
+                    35px;
+            }
+
+
+            .music-button {
+
+                right:
+                    14px;
+
+                bottom:
+                    14px;
+            }
+
+        }
+
+
+        /* =====================================================
+           REDUCIR ANIMACIONES SI EL USUARIO LO PREFIERE
+        ===================================================== */
 
         @media (prefers-reduced-motion: reduce) {
 
@@ -2101,17 +2692,18 @@
             *::after {
 
                 animation-duration:
-                    0.01ms !important;
+                    .01ms !important;
 
                 animation-iteration-count:
                     1 !important;
 
-                transition-duration:
-                    0.01ms !important;
-
                 scroll-behavior:
                     auto !important;
+
+                transition-duration:
+                    .01ms !important;
             }
+
         }
 
     </style>
@@ -2119,467 +2711,899 @@
 </head>
 
 
-<body>
+<body class="locked">
 
 
     <!-- =========================================================
-         FONDO ANIMADO
+         PANTALLA DE APERTURA
     ========================================================== -->
 
-    <div class="background">
+    <div class="opening"
+         id="opening">
 
-        <span class="sparkle s1"></span>
-        <span class="sparkle s2"></span>
-        <span class="sparkle s3"></span>
-        <span class="sparkle s4"></span>
-        <span class="sparkle s5"></span>
-        <span class="sparkle s6"></span>
-        <span class="sparkle s7"></span>
-        <span class="sparkle s8"></span>
-        <span class="sparkle s9"></span>
-        <span class="sparkle s10"></span>
+        <div class="opening-content">
 
-        <span class="petal p1">✦</span>
-        <span class="petal p2">✧</span>
-        <span class="petal p3">✦</span>
-        <span class="petal p4">✧</span>
-        <span class="petal p5">✦</span>
+            <div class="opening-small">
+                Una invitación especial
+            </div>
+
+            <div class="opening-title">
+                María Daniela
+            </div>
+
+            <div class="opening-subtitle">
+                Mis Quince Años
+            </div>
+
+            <div class="opening-date">
+                Sábado · 7 de Noviembre · 2026
+            </div>
+
+            <button class="open-button"
+                    id="openInvitation">
+
+                Abrir invitación
+
+            </button>
+
+            <div class="opening-note">
+                ✦ Te espera una noche para recordar ✦
+            </div>
+
+        </div>
 
     </div>
 
 
+
     <!-- =========================================================
-         INVITACIÓN
+         FONDO
     ========================================================== -->
 
-    <main class="invitation-card">
+    <div class="luxury-background"
+         aria-hidden="true">
+
+        <span class="gold-particle"></span>
+        <span class="gold-particle"></span>
+        <span class="gold-particle"></span>
+        <span class="gold-particle"></span>
+        <span class="gold-particle"></span>
+        <span class="gold-particle"></span>
+        <span class="gold-particle"></span>
+        <span class="gold-particle"></span>
+        <span class="gold-particle"></span>
+        <span class="gold-particle"></span>
+
+    </div>
+
+
+
+    <!-- =========================================================
+         SITIO
+    ========================================================== -->
+
+    <div class="site">
 
 
         <!-- =====================================================
-             HERO / PORTADA
+             HERO
         ====================================================== -->
 
-        <section class="hero">
+        <section class="hero"
+                 id="inicio">
 
-            <div class="ornament ornament-left">
-                ❧
-            </div>
+            <div class="hero-content">
 
-            <div class="ornament ornament-right">
-                ❧
-            </div>
+                <div class="crown">
+                    ♕
+                </div>
 
+                <div class="hero-kicker">
+                    Estás cordialmente invitado
+                </div>
 
-            <div class="crown">
-                👑
-            </div>
+                <div class="hero-intro">
+                    A celebrar conmigo
+                </div>
 
-
-            <p class="subtitle">
-                ✦ ESTÁS INVITADO ✦
-            </p>
-
-
-            <p class="intro-text">
-                A celebrar conmigo
-            </p>
-
-
-            <!-- NOMBRE -->
-
-            <div class="name-container">
-
-                <span class="name-sparkle sparkle-a">
-                    ✦
-                </span>
-
-                <span class="name-sparkle sparkle-b">
-                    ✧
-                </span>
-
-                <span class="name-sparkle sparkle-c">
-                    ✦
-                </span>
-
-                <span class="name-sparkle sparkle-d">
-                    ✧
-                </span>
-
-
-                <h1>
-                    Maria Daniela    Priego Ic
+                <h1 class="hero-name">
+                    Maria Daniela
                 </h1>
 
+                <div class="hero-lastname">
+                    Priego Ic
+                </div>
 
-            
+                <div class="hero-age">
+                    Mis Quince Años
+                </div>
+
+                <div class="hero-ornament"></div>
+
+                <div class="hero-date">
+                    Sábado · 7 de Noviembre · 2026
+                </div>
 
             </div>
 
 
-            <p class="age-title">
-                Mis Quince Años
-            </p>
+            <div class="scroll-indicator">
 
+                Descubre la invitación
 
-            <div class="hero-line"></div>
+                <div class="scroll-line"></div>
+
+            </div>
 
         </section>
 
 
+
         <!-- =====================================================
-             DIVISOR
+             NAVEGACIÓN
         ====================================================== -->
 
-        <div class="divider">
-            <span>✦</span>
-        </div>
+        <nav class="nav">
+
+            <div class="nav-inner">
+
+                <a href="#inicio">
+                    Inicio
+                </a>
+
+                <a href="#historia">
+                    Mis 15
+                </a>
+
+                <a href="#video">
+                    Video
+                </a>
+
+                <a href="#evento">
+                    Evento
+                </a>
+
+                <a href="#ubicacion">
+                    Ubicación
+                </a>
+
+                <a href="#confirmacion">
+                    Confirmar
+                </a>
+
+            </div>
+
+        </nav>
+
+
+
+        <!-- =====================================================
+             INTRODUCCIÓN
+        ====================================================== -->
+
+        <section class="section section-light"
+                 id="historia">
+
+            <div class="section-inner">
+
+                <div class="intro-card reveal">
+
+                    <div class="gold-divider">
+                        <span>✦</span>
+                    </div>
+
+                    <p>
+
+                        Hay momentos en la vida que
+                        merecen ser celebrados,
+                        compartidos y guardados
+                        para siempre en el corazón.
+
+                        <br><br>
+
+                        Hoy quiero compartir contigo
+                        uno de los momentos más
+                        especiales de mi vida:
+
+                        <br>
+
+                        <strong>
+                            Mis Quince Años
+                        </strong>
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
 
 
         <!-- =====================================================
              CONTADOR
         ====================================================== -->
 
-        <section class="countdown-wrapper">
+        <section class="section section-light">
 
-            <p class="countdown-title">
-                Faltan tan solo...
-            </p>
+            <div class="section-inner">
 
+                <div class="section-heading reveal">
 
-            <div class="countdown">
+                    <div class="section-kicker">
+                        Cuenta regresiva
+                    </div>
 
-                <div class="time-box" id="boxDays">
+                    <h2 class="section-title">
+                        Falta muy poco
+                    </h2>
 
-                    <span id="days">
-                        00
-                    </span>
-
-                    <label>
-                        Días
-                    </label>
-
-                </div>
-
-
-                <div class="time-box" id="boxHours">
-
-                    <span id="hours">
-                        00
-                    </span>
-
-                    <label>
-                        Horas
-                    </label>
+                    <p class="section-subtitle">
+                        para compartir juntos esta noche tan especial
+                    </p>
 
                 </div>
 
 
-                <div class="time-box" id="boxMinutes">
+                <div class="countdown reveal"
+                     id="countdown">
 
-                    <span id="minutes">
-                        00
-                    </span>
+                    <div class="time-box"
+                         id="boxDays">
 
-                    <label>
-                        Minutos
-                    </label>
+                        <span id="days">
+                            00
+                        </span>
 
-                </div>
+                        <label>
+                            Días
+                        </label>
+
+                    </div>
 
 
-                <div class="time-box" id="boxSeconds">
+                    <div class="time-box"
+                         id="boxHours">
 
-                    <span id="seconds">
-                        00
-                    </span>
+                        <span id="hours">
+                            00
+                        </span>
 
-                    <label>
-                        Segundos
-                    </label>
+                        <label>
+                            Horas
+                        </label>
+
+                    </div>
+
+
+                    <div class="time-box"
+                         id="boxMinutes">
+
+                        <span id="minutes">
+                            00
+                        </span>
+
+                        <label>
+                            Minutos
+                        </label>
+
+                    </div>
+
+
+                    <div class="time-box"
+                         id="boxSeconds">
+
+                        <span id="seconds">
+                            00
+                        </span>
+
+                        <label>
+                            Segundos
+                        </label>
+
+                    </div>
 
                 </div>
 
             </div>
 
         </section>
+
 
 
         <!-- =====================================================
              VIDEO
         ====================================================== -->
 
-        <section class="video-section reveal">
+        <section class="section section-dark"
+                 id="video">
 
-            <div class="section-icon">
-                🎬
-            </div>
+            <div class="section-inner">
+
+                <div class="section-heading reveal">
+
+                    <div class="section-kicker">
+                        Un momento especial
+                    </div>
+
+                    <h2 class="section-title">
+                        Para compartir contigo
+                    </h2>
+
+                    <p class="section-subtitle">
+                        Una pequeña sorpresa antes de nuestra gran noche.
+                    </p>
+
+                </div>
 
 
-            <h3>
-                Un momento especial...
-            </h3>
+                <div class="video-wrapper reveal">
+
+                    <div class="video-frame">
+
+                        <div class="video-inner">
+
+                            <video
+                                controls
+                                playsinline
+                                preload="metadata">
+
+                                <source
+                                    src="video.mp4"
+                                    type="video/mp4">
+
+                                Tu navegador no soporta video HTML5.
+
+                            </video>
+
+                        </div>
+
+                    </div>
 
 
-            <p class="section-subtitle">
-                Una pequeña sorpresa para compartir contigo
-            </p>
+                    <div class="video-caption">
 
+                        "Una noche que quedará para siempre
+                        en nuestros corazones."
 
-            <div class="video-frame">
+                    </div>
 
-                <div class="video-shine"></div>
-
-
-                <video
-                    controls
-                    playsinline
-                    preload="metadata">
-
-                    <source
-                        src="video.mp4"
-                        type="video/mp4">
-
-                    Tu navegador no soporta la reproducción de video.
-
-                </video>
+                </div>
 
             </div>
 
         </section>
 
 
+
         <!-- =====================================================
-             DETALLES
+             EVENTO
         ====================================================== -->
 
-        <section class="details reveal">
+        <section class="section section-light"
+                 id="evento">
 
-            <h3 class="details-title">
-                Detalles de la celebración
-            </h3>
+            <div class="section-inner">
+
+                <div class="section-heading reveal">
+
+                    <div class="section-kicker">
+                        La celebración
+                    </div>
+
+                    <h2 class="section-title">
+                        Detalles del evento
+                    </h2>
+
+                    <p class="section-subtitle">
+                        Todo está preparado para celebrar juntos.
+                    </p>
+
+                </div>
 
 
-            <div class="detail-item">
+                <div class="details-grid">
 
-                <span class="icon">
-                    📅
-                </span>
 
-                <strong>
-                    Sábado 7 de Noviembre de 2026
-                </strong>
+                    <!-- FECHA -->
+
+                    <div class="detail-card reveal">
+
+                        <div class="detail-icon">
+                            ✦
+                        </div>
+
+                        <div class="detail-title">
+                            Fecha
+                        </div>
+
+                        <div class="detail-text">
+
+                            Sábado<br>
+
+                            7 de Noviembre de 2026
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- HORA -->
+
+                    <div class="detail-card reveal">
+
+                        <div class="detail-icon">
+                            ♡
+                        </div>
+
+                        <div class="detail-title">
+                            Hora
+                        </div>
+
+                        <div class="detail-text">
+
+                            7:00 PM<br>
+
+                            hasta las 12:00 AM
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- LUGAR -->
+
+                    <div class="detail-card reveal">
+
+                        <div class="detail-icon">
+                            ♧
+                        </div>
+
+                        <div class="detail-title">
+                            Lugar
+                        </div>
+
+                        <div class="detail-text">
+
+                            Salón de Eventos
+                            "El Encanto"
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DIRECCIÓN -->
+
+                    <div class="detail-card reveal">
+
+                        <div class="detail-icon">
+                            ♢
+                        </div>
+
+                        <div class="detail-title">
+                            Dirección
+                        </div>
+
+                        <div class="detail-text">
+
+                            Km 4.5 Carretera al Atlántico<br>
+
+                            Zona Portales
+
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
 
+        </section>
 
-            <div class="detail-item">
 
-                <span class="icon">
-                    ⏰
-                </span>
 
-                <strong>
-                    19:00 a 24:00 hrs
-                </strong>
+        <!-- =====================================================
+             UBICACIÓN
+        ====================================================== -->
+
+        <section class="section section-dark"
+                 id="ubicacion">
+
+            <div class="section-inner">
+
+                <div class="section-heading reveal">
+
+                    <div class="section-kicker">
+                        Cómo llegar
+                    </div>
+
+                    <h2 class="section-title">
+                        Te esperamos
+                    </h2>
+
+                </div>
+
+
+                <div class="location-box reveal">
+
+                    <h3>
+                        Salón de Eventos "El Encanto"
+                    </h3>
+
+                    <p>
+
+                        Km 4.5 Carretera al Atlántico,
+                        Zona Portales
+
+                        <br>
+
+                        Guatemala
+
+                    </p>
+
+
+                    <a class="map-button"
+                       href="https://maps.google.com/?q=Centro+Comercial+Portales+Km+4.5+Carretera+al+Atlantico+zona+17+Guatemala"
+                       target="_blank"
+                       rel="noopener">
+
+                        📍 Ver ubicación
+
+                    </a>
+
+                </div>
 
             </div>
 
-
-            <div class="detail-item">
-
-                <span class="icon">
-                    📍
-                </span>
-
-                <span>
-                    Salón de Eventos "El Encanto"
-                </span>
-
-            </div>
+        </section>
 
 
-            <div class="detail-item">
 
-                <span class="icon">
-                    🛣️
-                </span>
+        <!-- =====================================================
+             VESTIMENTA
+        ====================================================== -->
 
-                <span>
-                    Km 4.5 Carretera al Atlántico,
-                    Zona Portales
-                </span>
+        <section class="section section-light">
 
-            </div>
+            <div class="section-inner">
+
+                <div class="section-heading reveal">
+
+                    <div class="section-kicker">
+                        Para la ocasión
+                    </div>
+
+                    <h2 class="section-title">
+                        Código de vestimenta
+                    </h2>
+
+                </div>
 
 
-            <div class="detail-item">
+                <div class="dress-card reveal">
 
-                <span class="icon">
-                    👗
-                </span>
+                    <div class="dress-icon">
+                        ✨
+                    </div>
 
-                <span>
-                    Etiqueta:
-                    <strong>
+                    <h3>
                         Formal / Gala
-                    </strong>
-                </span>
+                    </h3>
+
+                    <p>
+                        Una noche para vestir elegante
+                    </p>
+
+                </div>
 
             </div>
 
-
-            <!-- GOOGLE MAPS -->
-
-            <a
-                href="https://maps.google.com/?q=Centro+Comercial+Portales+Km+4.5+Carretera+al+Atlantico+zona+17+Guatemala"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="map-btn">
-
-                <span>
-                    🗺️
-                </span>
-
-                <span>
-                    Ver ubicación / Cómo llegar
-                </span>
-
-            </a>
-
         </section>
+
 
 
         <!-- =====================================================
-             RSVP
+             REGALOS
         ====================================================== -->
 
-        <section class="rsvp-section reveal">
+        <section class="section section-dark">
 
-            <h3>
-                Confirmar Asistencia
-            </h3>
+            <div class="section-inner">
 
+                <div class="section-heading reveal">
 
-            <form
-                id="rsvpForm"
-                action="https://script.google.com/macros/s/AKfycbzrymL9OAmSVkM4OOTQ2z2LUBGRg77gqOBG518cIk2Too0Vq_ekXHzlmAj_yVP5mqB5gQ/exec"
-                method="POST"
-                target="hidden_iframe">
+                    <div class="section-kicker">
+                        Con cariño
+                    </div>
 
+                    <h2 class="section-title">
+                        Tu presencia es el mejor regalo
+                    </h2>
 
-                <!-- NOMBRE -->
-
-                <input
-                    type="text"
-                    name="nombre"
-                    id="nombre"
-                    placeholder="Tu Nombre y Apellido"
-                    autocomplete="name"
-                    required>
+                </div>
 
 
-                <!-- ASISTENCIA -->
+                <div class="gift-box reveal">
 
-                <select
-                    name="asistencia"
-                    id="asistencia"
-                    required>
+                    <div class="gift-icon">
+                        🎁
+                    </div>
 
-                    <option
-                        value=""
-                        disabled
-                        selected>
+                    <h3>
+                        Gracias por acompañarme
+                    </h3>
 
-                        ¿Nos acompañarás?
+                    <p>
 
-                    </option>
+                        Lo más importante para mí
+                        es poder compartir este día
+                        tan especial con las personas
+                        que quiero.
 
+                        <br><br>
 
-                    <option value="Sí, asistiré">
+                        Tu presencia hará que esta
+                        noche sea todavía más
+                        inolvidable.
 
-                        ¡Sí, ahí estaré! 💖
+                    </p>
 
-                    </option>
+                </div>
 
-
-                    <option value="No asistiré">
-
-                        Lo siento, no podré asistir
-
-                    </option>
-
-                </select>
-
-
-                <!-- PASES -->
-
-                <input
-                    type="number"
-                    name="pases"
-                    id="pases"
-                    placeholder="Número de personas (Máximo 2)"
-                    min="0"
-                    max="2"
-                    required>
-
-
-                <!-- MENSAJE -->
-
-                <textarea
-                    name="mensaje"
-                    id="mensaje"
-                    rows="3"
-                    placeholder="Déjale un mensaje a Maria Daniela (Opcional)"></textarea>
-
-
-                <!-- BOTÓN -->
-
-                <button
-                    type="submit"
-                    id="submitBtn">
-
-                    Enviar Confirmación
-
-                </button>
-
-            </form>
-
-
-            <!-- IFRAME OCULTO -->
-
-            <iframe
-                name="hidden_iframe"
-                id="hidden_iframe"
-                style="display:none;"
-                title="Confirmación de asistencia">
-            </iframe>
-
-
-            <!-- MENSAJE DE ESTADO -->
-
-            <p id="statusMessage"></p>
+            </div>
 
         </section>
+
+
+
+        <!-- =====================================================
+             CONFIRMACIÓN
+        ====================================================== -->
+
+        <section class="section section-light"
+                 id="confirmacion">
+
+            <div class="section-inner">
+
+                <div class="section-heading reveal">
+
+                    <div class="section-kicker">
+                        RSVP
+                    </div>
+
+                    <h2 class="section-title">
+                        ¿Nos acompañarás?
+                    </h2>
+
+                    <p class="section-subtitle">
+
+                        Me encantaría compartir
+                        este momento contigo.
+
+                        <br>
+
+                        Por favor confirma tu asistencia.
+
+                    </p>
+
+                </div>
+
+
+                <div class="rsvp-card reveal">
+
+
+                    <form
+                        id="rsvpForm"
+                        action="https://script.google.com/macros/s/AKfycbzrymL9OAmSVkM4OOTQ2z2LUBGRg77gqOBG518cIk2Too0Vq_ekXHzlmAj_yVP5mqB5gQ/exec"
+                        method="POST"
+                        target="hidden_iframe">
+
+
+                        <!-- NOMBRE -->
+
+                        <div class="form-group">
+
+                            <input
+                                type="text"
+                                name="nombre"
+                                id="nombre"
+                                placeholder="Nombre completo"
+                                required>
+
+                        </div>
+
+
+                        <!-- ASISTENCIA -->
+
+                        <div class="form-group">
+
+                            <select
+                                name="asistencia"
+                                id="asistencia"
+                                required>
+
+                                <option
+                                    value=""
+                                    disabled
+                                    selected>
+
+                                    ¿Nos acompañarás?
+
+                                </option>
+
+                                <option
+                                    value="Sí, asistiré">
+
+                                    ¡Sí, ahí estaré! 💖
+
+                                </option>
+
+                                <option
+                                    value="No asistiré">
+
+                                    Lo siento, no podré asistir
+
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- PASES -->
+
+                        <div class="form-group">
+
+                            <input
+                                type="number"
+                                name="pases"
+                                id="pases"
+                                placeholder="Número de personas (Máximo 2)"
+                                min="1"
+                                max="2"
+                                required>
+
+                        </div>
+
+
+                        <!-- MENSAJE -->
+
+                        <div class="form-group">
+
+                            <textarea
+                                name="mensaje"
+                                id="mensaje"
+                                rows="4"
+                                placeholder="Déjale un mensaje a Maria Daniela (Opcional)"></textarea>
+
+                        </div>
+
+
+                        <!-- BOTÓN -->
+
+                        <button
+                            type="submit"
+                            class="submit-button"
+                            id="submitBtn">
+
+                            Enviar confirmación
+
+                        </button>
+
+
+                    </form>
+
+
+                    <!-- IFRAME -->
+
+                    <iframe
+                        name="hidden_iframe"
+                        id="hidden_iframe"
+                        style="display:none;">
+
+                    </iframe>
+
+
+                    <!-- MENSAJE -->
+
+                    <p id="statusMessage"></p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             CIERRE
+        ====================================================== -->
+
+        <section class="closing">
+
+            <div class="closing-content reveal">
+
+                <div class="closing-small">
+                    Gracias por formar parte
+                </div>
+
+                <div class="closing-title">
+                    María Daniela
+                </div>
+
+                <div class="closing-text">
+
+                    "Los momentos especiales
+                    se vuelven inolvidables
+                    cuando los compartimos
+                    con quienes amamos."
+
+                </div>
+
+                <div class="closing-date">
+
+                    Mis Quince Años · 2026
+
+                </div>
+
+            </div>
+
+        </section>
+
 
 
         <!-- =====================================================
              FOOTER
         ====================================================== -->
 
-        <footer class="footer">
+        <footer>
 
             Con cariño,
 
             <br>
 
             <span>
-                Maria Daniela
+                Maria Daniela Priego Ic
             </span>
 
         </footer>
 
+    </div>
 
-    </main>
+
+
+    <!-- =========================================================
+         BOTÓN MÚSICA
+    ========================================================== -->
+
+    <button
+        class="music-button"
+        id="musicButton"
+        aria-label="Activar música">
+
+        ♫
+
+    </button>
+
+
+    <!-- =========================================================
+         MÚSICA
+    ========================================================== -->
+
+    <audio
+        id="backgroundMusic"
+        loop
+        preload="auto">
+
+        <source
+            src="musica.mp3"
+            type="audio/mpeg">
+
+    </audio>
+
 
 
     <!-- =========================================================
@@ -2589,22 +3613,81 @@
     <script>
 
 
-        /* =========================================================
+        /* =====================================================
+           BODY
+        ===================================================== */
+
+        document.body.classList.add("locked");
+
+
+
+        /* =====================================================
+           APERTURA
+        ===================================================== */
+
+        const opening =
+            document.getElementById(
+                "opening"
+            );
+
+
+        const openInvitation =
+            document.getElementById(
+                "openInvitation"
+            );
+
+
+        openInvitation.addEventListener(
+            "click",
+            function () {
+
+                opening.classList.add(
+                    "hidden"
+                );
+
+                document.body.classList.remove(
+                    "locked"
+                );
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+
+                /* Intentar iniciar música */
+
+                const music =
+                    document.getElementById(
+                        "backgroundMusic"
+                    );
+
+                music.play()
+                    .then(function () {
+
+                        musicButton.classList.add(
+                            "playing"
+                        );
+
+                        musicButton.innerHTML =
+                            "♫";
+
+                    })
+                    .catch(function () {
+
+                        /* El navegador puede bloquear
+                           la reproducción */
+
+                    });
+
+            }
+        );
+
+
+
+        /* =====================================================
            CONTADOR
-        ========================================================== */
-
-
-        /*
-            IMPORTANTE:
-
-            JavaScript utiliza meses desde 0.
-
-            10 = Noviembre
-
-            7 = día
-
-            19 = 7:00 PM
-        */
+        ===================================================== */
 
         const eventDate =
             new Date(
@@ -2617,50 +3700,57 @@
             ).getTime();
 
 
-        /* Elementos */
-
         const daysElement =
-            document.getElementById("days");
+            document.getElementById(
+                "days"
+            );
+
 
         const hoursElement =
-            document.getElementById("hours");
+            document.getElementById(
+                "hours"
+            );
+
 
         const minutesElement =
-            document.getElementById("minutes");
+            document.getElementById(
+                "minutes"
+            );
+
 
         const secondsElement =
-            document.getElementById("seconds");
+            document.getElementById(
+                "seconds"
+            );
 
 
         const boxes = {
 
             days:
-                document.getElementById("boxDays"),
+                document.getElementById(
+                    "boxDays"
+                ),
 
             hours:
-                document.getElementById("boxHours"),
+                document.getElementById(
+                    "boxHours"
+                ),
 
             minutes:
-                document.getElementById("boxMinutes"),
+                document.getElementById(
+                    "boxMinutes"
+                ),
 
             seconds:
-                document.getElementById("boxSeconds")
+                document.getElementById(
+                    "boxSeconds"
+                )
+
         };
 
 
-        /*
-            CORRECCIÓN:
+        let timer = null;
 
-            Se declara timer ANTES de utilizarlo
-            dentro de updateCountdown().
-        */
-
-        let timer;
-
-
-        /* =========================================================
-           ANIMAR CAMBIO DE NÚMERO
-        ========================================================== */
 
         function updateNumber(
             element,
@@ -2669,14 +3759,13 @@
         ) {
 
             const newValue =
-                String(value).padStart(
-                    2,
-                    "0"
-                );
+                String(value)
+                    .padStart(2, "0");
 
 
             if (
-                element.innerText !== newValue
+                element.innerText !==
+                newValue
             ) {
 
                 element.innerText =
@@ -2688,24 +3777,17 @@
                 );
 
 
-                /*
-                    Fuerza al navegador a reiniciar
-                    la animación.
-                */
-
                 void box.offsetWidth;
 
 
                 box.classList.add(
                     "animate"
                 );
+
             }
+
         }
 
-
-        /* =========================================================
-           ACTUALIZAR CONTADOR
-        ========================================================== */
 
         function updateCountdown() {
 
@@ -2717,106 +3799,92 @@
                 eventDate - now;
 
 
-            /* Evento terminado */
+            /* EVENTO TERMINADO */
 
             if (distance <= 0) {
 
-                document.querySelector(
-                    ".countdown"
-                ).innerHTML = `
+                const countdown =
+                    document.getElementById(
+                        "countdown"
+                    );
 
-                    <p style="
+
+                countdown.innerHTML = `
+
+                    <div style="
                         grid-column:1/-1;
-                        font-family:'Playfair Display',serif;
-                        font-size:1.5rem;
+                        text-align:center;
+                        padding:35px 15px;
+                        font-family:'Cormorant Garamond',serif;
+                        color:#a78323;
+                        font-size:30px;
                         font-style:italic;
-                        color:#d4af37;
-                        padding:15px;
                     ">
 
                         ✨ ¡Hoy es el gran día! ✨
 
-                    </p>
+                    </div>
 
                 `;
 
 
-                clearInterval(timer);
+                if (timer !== null) {
+
+                    clearInterval(
+                        timer
+                    );
+
+                }
+
 
                 return;
             }
 
 
-            /* Cálculo de días */
+            /* DÍAS */
 
             const days =
                 Math.floor(
                     distance /
-                    (
-                        1000 *
-                        60 *
-                        60 *
-                        24
-                    )
+                    (1000 * 60 * 60 * 24)
                 );
 
 
-            /* Cálculo de horas */
+            /* HORAS */
 
             const hours =
                 Math.floor(
                     (
                         distance %
-                        (
-                            1000 *
-                            60 *
-                            60 *
-                            24
-                        )
+                        (1000 * 60 * 60 * 24)
                     ) /
-                    (
-                        1000 *
-                        60 *
-                        60
-                    )
+                    (1000 * 60 * 60)
                 );
 
 
-            /* Cálculo de minutos */
+            /* MINUTOS */
 
             const minutes =
                 Math.floor(
                     (
                         distance %
-                        (
-                            1000 *
-                            60 *
-                            60
-                        )
+                        (1000 * 60 * 60)
                     ) /
-                    (
-                        1000 *
-                        60
-                    )
+                    (1000 * 60)
                 );
 
 
-            /* Cálculo de segundos */
+            /* SEGUNDOS */
 
             const seconds =
                 Math.floor(
                     (
                         distance %
-                        (
-                            1000 *
-                            60
-                        )
+                        (1000 * 60)
                     ) /
                     1000
                 );
 
-
-            /* Mostrar */
 
             updateNumber(
                 daysElement,
@@ -2848,16 +3916,8 @@
         }
 
 
-        /*
-            Ejecutar inmediatamente
-        */
-
         updateCountdown();
 
-
-        /*
-            Actualizar cada segundo
-        */
 
         timer =
             setInterval(
@@ -2866,10 +3926,10 @@
             );
 
 
-        /* =========================================================
-           ANIMACIONES AL HACER SCROLL
-        ========================================================== */
 
+        /* =====================================================
+           ANIMACIONES AL HACER SCROLL
+        ===================================================== */
 
         const revealElements =
             document.querySelectorAll(
@@ -2879,11 +3939,13 @@
 
         const observer =
             new IntersectionObserver(
-
-                function(entries) {
+                function (
+                    entries,
+                    observer
+                ) {
 
                     entries.forEach(
-                        function(entry) {
+                        function (entry) {
 
                             if (
                                 entry.isIntersecting
@@ -2893,21 +3955,24 @@
                                     "visible"
                                 );
 
+                                observer.unobserve(
+                                    entry.target
+                                );
+
                             }
 
                         }
                     );
 
                 },
-
                 {
-                    threshold: 0.15
+                    threshold: .12
                 }
             );
 
 
         revealElements.forEach(
-            function(element) {
+            function (element) {
 
                 observer.observe(
                     element
@@ -2917,9 +3982,10 @@
         );
 
 
-        /* =========================================================
-           FORMULARIO
-        ========================================================== */
+
+        /* =====================================================
+           RSVP
+        ===================================================== */
 
         const form =
             document.getElementById(
@@ -2933,69 +3999,56 @@
             );
 
 
-        const statusMsg =
+        const statusMessage =
             document.getElementById(
                 "statusMessage"
             );
 
 
-        const iframe =
+        const hiddenIframe =
             document.getElementById(
                 "hidden_iframe"
             );
 
 
-        let formSubmitting = false;
+        let formSubmitting =
+            false;
 
 
-        /* =========================================================
-           VALIDACIÓN DE PASES
-        ========================================================== */
+        form.addEventListener(
+            "submit",
+            function (event) {
 
-        const pases =
-            document.getElementById(
-                "pases"
-            );
-
-
-        pases.addEventListener(
-            "input",
-            function() {
-
-                let value =
+                const pases =
                     parseInt(
-                        this.value,
+                        document.getElementById(
+                            "pases"
+                        ).value,
                         10
                     );
 
 
                 if (
-                    value > 2
+                    isNaN(pases) ||
+                    pases < 1 ||
+                    pases > 2
                 ) {
 
-                    this.value = 2;
+                    event.preventDefault();
+
+
+                    statusMessage.innerText =
+                        "Por favor indica entre 1 y 2 personas.";
+
+
+                    statusMessage.style.color =
+                        "#a78323";
+
+
+                    return;
+
                 }
 
-
-                if (
-                    value < 0 &&
-                    this.value !== ""
-                ) {
-
-                    this.value = 0;
-                }
-
-            }
-        );
-
-
-        /* =========================================================
-           ENVÍO DEL FORMULARIO
-        ========================================================== */
-
-        form.addEventListener(
-            "submit",
-            function() {
 
                 formSubmitting =
                     true;
@@ -3005,76 +4058,131 @@
                     true;
 
 
-                submitBtn.innerHTML =
-                    "✨ Enviando respuesta...";
+                submitBtn.innerText =
+                    "Enviando confirmación...";
 
 
-                statusMsg.innerText =
-                    "";
+                statusMessage.innerText =
+                    "Estamos enviando tu confirmación...";
 
 
-                statusMsg.className =
-                    "";
+                statusMessage.style.color =
+                    "#8b806e";
 
             }
         );
 
 
-        /* =========================================================
-           RESPUESTA GOOGLE SCRIPT
-        ========================================================== */
-
-        iframe.addEventListener(
+        hiddenIframe.addEventListener(
             "load",
-            function() {
+            function () {
 
-                /*
-                    Evita mostrar el mensaje
-                    cuando se carga inicialmente
-                    el iframe.
-                */
-
-                if (
-                    !formSubmitting
-                ) {
+                if (!formSubmitting) {
 
                     return;
+
                 }
 
 
-                statusMsg.style.color =
-                    "#4CAF50";
+                formSubmitting =
+                    false;
 
 
-                statusMsg.innerText =
-                    "¡Gracias! Tu confirmación ha sido guardada con éxito. 💖";
+                statusMessage.innerText =
+                    "✨ ¡Gracias! Tu confirmación fue enviada correctamente. ✨";
 
 
-                statusMsg.classList.add(
-                    "success-message"
-                );
+                statusMessage.style.color =
+                    "#9d7a1c";
+
+
+                submitBtn.disabled =
+                    false;
+
+
+                submitBtn.innerText =
+                    "Enviar confirmación";
 
 
                 form.reset();
 
-
-                submitBtn.disabled =
-                    false;
-
-
-                submitBtn.innerHTML =
-                    "Enviar Confirmación";
+            }
+        );
 
 
-                formSubmitting =
-                    false;
+
+        /* =====================================================
+           MÚSICA
+        ===================================================== */
+
+        const musicButton =
+            document.getElementById(
+                "musicButton"
+            );
+
+
+        const backgroundMusic =
+            document.getElementById(
+                "backgroundMusic"
+            );
+
+
+        let musicPlaying =
+            false;
+
+
+        musicButton.addEventListener(
+            "click",
+            function () {
+
+                if (
+                    musicPlaying
+                ) {
+
+                    backgroundMusic.pause();
+
+                    musicPlaying =
+                        false;
+
+                    musicButton.classList.remove(
+                        "playing"
+                    );
+
+                    musicButton.innerHTML =
+                        "♫";
+
+                }
+
+                else {
+
+                    backgroundMusic.play()
+                        .then(function () {
+
+                            musicPlaying =
+                                true;
+
+                            musicButton.classList.add(
+                                "playing"
+                            );
+
+                            musicButton.innerHTML =
+                                "🔊";
+
+                        })
+                        .catch(function () {
+
+                            musicPlaying =
+                                false;
+
+                        });
+
+                }
 
             }
         );
 
 
     </script>
-
 
 </body>
 
