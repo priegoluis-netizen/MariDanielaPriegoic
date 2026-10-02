@@ -367,6 +367,38 @@
             fill: white;
         }
 
+        .nav-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 8px;
+        }
+
+        .btn-waze {
+            background: linear-gradient(135deg, #33ccff, #0099cc) !important;
+            box-shadow: 0 10px 24px rgba(0, 153, 204, .28) !important;
+        }
+
+        .btn-waze:hover {
+            box-shadow: 0 14px 30px rgba(0, 153, 204, .38) !important;
+        }
+
+        .btn-calendar {
+            background: linear-gradient(135deg, var(--dorado-oscuro), var(--dorado)) !important;
+            box-shadow: 0 10px 24px rgba(150, 115, 40, .28) !important;
+        }
+
+        .btn-calendar:hover {
+            box-shadow: 0 14px 30px rgba(150, 115, 40, .38) !important;
+        }
+
+        .calendar-wrapper {
+            text-align: center;
+            margin-top: 36px;
+        }
+
+
 
         /* =========================================================
            HERO
@@ -1395,6 +1427,7 @@
         }
 
 </style>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
@@ -1614,6 +1647,15 @@
                     <div class="event-value">Salón de Eventos<br>“El Encanto”</div>
                 </div>
             </div>
+
+            <div class="calendar-wrapper">
+                <a class="btn btn-calendar"
+                   href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=XV+Años+de+María+Daniela&dates=20261107T190000/20261108T000000&details=Fiesta+de+quinceaños+de+María+Daniela+Priego+Ic.%0ASalón+de+Eventos+El+Encanto%0AKm+4.5+Carretera+al+Atlántico,+Zona+Portales,+Guatemala&location=Salón+de+Eventos+El+Encanto,+Km+4.5+Carretera+al+Atlántico,+Zona+Portales,+Guatemala&sf=true&output=xml"
+                   target="_blank"
+                   rel="noopener">
+                    📅 Agregar al calendario
+                </a>
+            </div>
         </div>
     </section>
 
@@ -1629,9 +1671,14 @@
                 <div class="location-address">
                     Km 4.5 Carretera al Atlántico,<br>Zona Portales, Guatemala
                 </div>
-                <a class="btn" href="https://maps.google.com/?q=Centro+Comercial+Portales+Km+4.5+Carretera+al+Atlantico+zona+17+Guatemala" target="_blank" rel="noopener">
-                    📍 Cómo llegar
-                </a>
+                <div class="nav-buttons">
+                    <a class="btn" href="https://maps.google.com/?q=Centro+Comercial+Portales+Km+4.5+Carretera+al+Atlantico+zona+17+Guatemala" target="_blank" rel="noopener">
+                        📍 Google Maps
+                    </a>
+                    <a class="btn btn-waze" href="https://waze.com/ul?q=Salón%20de%20Eventos%20El%20Encanto%20Km%204.5%20Carretera%20al%20Atlántico%20Zona%20Portales%20Guatemala&navigate=yes" target="_blank" rel="noopener">
+                        🚗 Waze
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -1891,6 +1938,40 @@
             });
 
             successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // Confeti rosa-dorado
+            if (typeof confetti === 'function') {
+                const duration = 3500;
+                const end = Date.now() + duration;
+                const colors = ['#c97996', '#c7a14a', '#e8b9c8', '#ead79d', '#9c526d', '#ffffff'];
+
+                (function frame() {
+                    confetti({
+                        particleCount: 4,
+                        angle: 60,
+                        spread: 55,
+                        origin: { x: 0, y: 0.7 },
+                        colors: colors
+                    });
+                    confetti({
+                        particleCount: 4,
+                        angle: 120,
+                        spread: 55,
+                        origin: { x: 1, y: 0.7 },
+                        colors: colors
+                    });
+                    if (Date.now() < end) {
+                        requestAnimationFrame(frame);
+                    }
+                }());
+
+                confetti({
+                    particleCount: 80,
+                    spread: 90,
+                    origin: { y: 0.6 },
+                    colors: colors
+                });
+            }
         });
 
         /* =====================================================
