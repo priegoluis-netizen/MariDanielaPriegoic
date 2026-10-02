@@ -737,6 +737,137 @@
         }
 
         /* =========================================================
+           MISA
+        ========================================================= */
+
+        .mass-section {
+            background:
+                radial-gradient(circle at 15% 20%, rgba(232,185,200,.20), transparent 28%),
+                linear-gradient(180deg, #fff, #f9e9ef);
+        }
+
+        .mass-card {
+            width: min(820px, 100%);
+            margin: 40px auto 0;
+            padding: 48px 28px;
+            text-align: center;
+            position: relative;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.98),
+                    rgba(255,241,246,.96)
+                );
+
+            border: 1px solid rgba(199,161,74,.38);
+            box-shadow: var(--sombra);
+            overflow: hidden;
+        }
+
+        .mass-card::before,
+        .mass-card::after {
+            content: "✦";
+            position: absolute;
+            color: var(--dorado);
+            font-size: 20px;
+            opacity: .8;
+        }
+
+        .mass-card::before {
+            top: 20px;
+            left: 24px;
+        }
+
+        .mass-card::after {
+            bottom: 20px;
+            right: 24px;
+        }
+
+        .mass-icon {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 22px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+            background: rgba(255,255,255,.9);
+            border: 1px solid rgba(199,161,74,.45);
+
+            color: var(--dorado);
+            font-size: 31px;
+
+            box-shadow: 0 10px 25px rgba(117,65,82,.10);
+        }
+
+        .mass-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(30px, 6vw, 42px);
+            line-height: 1.2;
+            color: var(--vino);
+            margin-bottom: 12px;
+        }
+
+        .mass-place {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 25px;
+            color: var(--rosa-profundo);
+            line-height: 1.35;
+            margin-bottom: 10px;
+        }
+
+        .mass-address {
+            font-size: 13px;
+            line-height: 1.8;
+            color: var(--texto);
+            margin-bottom: 28px;
+        }
+
+        .mass-note {
+            width: min(650px, 100%);
+            margin: 0 auto 28px;
+            font-size: 13px;
+            line-height: 1.9;
+            color: var(--texto);
+        }
+
+        .mass-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            padding: 13px 25px;
+            border-radius: 50px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--rosa-profundo),
+                    var(--rosa)
+                );
+
+            color: white;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            box-shadow:
+                0 10px 25px rgba(156,82,109,.22);
+
+            transition: .35s ease;
+        }
+
+        .mass-btn:hover {
+            transform: translateY(-4px);
+            box-shadow:
+                0 15px 30px rgba(156,82,109,.30);
+        }
+
+        /* =========================================================
            EVENTO
         ========================================================= */
 
@@ -1608,6 +1739,73 @@
 
                 Hay recuerdos que comienzan mucho antes
                 de que llegue la celebración.
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         MISA
+    ========================================================== -->
+
+    <section class="mass-section reveal">
+
+        <div class="container">
+
+            <div class="section-kicker">
+                Antes de celebrar juntos
+            </div>
+
+            <h2 class="section-title">
+                La Misa
+            </h2>
+
+            <p class="section-text">
+
+                Quiero comenzar este día tan especial dando gracias
+                a Dios y compartiendo contigo este momento lleno de
+                fe, amor y bendiciones.
+
+            </p>
+
+            <div class="mass-card">
+
+                <div class="mass-icon">
+                    ✝
+                </div>
+
+                <div class="mass-name">
+                    Misa de celebración
+                </div>
+
+                <div class="mass-place">
+                    Capilla San Francisco de Asís
+                </div>
+
+                <div class="mass-address">
+                    Zona Portales, Guatemala
+                </div>
+
+                <p class="mass-note">
+
+                    Será muy especial contar con tu presencia en este
+                    momento tan importante, antes de continuar con la
+                    celebración de mis quince años.
+
+                </p>
+
+                <a
+                    class="mass-btn"
+                    href="https://www.instagram.com/p/CsyamcQuskT/"
+                    target="_blank"
+                    rel="noopener">
+
+                    ✦ Conocer la capilla
+
+                </a>
 
             </div>
 
