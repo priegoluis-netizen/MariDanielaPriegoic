@@ -9,12 +9,12 @@
           content="width=device-width, initial-scale=1.0">
 
     <meta name="theme-color"
-          content="#15120e">
+          content="#b97888">
 
     <meta name="description"
-          content="Invitación de XV años de Maria Daniela Priego Ic">
+          content="Invitación de XV años de María Daniela Priego Ic">
 
-    <title>Maria Daniela | Mis 15 Años</title>
+    <title>María Daniela | Mis 15 Años</title>
 
 
     <!-- =========================================================
@@ -40,31 +40,46 @@
 
         :root {
 
-            --gold: #d4af37;
-            --gold-light: #f5e4a8;
-            --gold-soft: #ead38a;
-            --gold-dark: #9d7a1c;
+            /* =================================================
+               PALETA ROSA + DORADO
+            ================================================= */
 
-            --cream: #fffaf0;
-            --cream-2: #f7efe0;
+            --rose-deep: #9f5d6d;
+            --rose: #bd7889;
+            --rose-soft: #dca5b1;
+            --rose-pale: #efd0d5;
+            --rose-blush: #f8e5e7;
 
-            --black: #11100d;
-            --black-2: #1b1812;
-            --black-3: #252015;
+            --gold: #c9a24d;
+            --gold-light: #f4dfaa;
+            --gold-soft: #e8c979;
+            --gold-dark: #9a7528;
+            --gold-champagne: #d9bd72;
 
-            --brown: #493b27;
+            --cream: #fffaf8;
+            --cream-2: #fdf1f2;
+            --cream-3: #f8e9eb;
+
+            --dark-rose: #38242a;
+            --dark-rose-2: #4b2d36;
+            --dark-rose-3: #633b48;
+
+            --brown: #65434b;
 
             --white: #ffffff;
 
-            --text: #342d22;
-            --muted: #8b806e;
+            --text: #50373e;
+            --muted: #9a7c83;
 
             --shadow:
-                0 25px 80px rgba(0,0,0,.25);
+                0 25px 80px rgba(111,65,78,.18);
 
             --gold-shadow:
-                0 0 15px rgba(212,175,55,.45),
-                0 0 35px rgba(212,175,55,.20);
+                0 0 15px rgba(201,162,77,.45),
+                0 0 35px rgba(201,162,77,.20);
+
+            --rose-shadow:
+                0 15px 45px rgba(159,93,109,.18);
 
             --ease:
                 cubic-bezier(.22,.61,.36,1);
@@ -99,7 +114,7 @@
                 var(--text);
 
             background:
-                #f8f0e2;
+                #f9edef;
 
             overflow-x: hidden;
         }
@@ -114,6 +129,7 @@
         input,
         select,
         textarea {
+
             font-family:
                 'Montserrat',
                 sans-serif;
@@ -150,16 +166,22 @@
             background:
 
                 radial-gradient(
-                    circle at center,
-                    rgba(212,175,55,.12),
-                    transparent 35%
+                    circle at 50% 45%,
+                    rgba(244,223,170,.16),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 20% 80%,
+                    rgba(220,165,177,.18),
+                    transparent 30%
                 ),
 
                 linear-gradient(
                     135deg,
-                    #0d0c09,
-                    #1d1910,
-                    #0c0b09
+                    #321f27,
+                    #5b3541,
+                    #38232b
                 );
 
             transition:
@@ -188,7 +210,7 @@
 
             border:
                 1px solid
-                rgba(212,175,55,.55);
+                rgba(244,223,170,.65);
 
             pointer-events: none;
         }
@@ -204,7 +226,7 @@
 
             border:
                 1px solid
-                rgba(212,175,55,.15);
+                rgba(244,223,170,.20);
 
             pointer-events: none;
         }
@@ -221,7 +243,7 @@
             max-width: 650px;
 
             animation:
-                openingContent 1.4s var(--ease);
+                openingContent 1.5s var(--ease);
         }
 
 
@@ -230,14 +252,20 @@
             color:
                 var(--gold-light);
 
-            font-size: 11px;
+            font-size:
+                11px;
 
-            letter-spacing: 6px;
+            letter-spacing:
+                6px;
 
             text-transform:
                 uppercase;
 
-            margin-bottom: 20px;
+            margin-bottom:
+                20px;
+
+            animation:
+                softFade 1.2s .2s both;
         }
 
 
@@ -251,7 +279,7 @@
                 var(--gold-light);
 
             font-size:
-                clamp(65px, 13vw, 125px);
+                clamp(62px, 13vw, 125px);
 
             font-weight:
                 400;
@@ -266,10 +294,14 @@
                 0 15px;
 
             text-shadow:
-                0 0 15px rgba(212,175,55,.35),
-                0 0 40px rgba(212,175,55,.18);
+                0 0 15px rgba(244,223,170,.35),
+                0 0 45px rgba(244,223,170,.18);
 
-            margin-bottom: 15px;
+            margin-bottom:
+                15px;
+
+            animation:
+                titleGlow 5s ease-in-out infinite;
         }
 
 
@@ -280,7 +312,7 @@
                 serif;
 
             color:
-                rgba(255,255,255,.9);
+                rgba(255,255,255,.94);
 
             font-size:
                 clamp(24px, 5vw, 42px);
@@ -291,14 +323,15 @@
             text-transform:
                 uppercase;
 
-            margin-bottom: 38px;
+            margin-bottom:
+                38px;
         }
 
 
         .opening-date {
 
             color:
-                var(--gold-soft);
+                var(--rose-pale);
 
             font-size:
                 12px;
@@ -306,7 +339,8 @@
             letter-spacing:
                 4px;
 
-            margin-bottom: 35px;
+            margin-bottom:
+                35px;
         }
 
 
@@ -322,8 +356,8 @@
             background:
                 linear-gradient(
                     135deg,
-                    rgba(212,175,55,.18),
-                    rgba(212,175,55,.04)
+                    rgba(201,162,77,.20),
+                    rgba(201,162,77,.05)
                 );
 
             color:
@@ -333,7 +367,7 @@
                 16px 42px;
 
             min-width:
-                210px;
+                220px;
 
             cursor:
                 pointer;
@@ -359,8 +393,7 @@
 
             content: "";
 
-            position:
-                absolute;
+            position: absolute;
 
             top: 0;
 
@@ -374,7 +407,7 @@
                 linear-gradient(
                     90deg,
                     transparent,
-                    rgba(255,255,255,.35),
+                    rgba(255,255,255,.45),
                     transparent
                 );
 
@@ -382,7 +415,7 @@
                 skewX(-20deg);
 
             transition:
-                left .7s ease;
+                left .8s ease;
         }
 
 
@@ -395,7 +428,7 @@
                 var(--gold-shadow);
 
             background:
-                rgba(212,175,55,.16);
+                rgba(201,162,77,.17);
         }
 
 
@@ -410,7 +443,7 @@
                 18px;
 
             color:
-                rgba(255,255,255,.45);
+                rgba(255,255,255,.52);
 
             font-size:
                 10px;
@@ -442,8 +475,41 @@
         }
 
 
+        @keyframes softFade {
+
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        @keyframes titleGlow {
+
+            0%,
+            100% {
+
+                text-shadow:
+                    0 0 15px rgba(244,223,170,.30),
+                    0 0 35px rgba(244,223,170,.12);
+            }
+
+            50% {
+
+                text-shadow:
+                    0 0 20px rgba(244,223,170,.55),
+                    0 0 55px rgba(244,223,170,.22);
+            }
+        }
+
+
         /* =====================================================
-           PARTÍCULAS
+           FONDO DECORATIVO
         ===================================================== */
 
         .luxury-background {
@@ -451,7 +517,8 @@
             position:
                 fixed;
 
-            inset: 0;
+            inset:
+                0;
 
             pointer-events:
                 none;
@@ -465,14 +532,14 @@
             background:
 
                 radial-gradient(
-                    circle at 15% 15%,
-                    rgba(212,175,55,.08),
+                    circle at 12% 12%,
+                    rgba(220,165,177,.13),
                     transparent 28%
                 ),
 
                 radial-gradient(
-                    circle at 85% 75%,
-                    rgba(212,175,55,.08),
+                    circle at 88% 78%,
+                    rgba(201,162,77,.10),
                     transparent 30%
                 );
         }
@@ -497,7 +564,7 @@
 
             box-shadow:
                 0 0 8px
-                rgba(212,175,55,.9);
+                rgba(201,162,77,.85);
 
             opacity:
                 0;
@@ -575,6 +642,7 @@
 
                 transform:
                     translateY(110vh)
+                    translateX(0)
                     scale(.3);
 
                 opacity: 0;
@@ -585,7 +653,7 @@
             }
 
             50% {
-                opacity: .5;
+                opacity: .45;
             }
 
             90% {
@@ -655,8 +723,8 @@
 
                 linear-gradient(
                     to bottom,
-                    rgba(12,10,7,.35),
-                    rgba(12,10,7,.76)
+                    rgba(65,32,42,.28),
+                    rgba(48,25,32,.78)
                 ),
 
                 url("foto-portada.jpg")
@@ -665,8 +733,8 @@
 
                 linear-gradient(
                     135deg,
-                    #1b1810,
-                    #080807
+                    #633b48,
+                    #2d1d23
                 );
         }
 
@@ -686,7 +754,7 @@
                 radial-gradient(
                     circle at center,
                     transparent 15%,
-                    rgba(0,0,0,.42) 80%
+                    rgba(48,22,30,.50) 82%
                 );
 
             pointer-events:
@@ -706,18 +774,12 @@
 
             border:
                 1px solid
-                rgba(212,175,55,.5);
+                rgba(244,223,170,.55);
 
             pointer-events:
                 none;
         }
 
-
-        /*
-           IMPORTANTE:
-           El contenedor ahora tiene ancho completo y
-           overflow visible para evitar cortar la M y la D.
-        */
 
         .hero-content {
 
@@ -777,10 +839,13 @@
             margin-bottom:
                 20px;
 
+            color:
+                var(--gold-light);
+
             filter:
                 drop-shadow(
                     0 0 10px
-                    rgba(212,175,55,.55)
+                    rgba(244,223,170,.55)
                 );
 
             animation:
@@ -793,12 +858,14 @@
             0%,
             100% {
                 transform:
-                    translateY(0);
+                    translateY(0)
+                    rotate(0deg);
             }
 
             50% {
                 transform:
-                    translateY(-7px);
+                    translateY(-7px)
+                    rotate(2deg);
             }
         }
 
@@ -835,16 +902,16 @@
                 italic;
 
             color:
-                rgba(255,255,255,.9);
+                rgba(255,255,255,.92);
 
             margin-bottom:
                 8px;
         }
 
 
-        /*
-           NOMBRE PRINCIPAL
-        */
+        /* =====================================================
+           NOMBRE
+        ===================================================== */
 
         .hero-name {
 
@@ -861,11 +928,6 @@
                 'Great Vibes',
                 cursive;
 
-            /*
-               Antes era demasiado grande en móviles.
-               Esta escala mantiene las letras completas.
-            */
-
             font-size:
                 clamp(60px, 13vw, 150px);
 
@@ -881,16 +943,8 @@
             white-space:
                 nowrap;
 
-            padding-left:
-                15px;
-
-            padding-right:
-                15px;
-
-            /*
-               Permite que los trazos de Great Vibes
-               sobresalgan sin ser recortados.
-            */
+            padding:
+                0 15px;
 
             overflow:
                 visible;
@@ -899,12 +953,12 @@
 
                 linear-gradient(
                     110deg,
-                    #b58b25 0%,
-                    #f8e6a5 22%,
-                    #fff4c5 40%,
-                    #c69c32 58%,
-                    #f4df9b 78%,
-                    #a47b20 100%
+                    #b88a35 0%,
+                    #f6e4ae 20%,
+                    #fff2c9 38%,
+                    #d1aa59 55%,
+                    #f4dfa5 76%,
+                    #a77b29 100%
                 );
 
             background-size:
@@ -925,7 +979,7 @@
             filter:
                 drop-shadow(
                     0 4px 15px
-                    rgba(0,0,0,.45)
+                    rgba(40,15,22,.45)
                 );
         }
 
@@ -960,10 +1014,13 @@
                 uppercase;
 
             color:
-                var(--gold-light);
+                var(--rose-pale);
 
             margin-top:
                 5px;
+
+            text-shadow:
+                0 2px 12px rgba(0,0,0,.25);
         }
 
 
@@ -1049,13 +1106,13 @@
                 translate(-50%,-50%);
 
             color:
-                var(--gold);
+                var(--gold-light);
 
             font-size:
                 12px;
 
             background:
-                rgba(20,17,11,.8);
+                rgba(65,32,42,.80);
 
             padding:
                 0 8px;
@@ -1080,7 +1137,7 @@
                 3;
 
             color:
-                rgba(255,255,255,.65);
+                rgba(255,255,255,.70);
 
             font-size:
                 9px;
@@ -1108,7 +1165,7 @@
 
                 linear-gradient(
                     to bottom,
-                    var(--gold),
+                    var(--gold-light),
                     transparent
                 );
 
@@ -1164,14 +1221,17 @@
                 100%;
 
             background:
-                rgba(17,16,13,.94);
+                rgba(57,31,39,.95);
 
             backdrop-filter:
-                blur(12px);
+                blur(14px);
 
             border-bottom:
                 1px solid
-                rgba(212,175,55,.2);
+                rgba(244,223,170,.25);
+
+            box-shadow:
+                0 8px 25px rgba(52,25,33,.10);
         }
 
 
@@ -1218,7 +1278,7 @@
                 0;
 
             color:
-                rgba(255,255,255,.7);
+                rgba(255,255,255,.76);
 
             font-size:
                 9px;
@@ -1230,7 +1290,43 @@
                 uppercase;
 
             transition:
-                color .3s ease;
+                all .3s ease;
+
+            position:
+                relative;
+
+            padding:
+                5px 0;
+        }
+
+
+        .nav a::after {
+
+            content: "";
+
+            position:
+                absolute;
+
+            left:
+                50%;
+
+            bottom:
+                0;
+
+            width:
+                0;
+
+            height:
+                1px;
+
+            background:
+                var(--gold-light);
+
+            transition:
+                all .35s ease;
+
+            transform:
+                translateX(-50%);
         }
 
 
@@ -1238,6 +1334,13 @@
 
             color:
                 var(--gold-light);
+        }
+
+
+        .nav a:hover::after {
+
+            width:
+                100%;
         }
 
 
@@ -1261,10 +1364,17 @@
         .section-light {
 
             background:
+
+                radial-gradient(
+                    circle at 10% 20%,
+                    rgba(220,165,177,.12),
+                    transparent 25%
+                ),
+
                 linear-gradient(
                     180deg,
-                    #fffaf2,
-                    #f8efe1
+                    #fffaf9,
+                    #f9e9eb
                 );
         }
 
@@ -1278,14 +1388,20 @@
 
                 radial-gradient(
                     circle at 20% 20%,
-                    rgba(212,175,55,.08),
+                    rgba(220,165,177,.12),
                     transparent 25%
+                ),
+
+                radial-gradient(
+                    circle at 85% 80%,
+                    rgba(201,162,77,.08),
+                    transparent 30%
                 ),
 
                 linear-gradient(
                     135deg,
-                    #13120f,
-                    #211c13
+                    #3a222b,
+                    #5a3440
                 );
         }
 
@@ -1313,7 +1429,7 @@
         .section-kicker {
 
             color:
-                var(--gold-dark);
+                var(--rose-deep);
 
             font-size:
                 10px;
@@ -1382,7 +1498,7 @@
         .section-dark .section-subtitle {
 
             color:
-                rgba(255,255,255,.65);
+                rgba(255,255,255,.70);
         }
 
 
@@ -1476,7 +1592,7 @@
                 uppercase;
 
             color:
-                var(--gold-dark);
+                var(--rose-deep);
         }
 
 
@@ -1542,6 +1658,21 @@
 
             font-size:
                 13px;
+
+            animation:
+                ornamentSpin 7s linear infinite;
+        }
+
+
+        @keyframes ornamentSpin {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
 
 
@@ -1580,18 +1711,33 @@
                 center;
 
             background:
-                rgba(255,255,255,.72);
+                rgba(255,255,255,.78);
 
             border:
                 1px solid
-                rgba(212,175,55,.28);
+                rgba(201,162,77,.35);
 
             box-shadow:
                 0 10px 30px
-                rgba(100,75,25,.08);
+                rgba(111,65,78,.09);
 
             overflow:
                 hidden;
+
+            transition:
+                transform .35s ease,
+                box-shadow .35s ease;
+        }
+
+
+        .time-box:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 18px 40px
+                rgba(159,93,109,.14);
         }
 
 
@@ -1608,7 +1754,7 @@
 
             border:
                 1px solid
-                rgba(212,175,55,.13);
+                rgba(201,162,77,.15);
 
             pointer-events:
                 none;
@@ -1634,7 +1780,7 @@
                 1;
 
             color:
-                var(--gold-dark);
+                var(--rose-deep);
         }
 
 
@@ -1681,7 +1827,7 @@
 
                 box-shadow:
                     0 0 25px
-                    rgba(212,175,55,.25);
+                    rgba(201,162,77,.25);
             }
 
             100% {
@@ -1718,11 +1864,11 @@
 
                 linear-gradient(
                     135deg,
-                    #8e6d19,
-                    #f4df9b,
-                    #a47b20,
-                    #f4df9b,
-                    #8e6d19
+                    #a67b2b,
+                    #f5dfa2,
+                    #d3a84f,
+                    #f6e5b0,
+                    #a67b2b
                 );
 
             background-size:
@@ -1733,7 +1879,7 @@
 
             box-shadow:
                 0 25px 70px
-                rgba(0,0,0,.25);
+                rgba(32,14,20,.30);
         }
 
 
@@ -1762,7 +1908,7 @@
                 relative;
 
             background:
-                #111;
+                #24171b;
         }
 
 
@@ -1791,7 +1937,7 @@
                 25px;
 
             color:
-                var(--muted);
+                rgba(255,255,255,.70);
 
             font-family:
                 'Cormorant Garamond',
@@ -1840,11 +1986,11 @@
                 center;
 
             background:
-                rgba(255,255,255,.68);
+                rgba(255,255,255,.76);
 
             border:
                 1px solid
-                rgba(212,175,55,.25);
+                rgba(201,162,77,.28);
 
             transition:
                 all .45s var(--ease);
@@ -1858,10 +2004,10 @@
 
             box-shadow:
                 0 20px 45px
-                rgba(80,60,20,.12);
+                rgba(111,65,78,.13);
 
             border-color:
-                rgba(212,175,55,.55);
+                rgba(201,162,77,.60);
         }
 
 
@@ -1872,6 +2018,9 @@
 
             margin-bottom:
                 15px;
+
+            color:
+                var(--rose);
         }
 
 
@@ -1888,7 +2037,7 @@
                 1px;
 
             color:
-                var(--gold-dark);
+                var(--rose-deep);
 
             margin-bottom:
                 9px;
@@ -1933,13 +2082,16 @@
 
                 linear-gradient(
                     135deg,
-                    rgba(212,175,55,.12),
-                    rgba(255,255,255,.025)
+                    rgba(220,165,177,.13),
+                    rgba(255,255,255,.035)
                 );
 
             border:
                 1px solid
-                rgba(212,175,55,.32);
+                rgba(244,223,170,.32);
+
+            box-shadow:
+                0 20px 60px rgba(30,12,18,.16);
         }
 
 
@@ -1963,7 +2115,7 @@
         .location-box p {
 
             color:
-                rgba(255,255,255,.72);
+                rgba(255,255,255,.74);
 
             font-size:
                 12px;
@@ -2027,6 +2179,9 @@
 
             box-shadow:
                 var(--gold-shadow);
+
+            background:
+                rgba(201,162,77,.08);
         }
 
 
@@ -2049,14 +2204,18 @@
                 55px 25px;
 
             background:
-                rgba(255,255,255,.75);
+                rgba(255,255,255,.80);
 
             border:
                 1px solid
-                rgba(212,175,55,.35);
+                rgba(201,162,77,.35);
 
             position:
                 relative;
+
+            box-shadow:
+                0 20px 55px
+                rgba(111,65,78,.10);
         }
 
 
@@ -2073,7 +2232,7 @@
 
             border:
                 1px solid
-                rgba(212,175,55,.12);
+                rgba(201,162,77,.13);
         }
 
 
@@ -2084,6 +2243,32 @@
 
             margin-bottom:
                 20px;
+
+            animation:
+                sparkle 2.5s ease-in-out infinite;
+        }
+
+
+        @keyframes sparkle {
+
+            0%,
+            100% {
+
+                transform:
+                    scale(1);
+
+                opacity:
+                    .75;
+            }
+
+            50% {
+
+                transform:
+                    scale(1.12);
+
+                opacity:
+                    1;
+            }
         }
 
 
@@ -2097,7 +2282,7 @@
                 40px;
 
             color:
-                var(--gold-dark);
+                var(--rose-deep);
 
             margin-bottom:
                 10px;
@@ -2144,6 +2329,24 @@
 
             margin-bottom:
                 20px;
+
+            animation:
+                giftFloat 3.5s ease-in-out infinite;
+        }
+
+
+        @keyframes giftFloat {
+
+            0%,
+            100% {
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    translateY(-9px);
+            }
         }
 
 
@@ -2170,7 +2373,7 @@
         .gift-box p {
 
             color:
-                rgba(255,255,255,.72);
+                rgba(255,255,255,.74);
 
             font-size:
                 13px;
@@ -2196,15 +2399,15 @@
                 45px 30px;
 
             background:
-                rgba(255,255,255,.82);
+                rgba(255,255,255,.84);
 
             border:
                 1px solid
-                rgba(212,175,55,.3);
+                rgba(201,162,77,.30);
 
             box-shadow:
                 0 25px 70px
-                rgba(80,60,20,.12);
+                rgba(111,65,78,.13);
         }
 
 
@@ -2236,10 +2439,10 @@
 
             border:
                 1px solid
-                rgba(110,90,50,.22);
+                rgba(125,87,99,.22);
 
             background:
-                rgba(255,255,255,.75);
+                rgba(255,255,255,.80);
 
             padding:
                 16px 17px;
@@ -2273,11 +2476,11 @@
         .form-group textarea:focus {
 
             border-color:
-                var(--gold);
+                var(--rose);
 
             box-shadow:
                 0 0 0 3px
-                rgba(212,175,55,.09);
+                rgba(189,120,137,.10);
         }
 
 
@@ -2288,11 +2491,12 @@
                 var(--gold);
 
             background:
+
                 linear-gradient(
                     135deg,
-                    #a78323,
-                    #d4af37,
-                    #a78323
+                    #a67b2b,
+                    #d8b762,
+                    #b58a35
                 );
 
             background-size:
@@ -2371,7 +2575,7 @@
         .closing {
 
             min-height:
-                70vh;
+                75vh;
 
             display:
                 flex;
@@ -2391,8 +2595,8 @@
             background:
 
                 linear-gradient(
-                    rgba(8,7,5,.82),
-                    rgba(8,7,5,.92)
+                    rgba(52,27,35,.76),
+                    rgba(40,20,27,.92)
                 ),
 
                 url("foto-portada.jpg")
@@ -2401,13 +2605,38 @@
         }
 
 
+        .closing::before {
+
+            content: "";
+
+            position:
+                absolute;
+
+            inset:
+                25px;
+
+            border:
+                1px solid
+                rgba(244,223,170,.32);
+
+            pointer-events:
+                none;
+        }
+
+
         .closing-content {
 
             max-width:
-                750px;
+                800px;
 
             padding:
                 60px 20px;
+
+            position:
+                relative;
+
+            z-index:
+                2;
         }
 
 
@@ -2456,7 +2685,27 @@
 
             text-shadow:
                 0 0 25px
-                rgba(212,175,55,.35);
+                rgba(244,223,170,.35);
+
+            animation:
+                closingGlow 5s ease-in-out infinite;
+        }
+
+
+        @keyframes closingGlow {
+
+            0%,
+            100% {
+
+                transform:
+                    scale(1);
+            }
+
+            50% {
+
+                transform:
+                    scale(1.015);
+            }
         }
 
 
@@ -2470,16 +2719,25 @@
                 clamp(23px, 4vw, 32px);
 
             color:
-                rgba(255,255,255,.82);
+                rgba(255,255,255,.88);
 
             font-style:
                 italic;
 
             margin-top:
-                25px;
+                30px;
 
             line-height:
-                1.5;
+                1.55;
+
+            max-width:
+                700px;
+
+            margin-left:
+                auto;
+
+            margin-right:
+                auto;
         }
 
 
@@ -2509,16 +2767,16 @@
         footer {
 
             padding:
-                25px 20px;
+                28px 20px;
 
             text-align:
                 center;
 
             background:
-                #0b0a08;
+                #29171e;
 
             color:
-                rgba(255,255,255,.45);
+                rgba(255,255,255,.48);
 
             font-size:
                 9px;
@@ -2567,7 +2825,7 @@
                 var(--gold);
 
             background:
-                rgba(17,16,13,.88);
+                rgba(57,31,39,.92);
 
             color:
                 var(--gold-light);
@@ -2580,7 +2838,7 @@
 
             box-shadow:
                 0 5px 20px
-                rgba(0,0,0,.2);
+                rgba(0,0,0,.20);
 
             transition:
                 all .3s ease;
@@ -2611,14 +2869,14 @@
 
                 box-shadow:
                     0 0 0
-                    rgba(212,175,55,0);
+                    rgba(201,162,77,0);
             }
 
             50% {
 
                 box-shadow:
                     0 0 20px
-                    rgba(212,175,55,.45);
+                    rgba(201,162,77,.50);
             }
         }
 
@@ -2646,11 +2904,6 @@
 
 
             .hero-name {
-
-                /*
-                   El tamaño se adapta al ancho disponible.
-                   Esto evita que la M y D se corten.
-                */
 
                 font-size:
                     clamp(58px, 17vw, 82px);
@@ -2802,10 +3055,6 @@
             }
 
 
-            /*
-               CORRECCIÓN PRINCIPAL PARA M Y D
-            */
-
             .hero-name {
 
                 font-size:
@@ -2905,6 +3154,20 @@
             }
 
 
+            .closing {
+
+                min-height:
+                    70vh;
+            }
+
+
+            .closing::before {
+
+                inset:
+                    14px;
+            }
+
+
             .music-button {
 
                 right:
@@ -2965,7 +3228,9 @@
         @media (prefers-reduced-motion: reduce) {
 
             *,
+
             *::before,
+
             *::after {
 
                 animation-duration:
@@ -3001,7 +3266,7 @@
         <div class="opening-content">
 
             <div class="opening-small">
-                Una invitación especial
+                Una invitación hecha con mucho cariño
             </div>
 
 
@@ -3030,7 +3295,7 @@
 
 
             <div class="opening-note">
-                ✦ Te espera una noche para recordar ✦
+                ✦ Una noche especial está por comenzar ✦
             </div>
 
         </div>
@@ -3089,12 +3354,12 @@
 
 
                 <div class="hero-intro">
-                    A celebrar conmigo
+                    Quiero celebrar contigo
                 </div>
 
 
                 <h1 class="hero-name">
-                    Maria Daniela
+                    María Daniela
                 </h1>
 
 
@@ -3187,22 +3452,23 @@
 
                     <p>
 
-                        Hay momentos en la vida que
-                        merecen ser celebrados,
-                        compartidos y guardados
-                        para siempre en el corazón.
+                        Hay momentos que pasan una sola vez
+                        y que se quedan para siempre
+                        en nuestra memoria.
 
                         <br><br>
 
-                        Hoy quiero compartir contigo
-                        uno de los momentos más
-                        especiales de mi vida:
+                        Hoy comienza una nueva etapa de mi vida
+                        y quiero vivir este momento rodeada
+                        de las personas que hacen mis días
+                        más especiales.
 
-                        <br>
+                        <br><br>
 
+                        Por eso, quiero invitarte a celebrar conmigo
 
                         <strong>
-                            Mis Quince Años
+                            mis Quince Años
                         </strong>
 
                     </p>
@@ -3231,12 +3497,12 @@
 
 
                     <h2 class="section-title">
-                        Falta muy poco
+                        Cada vez falta menos
                     </h2>
 
 
                     <p class="section-subtitle">
-                        para compartir juntos esta noche tan especial
+                        para vivir juntos una noche que recordaré siempre
                     </p>
 
                 </div>
@@ -3327,17 +3593,18 @@
                 <div class="section-heading reveal">
 
                     <div class="section-kicker">
-                        Un momento especial
+                        Un recuerdo especial
                     </div>
 
 
                     <h2 class="section-title">
-                        Para compartir contigo
+                        Antes de nuestra gran noche
                     </h2>
 
 
                     <p class="section-subtitle">
-                        Una pequeña sorpresa antes de nuestra gran noche.
+                        Quiero compartir contigo un pequeño pedacito
+                        de esta etapa tan especial de mi vida.
                     </p>
 
                 </div>
@@ -3369,8 +3636,8 @@
 
                     <div class="video-caption">
 
-                        "Una noche que quedará para siempre
-                        en nuestros corazones."
+                        "Hay recuerdos que comienzan
+                        mucho antes de que llegue el gran día."
 
                     </div>
 
@@ -3405,7 +3672,8 @@
 
 
                     <p class="section-subtitle">
-                        Todo está preparado para celebrar juntos.
+                        Todo está preparado para compartir
+                        contigo una noche muy especial.
                     </p>
 
                 </div>
@@ -3533,7 +3801,7 @@
 
 
                     <h2 class="section-title">
-                        Te esperamos
+                        Te espero para celebrar
                     </h2>
 
                 </div>
@@ -3612,7 +3880,7 @@
 
 
                     <p>
-                        Una noche para vestir elegante
+                        Una noche especial merece un toque de elegancia
                     </p>
 
                 </div>
@@ -3640,7 +3908,7 @@
 
 
                     <h2 class="section-title">
-                        Tu presencia es el mejor regalo
+                        Lo más importante es compartir
                     </h2>
 
                 </div>
@@ -3654,22 +3922,25 @@
 
 
                     <h3>
-                        Gracias por acompañarme
+                        Tu presencia significa mucho para mí
                     </h3>
 
 
                     <p>
 
-                        Lo más importante para mí
-                        es poder compartir este día
-                        tan especial con las personas
-                        que quiero.
+                        El mejor regalo será tenerte conmigo
+                        en una noche tan importante.
 
                         <br><br>
 
-                        Tu presencia hará que esta
-                        noche sea todavía más
-                        inolvidable.
+                        Si deseas tener un detalle conmigo,
+                        lo recibiré con muchísimo cariño.
+
+                        <br><br>
+
+                        Pero, sobre todo, gracias por ser parte
+                        de este momento que guardaré siempre
+                        en mi corazón.
 
                     </p>
 
@@ -3699,14 +3970,14 @@
 
 
                     <h2 class="section-title">
-                        ¿Nos acompañarás?
+                        ¿Me acompañas?
                     </h2>
 
 
                     <p class="section-subtitle">
 
-                        Me encantaría compartir
-                        este momento contigo.
+                        Será muy especial para mí compartir
+                        esta noche contigo.
 
                         <br>
 
@@ -3750,7 +4021,7 @@
                                     disabled
                                     selected>
 
-                                    ¿Nos acompañarás?
+                                    ¿Me acompañarás?
 
                                 </option>
 
@@ -3795,7 +4066,7 @@
                                 name="mensaje"
                                 id="mensaje"
                                 rows="4"
-                                placeholder="Déjale un mensaje a Maria Daniela (Opcional)"></textarea>
+                                placeholder="Déjale un mensaje a María Daniela (Opcional)"></textarea>
 
                         </div>
 
@@ -3839,7 +4110,7 @@
             <div class="closing-content reveal">
 
                 <div class="closing-small">
-                    Gracias por formar parte
+                    Gracias por acompañarme
                 </div>
 
 
@@ -3850,10 +4121,20 @@
 
                 <div class="closing-text">
 
-                    "Los momentos especiales
-                    se vuelven inolvidables
-                    cuando los compartimos
-                    con quienes amamos."
+                    Esta noche será aún más especial
+                    porque estarás conmigo.
+
+                    <br><br>
+
+                    Gracias por formar parte de este momento,
+                    por celebrar conmigo y por acompañarme
+                    a comenzar una nueva etapa de mi vida.
+
+                    <br><br>
+
+                    Con mucho cariño,
+                    <br>
+                    María Daniela
 
                 </div>
 
@@ -3879,7 +4160,7 @@
             <br>
 
             <span>
-                Maria Daniela Priego Ic
+                María Daniela Priego Ic
             </span>
 
         </footer>
@@ -3900,6 +4181,7 @@
         ♫
 
     </button>
+
 
 
     <!-- =========================================================
@@ -3977,10 +4259,8 @@
                     })
                     .catch(function () {
 
-                        /*
-                           Algunos navegadores pueden
-                           bloquear la música.
-                        */
+                        /* El navegador puede bloquear
+                           la reproducción automática. */
 
                     });
 
@@ -4118,7 +4398,7 @@
                         text-align:center;
                         padding:35px 15px;
                         font-family:'Cormorant Garamond',serif;
-                        color:#a78323;
+                        color:#9f5d6d;
                         font-size:30px;
                         font-style:italic;
                     ">
@@ -4137,7 +4417,6 @@
                     );
 
                 }
-
 
                 return;
             }
@@ -4338,7 +4617,7 @@
 
 
                     statusMessage.style.color =
-                        "#a78323";
+                        "#9f5d6d";
 
 
                     return;
@@ -4363,7 +4642,7 @@
 
 
                 statusMessage.style.color =
-                    "#8b806e";
+                    "#9a7c83";
 
             }
         );
@@ -4387,7 +4666,7 @@
 
 
                 statusMessage.style.color =
-                    "#9d7a1c";
+                    "#9a7528";
 
 
                 submitBtn.disabled =
@@ -4479,6 +4758,7 @@
         );
 
     </script>
+
 
 </body>
 
