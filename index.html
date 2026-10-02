@@ -557,28 +557,30 @@
         }
 
         /* =========================================================
-           VIDEO
+           FOTO ESPECIAL
         ========================================================= */
-        .video-section {
+        .photo-section {
             background: #fff;
         }
 
-        .video-wrapper {
+        .photo-wrapper {
             width: min(780px, 100%);
             margin: 40px auto 0;
             padding: 6px;
             background: linear-gradient(135deg, var(--dorado), var(--dorado-claro), var(--rosa));
             box-shadow: var(--sombra);
-            border-radius: 2px;
+            border-radius: 4px;
         }
 
-        .video-wrapper video {
+        .photo-wrapper img {
             width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
             display: block;
-            background: #000;
+            background: #f8e4eb;
         }
 
-        .video-caption {
+        .photo-caption {
             text-align: center;
             margin-top: 28px;
             font-family: 'Cormorant Garamond', serif;
@@ -586,6 +588,14 @@
             color: var(--rosa-profundo);
             font-style: italic;
             font-weight: 400;
+        }
+
+        .photo-note {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 11px;
+            letter-spacing: 1px;
+            color: var(--texto-suave);
         }
 
         /* =========================================================
@@ -661,6 +671,34 @@
             color: var(--texto-suave);
             margin-bottom: 24px;
         }
+
+        .mass-time {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 8px auto 22px;
+            padding: 14px 34px;
+            border-top: 1px solid rgba(199,161,74,.35);
+            border-bottom: 1px solid rgba(199,161,74,.35);
+        }
+
+        .mass-time-label {
+            font-size: 9px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--dorado-oscuro);
+            margin-bottom: 3px;
+            font-weight: 500;
+        }
+
+        .mass-time strong {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            line-height: 1;
+            color: var(--rosa-profundo);
+            font-weight: 600;
+        }
+
 
         .mass-note {
             width: min(580px, 100%);
@@ -1239,23 +1277,27 @@
     </section>
 
     <!-- =========================================================
-         VIDEO
+         FOTO ESPECIAL
     ========================================================== -->
-    <section class="video-section reveal">
+    <section class="photo-section reveal">
         <div class="container">
-            <div class="section-kicker">Un recuerdo para ti</div>
-            <h2 class="section-title">Antes de la gran noche</h2>
+            <div class="section-kicker">Un lugar muy especial</div>
+            <h2 class="section-title">La capilla donde comenzará este día</h2>
             <p class="section-text">
-                Quise compartir contigo un pequeño momento que forma parte de esta celebración.
+                Antes de celebrar mis quince años, quiero compartir contigo un momento
+                muy especial de fe y gratitud. Te espero para acompañarme en la Santa Misa.
             </p>
-            <div class="video-wrapper">
-                <video controls playsinline preload="metadata">
-                    <source src="video.mp4" type="video/mp4">
-                    Tu navegador no soporta la reproducción de este video.
-                </video>
+
+            <div class="photo-wrapper">
+                <img src="foto-misa.jpg"
+                     alt="Capilla San Francisco de Asís, Zona Portales">
             </div>
-            <div class="video-caption">
-                Hay recuerdos que comienzan mucho antes de que llegue la celebración.
+
+            <div class="photo-caption">
+                Capilla San Francisco de Asís
+            </div>
+            <div class="photo-note">
+                Zona Portales · Guatemala
             </div>
         </div>
     </section>
@@ -1269,17 +1311,30 @@
             <h2 class="section-title">La Misa</h2>
             <p class="section-text">
                 Quiero comenzar este día tan especial dando gracias a Dios y compartiendo
-                contigo este momento lleno de fe, amor y bendiciones.
+                contigo un momento lleno de fe, amor y bendiciones. Será el inicio de una
+                noche muy especial que deseo vivir junto a las personas que quiero.
             </p>
             <div class="mass-card">
                 <div class="mass-icon">✝</div>
-                <div class="mass-name">Misa de celebración</div>
+                <div class="mass-name">Santa Misa</div>
                 <div class="mass-place">Capilla San Francisco de Asís</div>
-                <div class="mass-address">Zona Portales, Guatemala</div>
+
+                <div class="mass-time">
+                    <span class="mass-time-label">Hora</span>
+                    <strong>5:00 p. m.</strong>
+                </div>
+
+                <div class="mass-address">
+                    Sábado 7 de noviembre de 2026<br>
+                    Zona Portales, Guatemala
+                </div>
+
                 <p class="mass-note">
-                    Será muy especial contar con tu presencia en este momento tan importante,
-                    antes de continuar con la celebración de mis quince años.
+                    Será un honor contar con tu presencia en la Misa, antes de continuar
+                    con la celebración de mis quince años. Gracias por acompañarme también
+                    en este momento tan importante para mí.
                 </p>
+
                 <a class="btn" href="https://www.instagram.com/p/CsyamcQuskT/" target="_blank" rel="noopener">
                     ✦ Conocer la capilla
                 </a>
