@@ -4,7 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>María Daniela | Mis 15 Años</title>
-    <meta name="description" content="Invitación especial a los XV años de María Daniela Priego Ic.">
+    <meta name="description" content="Invitación especial a los XV años de María Daniela Priego Ic. Sábado 7 de noviembre 2026.">
+
+    <!-- Vista previa para WhatsApp / Facebook / Telegram -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://priegoluis-netizen.github.io/MariDanielaPriegoic/">
+    <meta property="og:title" content="María Daniela | Mis 15 Años">
+    <meta property="og:description" content="Con mucha ilusión te invito a celebrar conmigo mis quince años. Sábado 7 de noviembre 2026 · Guatemala">
+    <meta property="og:image" content="https://priegoluis-netizen.github.io/MariDanielaPriegoic/preview.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="es_GT">
+    <meta property="og:site_name" content="XV Años María Daniela">
+
+    <!-- Twitter / otros -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="María Daniela | Mis 15 Años">
+    <meta name="twitter:description" content="Con mucha ilusión te invito a celebrar conmigo mis quince años. Sábado 7 de noviembre 2026">
+    <meta name="twitter:image" content="https://priegoluis-netizen.github.io/MariDanielaPriegoic/preview.jpg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1840,6 +1857,9 @@
                             <option value="">Selecciona el número de personas</option>
                             <option value="1">1 persona</option>
                             <option value="2">2 personas</option>
+                            <option value="3">3 personas</option>
+                            <option value="4">4 personas</option>
+                            <option value="5">5 personas</option>
                         </select>
                     </div>
 
@@ -2072,9 +2092,9 @@
         });
 
         /* =====================================================
-           TARJETA PERSONALIZADA (URL params)
+           TARJETA PERSONALIZADA + FORMULARIO (URL params)
            Ejemplo de enlace:
-           invitacion.html?nombre=María%20Priego&pases=2
+           index.html?nombre=Familia%20López&pases=3
         ===================================================== */
         (function () {
             const params = new URLSearchParams(window.location.search);
@@ -2086,6 +2106,7 @@
             const passesEl = document.getElementById('passesCount');
             const passesWrap = document.getElementById('guestPasses');
 
+            // Rellenar tarjeta personalizada
             if (nombre && nombre.trim()) {
                 nameEl.textContent = nombre.trim();
                 card.classList.add('visible');
@@ -2101,6 +2122,40 @@
                 } else {
                     passesWrap.style.display = 'none';
                 }
+            }
+
+            // Rellenar formulario RSVP automáticamente
+            const inputNombre = document.getElementById('nombre');
+            const selectPases = document.getElementById('pases');
+            const selectAsistencia = document.getElementById('asistencia');
+
+            if (inputNombre && nombre && nombre.trim()) {
+                inputNombre.value = nombre.trim();
+            }
+
+            if (selectPases && pases && !isNaN(parseInt(pases))) {
+                const n = String(parseInt(pases));
+                // Si la opción existe, la selecciona; si no, la agrega
+                let found = false;
+                for (let i = 0; i < selectPases.options.length; i++) {
+                    if (selectPases.options[i].value === n) {
+                        selectPases.value = n;
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found && n) {
+                    const opt = document.createElement('option');
+                    opt.value = n;
+                    opt.textContent = n + (n === '1' ? ' persona' : ' personas');
+                    opt.selected = true;
+                    selectPases.appendChild(opt);
+                }
+            }
+
+            // Si vienen pases, preseleccionar "Sí, ahí estaré"
+            if (selectAsistencia && pases) {
+                selectAsistencia.value = 'Si';
             }
         })();
 
