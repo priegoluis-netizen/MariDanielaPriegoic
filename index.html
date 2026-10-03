@@ -151,12 +151,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 24px;
+            gap: 28px;
             flex-wrap: wrap;
             margin: 0 auto 22px;
         }
 
-        /* Círculo 1: Badge de 15 Años */
+        /* Círculo 1: Badge de 15 Años con sus mariposas originales */
         .butterfly-badge {
             width: 230px;
             height: 230px;
@@ -202,7 +202,19 @@
             transform: rotate(-45deg);
         }
 
-        /* Círculo 2: Foto redonda con las mariposas alrededor */
+        .badge-butterfly {
+            position: absolute;
+            font-size: 30px;
+            filter: drop-shadow(0 5px 6px rgba(100,50,80,.12));
+            animation: butterflyFloat 5s ease-in-out infinite;
+            z-index: 4;
+        }
+        .badge-butterfly.b1 { left:-18px; top:-8px; }
+        .badge-butterfly.b2 { right:-12px; top:25px; font-size:24px; animation-delay:-1s; }
+        .badge-butterfly.b3 { left:-5px; bottom:2px; font-size:22px; animation-delay:-2s; }
+        .badge-butterfly.b4 { right:-4px; bottom:-15px; font-size:32px; animation-delay:-3s; }
+
+        /* Círculo 2: Foto redonda con mariposas exclusivas alrededor */
         .hero-photo-wrapper {
             position: relative;
         }
@@ -216,6 +228,7 @@
             box-shadow: 0 0 0 8px rgba(255,255,255,.9),0 20px 50px rgba(168,63,112,.15);
             position: relative;
             background: #fff;
+            z-index: 3;
         }
 
         .hero-photo-circle img {
@@ -224,22 +237,34 @@
             object-fit: cover;
         }
 
-        /* Mariposas posicionadas alrededor de la foto redonda */
         .photo-butterfly {
             position: absolute;
-            font-size: 30px;
+            font-size: 28px;
             filter: drop-shadow(0 5px 6px rgba(100,50,80,.12));
             animation: butterflyFloat 5s ease-in-out infinite;
             z-index: 5;
         }
-        .photo-butterfly.pb1 { left: -18px; top: -10px; transform: rotate(-20deg); }
-        .photo-butterfly.pb2 { right: -15px; top: 15px; font-size: 26px; animation-delay: -1s; transform: rotate(15deg); }
-        .photo-butterfly.pb3 { left: -10px; bottom: 5px; font-size: 24px; animation-delay: -2s; transform: rotate(25deg); }
-        .photo-butterfly.pb4 { right: -12px; bottom: -12px; font-size: 34px; animation-delay: -3s; transform: rotate(-15deg); }
+        .photo-butterfly.pb1 { left: -22px; top: -12px; transform: rotate(-25deg); }
+        .photo-butterfly.pb2 { right: -18px; top: 12px; font-size: 25px; animation-delay: -1.5s; transform: rotate(20deg); }
+        .photo-butterfly.pb3 { left: -14px; bottom: 2px; font-size: 22px; animation-delay: -2.5s; transform: rotate(30deg); }
+        .photo-butterfly.pb4 { right: -15px; bottom: -14px; font-size: 32px; animation-delay: -3.5s; transform: rotate(-20deg); }
 
         @keyframes butterflyFloat {
             50% { transform: translateY(-8px) rotate(4deg); }
         }
+
+        /* Mariposas flotantes en el fondo del hero */
+        .butterfly-float {
+            position: absolute;
+            z-index: 1;
+            font-size: 38px;
+            opacity: .75;
+            animation: butterflyFloat 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+        .butterfly-float-1 { left: 7%; top: 38%; }
+        .butterfly-float-2 { right: 8%; top: 23%; font-size: 26px; animation-delay: -2s; }
+        .butterfly-float-3 { right: 13%; bottom: 14%; font-size: 32px; animation-delay: -4s; }
 
         .hero-invite-line, .hero-date {
             letter-spacing: 3px;
@@ -450,7 +475,7 @@
         footer { background:#fff; text-align:center; padding:24px; color:#8a727e; font-size:10px; letter-spacing:1px; border-top:1px solid #f0dce7; }
 
         @media (max-width: 600px) {
-            .hero-circles-container { gap: 15px; }
+            .hero-circles-container { gap: 18px; }
             .butterfly-badge { width: 170px; height: 170px; }
             .hero-photo-circle { width: 150px; height: 150px; }
             .badge-number { font-size: 56px; }
@@ -481,7 +506,7 @@
         <img class="template-leaves-top" src="https://memoriesinvitations.com/wp-content/uploads/2023/12/Diseno-15-Anos-Fucsia-Premium-Nuevo-Diseno-02-1024x386.webp" alt="" aria-hidden="true">
         <div class="butterfly-hero-inner">
             
-            <!-- Círculo de los 15 años y foto redonda con mariposas alrededor -->
+            <!-- Círculo de los 15 años (con sus mariposas originales) y foto redonda (con sus propias mariposas) -->
             <div class="hero-circles-container">
                 <div class="butterfly-badge" aria-hidden="true">
                     <span class="badge-butterfly b1">🦋</span>
@@ -510,6 +535,10 @@
             <p>Una noche llena de sueños, alegría y momentos para recordar.</p>
             <div class="hero-date">SÁBADO · 7 DE NOVIEMBRE · 2026</div>
         </div>
+
+        <div class="butterfly-float butterfly-float-1">🦋</div>
+        <div class="butterfly-float butterfly-float-2">🦋</div>
+        <div class="butterfly-float butterfly-float-3">🦋</div>
     </header>
 
     <section class="guest-banner">
@@ -742,7 +771,7 @@
                 inputNombre.value = "Invitado especial";
             }
 
-            // Configurar pases (bloqueados para que no se puedan cambiar)
+            // Configurar pases (bloqueados)
             let numPases = 3; 
             if (pasesParam && !isNaN(parseInt(pasesParam)) && parseInt(pasesParam) > 0) {
                 numPases = parseInt(pasesParam);
