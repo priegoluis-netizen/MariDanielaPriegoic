@@ -26,9 +26,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
-        /* =========================================================
-           VARIABLES
-        ========================================================= */
         :root {
             --template-pink: #d95b92;
             --template-pink-dark: #a83f70;
@@ -38,9 +35,6 @@
             --template-ink: #463541;
         }
 
-        /* =========================================================
-           RESET & BASE
-        ========================================================= */
         *, *::before, *::after {
             box-sizing: border-box;
             margin: 0;
@@ -79,9 +73,6 @@
             text-decoration: none;
         }
 
-        /* =========================================================
-           ESTILOS GENERALES DE LA PLANTILLA MARIPOSA
-        ========================================================= */
         .music-btn {
             position: fixed;
             right: 18px;
@@ -316,11 +307,15 @@
             box-shadow: 0 10px 24px rgba(168,63,112,.15);
             transition: transform .2s ease;
         }
+        .template-button.light {
+            background: transparent;
+            color: var(--template-pink-dark);
+            border-color: #ddb8c9;
+            box-shadow: none;
+        }
         .template-button:hover { transform: translateY(-2px); }
 
-        /* =========================================================
-           ESTILOS DE LA VENTANA MODAL (POPUP)
-        ========================================================= */
+        /* Estilos de la Ventana Modal (Popup) */
         .modal-overlay {
             position: fixed;
             inset: 0;
@@ -370,7 +365,7 @@
             cursor: pointer;
         }
 
-        /* Línea de tiempo dentro del modal */
+        /* Timeline e interiores */
         .timeline { max-width: 550px; margin: 25px auto 0; position: relative; padding: 10px 0; text-align: left; }
         .timeline::before { content:""; position:absolute; top:0; bottom:0; left:50%; width:1px; background:var(--template-pink); transform:translateX(-50%); }
         .timeline-item { width:50%; padding:20px 24px; position:relative; text-align:right; }
@@ -381,6 +376,24 @@
         .timeline-item .time { display:block; color:var(--template-pink); font-size:11px; letter-spacing:2px; margin-bottom:4px; }
         .timeline-item strong { display:block; font-family:'Cormorant Garamond',serif; font-size:22px; color:var(--template-ink); text-transform:uppercase; letter-spacing:1px; }
         .timeline-item small { color:#7a6972; font-size:11px; }
+
+        .template-place { font-family:'Cormorant Garamond',serif; font-size:27px; color:var(--template-pink-dark); margin-bottom:8px; }
+        .template-time { font-family:'Cormorant Garamond',serif; color:var(--template-pink); font-size:45px; margin:15px 0; }
+        .template-actions { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin-top:24px; }
+        .dress-style { display:inline-block; border-top:1px solid var(--template-pink); border-bottom:1px solid var(--template-pink); padding:10px 24px; color:var(--template-pink-dark); letter-spacing:4px; font-size:12px; margin:10px 0 20px; }
+        
+        .rsvp-box { width:min(100%,570px); margin:28px auto 0; text-align:left; background:#fff; border:1px solid #ecdbe3; padding:28px; box-shadow:0 15px 45px rgba(80,40,70,.08); }
+        .rsvp-box .form-group { margin-bottom:16px; }
+        .rsvp-box label { font-size:10px; letter-spacing:1px; text-transform:uppercase; color:var(--template-pink-dark); display:block; margin-bottom:7px; }
+        .rsvp-box .form-control { width:100%; border:1px solid #ead8e1; background:#fff; padding:12px 13px; color:#5c4a55; outline:none; }
+        .rsvp-box .form-control:focus { border-color:var(--template-pink); }
+        .rsvp-box .submit-btn { width:100%; color:#fff; padding:14px; text-transform:uppercase; letter-spacing:2px; font-size:10px; cursor:pointer; background: var(--template-pink); border: none; }
+        .rsvp-box .success-message { display:none; margin-top:18px; padding:15px; text-align:center; color:var(--template-pink-dark); background:#fff5f9; border:1px solid #edd8e4; }
+
+        .template-closing { position:relative; padding:110px 22px 75px; background:linear-gradient(180deg,#fffafd,#fceff6); overflow:hidden; }
+        .closing-butterflies { font-size:35px; letter-spacing:25px; margin-bottom:15px; }
+        .template-closing p { max-width:500px; margin:12px auto 22px; color:#6c5a64; font-size:13px; line-height:1.9; }
+        footer { background:#fff; text-align:center; padding:24px; color:#8a727e; font-size:10px; letter-spacing:1px; border-top:1px solid #f0dce7; }
 
         @media (max-width: 600px) {
             .timeline::before { left: 15px; }
@@ -431,71 +444,169 @@
         <div class="personal-passes" id="guestPasses">Pases: <strong id="passesCount">3</strong></div>
     </section>
 
-    <!-- SECCIÓN CON BOTÓN QUE ABRE LA VENTANA FLOTANTE DEL ITINERARIO -->
+    <!-- SECCIÓN DE BOTONES PARA CADA SECCIÓN -->
     <section class="template-section">
         <div class="template-floral-top">❧</div>
-        <div class="section-kicker">Organización del evento</div>
-        <h2 class="template-title">Itinerario</h2>
-        <p class="template-text">Conoce los horarios de cada momento especial que compartiremos durante la celebración.</p>
-        <div style="margin-top: 25px;">
-            <button class="template-button" id="openModalBtn">Ver Itinerario</button>
+        <div class="section-kicker">Detalles del evento</div>
+        <h2 class="template-title">Secciones de la Celebración</h2>
+        <p class="template-text">Haz clic en cada sección para ver toda la información detallada.</p>
+        
+        <div style="display: flex; flex-direction: column; gap: 15px; align-items: center; margin-top: 30px;">
+            <button class="template-button" data-modal="modalItinerario">Itinerario</button>
+            <button class="template-button" data-modal="modalMisa">Santa Misa</button>
+            <button class="template-button" data-modal="modalUbicacion">Ubicación</button>
+            <button class="template-button" data-modal="modalVestimenta">Código de Vestimenta</button>
+            <button class="template-button" data-modal="modalRegalo">Regalo</button>
+            <button class="template-button" data-modal="modalRsvp">Confirmar Asistencia</button>
         </div>
     </section>
 
-    <!-- VENTANA MODAL (POPUP) PARA EL ITINERARIO -->
-    <div class="modal-overlay" id="itineraryModal">
+    <!-- VENTANAS MODALES (POPUP) PARA CADA SECCIÓN -->
+
+    <!-- 1. ITINERARIO -->
+    <div class="modal-overlay" id="modalItinerario">
         <div class="modal-content">
-            <button class="modal-close" id="closeModalBtn">&times;</button>
+            <button class="modal-close closeModalBtn">&times;</button>
             <div class="section-kicker" style="margin-top: 10px;">La celebración</div>
             <h3 class="template-title" style="font-size: 28px;">Itinerario</h3>
-            
             <div class="timeline">
                 <div class="timeline-item right"><span class="time">5:00 p. m.</span><strong>Santa Misa</strong><small>Capilla San Francisco de Asís</small></div>
                 <div class="timeline-item left"><span class="time">7:00 p. m.</span><strong>Recepción</strong><small>Salón de Eventos “El Encanto”</small></div>
                 <div class="timeline-item right"><span class="time">7:30 p. m.</span><strong>Celebración</strong><small>Compartiremos una noche inolvidable</small></div>
                 <div class="timeline-item left"><span class="time">12:00 a. m.</span><strong>Despedida</strong><small>Gracias por celebrar conmigo</small></div>
             </div>
-
             <div style="margin-top: 35px;">
-                <button class="template-button" id="closeModalBtnText">Regresar</button>
+                <button class="template-button light closeModalBtn">Regresar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. SANTA MISA -->
+    <div class="modal-overlay" id="modalMisa">
+        <div class="modal-content">
+            <button class="modal-close closeModalBtn">&times;</button>
+            <div class="section-kicker" style="margin-top: 10px;">Antes de celebrar juntos</div>
+            <h3 class="template-title" style="font-size: 28px;">Santa Misa</h3>
+            <p class="template-place">Capilla San Francisco de Asís</p>
+            <div class="template-time">5:00 p. m.</div>
+            <p class="template-text">Sábado 7 de noviembre de 2026<br>Zona Portales, Guatemala</p>
+            <div class="template-actions">
+                <a class="template-button" href="https://www.waze.com/ul?q=Capilla%20San%20Francisco%20de%20As%C3%ADs%20Zona%20Portales%20Guatemala&navigate=yes" target="_blank" rel="noopener">UBICACIÓN · WAZE</a>
+            </div>
+            <div style="margin-top: 25px;">
+                <button class="template-button light closeModalBtn">Regresar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. UBICACIÓN -->
+    <div class="modal-overlay" id="modalUbicacion">
+        <div class="modal-content">
+            <button class="modal-close closeModalBtn">&times;</button>
+            <div class="section-kicker" style="margin-top: 10px;">Te compartimos la ubicación</div>
+            <h3 class="template-title" style="font-size: 28px;">¿Dónde nos vemos?</h3>
+            <p class="template-place">Salón de Eventos “El Encanto”</p>
+            <p class="template-text">Km 4.5 Carretera al Atlántico,<br>Zona Portales, Guatemala</p>
+            <div class="template-actions">
+                <a class="template-button" href="https://maps.google.com/?q=Centro+Comercial+Portales+Km+4.5+Carretera+al+Atlantico+zona+17+Guatemala" target="_blank" rel="noopener">CÓMO LLEGAR</a>
+            </div>
+            <div style="margin-top: 25px;">
+                <button class="template-button light closeModalBtn">Regresar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. VESTIMENTA -->
+    <div class="modal-overlay" id="modalVestimenta">
+        <div class="modal-content">
+            <button class="modal-close closeModalBtn">&times;</button>
+            <div class="section-kicker" style="margin-top: 10px;">Una noche para celebrar</div>
+            <h3 class="template-title" style="font-size: 28px;">Código de vestimenta</h3>
+            <div class="dress-style">FORMAL · GALA</div>
+            <p class="template-text">Una noche tan especial merece un toque de elegancia. Gracias por acompañarme con tu mejor estilo.</p>
+            <div style="margin-top: 35px;">
+                <button class="template-button light closeModalBtn">Regresar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. REGALO -->
+    <div class="modal-overlay" id="modalRegalo">
+        <div class="modal-content">
+            <button class="modal-close closeModalBtn">&times;</button>
+            <div class="section-kicker" style="margin-top: 10px;">Tu cariño, el mejor regalo</div>
+            <h3 class="template-title" style="font-size: 28px;">Regalo</h3>
+            <p class="template-text">Tu presencia es mi mejor regalo y hará que esta noche sea aún más especial.<br><br>Si además deseas tener un pequeño detalle conmigo, lo recibiré con mucho cariño y gratitud.</p>
+            <div style="margin-top: 35px;">
+                <button class="template-button light closeModalBtn">Regresar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. RSVP / CONFIRMACIÓN -->
+    <div class="modal-overlay" id="modalRsvp">
+        <div class="modal-content" style="text-align: left;">
+            <button class="modal-close closeModalBtn">&times;</button>
+            <div style="text-align: center;">
+                <div class="section-kicker" style="margin-top: 10px;">Confirma tu asistencia</div>
+                <h3 class="template-title" style="font-size: 28px;">Confirmación</h3>
+            </div>
+            <div class="rsvp-box" style="margin-top: 15px; border: none; box-shadow: none; padding: 0;">
+                <form id="rsvpForm" action="https://script.google.com/macros/s/AKfycbzrymL9OAmSVkM4OOTQ2z2LUBGRg77gqOBG518cIk2Too0Vq_ekXHzlmAj_yVP5mqB5gQ/exec" method="POST" target="hidden_iframe">
+                    <div class="form-group"><label for="nombre">Nombre y apellido</label><input class="form-control" type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre completo" required></div>
+                    <div class="form-group"><label for="asistencia">¿Nos acompañas?</label><select class="form-control" id="asistencia" name="asistencia" required><option value="">Selecciona una opción</option><option value="Si">Sí, ahí estaré 💕</option><option value="No">Lo siento, no podré asistir</option></select></div>
+                    <div class="form-group"><label for="pases">Número de personas</label><select class="form-control" id="pases" name="pases" required><option value="">Selecciona el número de personas</option><option value="1">1 persona</option><option value="2">2 personas</option><option value="3">3 personas</option><option value="4">4 personas</option><option value="5">5 personas</option></select></div>
+                    <div class="form-group"><label for="mensaje">Un mensaje para María Daniela</label><textarea class="form-control" id="mensaje" name="mensaje" placeholder="Puedes dejarle un mensaje a María Daniela" style="min-height: 80px; resize: vertical;"></textarea></div>
+                    <button class="submit-btn" type="submit" id="submitButton">Confirmar asistencia</button>
+                    <div class="success-message" id="successMessage">✨ Muchas gracias por confirmar.<br><br>Será un gusto compartir esta noche tan especial contigo. 💕</div>
+                </form>
+            </div>
+            <div style="margin-top: 25px; text-align: center;">
+                <button class="template-button light closeModalBtn">Regresar</button>
             </div>
         </div>
     </div>
 
     <footer>Con cariño, <strong>María Daniela Priego Ic</strong></footer>
 
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
     <script>
         /* =====================================================
-           CONTROL DE LA VENTANA MODAL (POPUP)
+           CONTROL GENERAL DE MODALES
         ===================================================== */
-        const modal = document.getElementById('itineraryModal');
-        const openBtn = document.getElementById('openModalBtn');
-        const closeBtn = document.getElementById('closeModalBtn');
-        const closeBtnText = document.getElementById('closeModalBtnText');
+        document.querySelectorAll('[data-modal]').forEach(button => {
+            button.addEventListener('click', () => {
+                const modalId = button.getAttribute('data-modal');
+                const modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
 
-        function openModal() {
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Evita el scroll del fondo
-        }
+        document.querySelectorAll('.closeModalBtn').forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = button.closest('.modal-overlay');
+                if (modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
 
-        function closeModal() {
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto'; // Restaura el scroll
-        }
-
-        openBtn.addEventListener('click', openModal);
-        closeBtn.addEventListener('click', closeModal);
-        closeBtnText.addEventListener('click', closeModal);
-
-        // Cerrar si se hace clic fuera del contenido de la ventana
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                closeModal();
-            }
+        document.querySelectorAll('.modal-overlay').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
         });
 
         /* =====================================================
-           MÚSICA Y PERSONALIZACIÓN DE INVITADO
+           MÚSICA Y PERSONALIZACIÓN
         ===================================================== */
         const music = document.getElementById('backgroundMusic');
         const musicButton = document.getElementById('musicButton');
@@ -518,12 +629,16 @@
             const pasesParam = params.get('pases') || params.get('invitados') || params.get('passes');
             const nameEl = document.getElementById('guestName');
             const passesEl = document.getElementById('passesCount');
+            const inputNombre = document.getElementById('nombre');
 
             if (nombre && nombre.trim() && nameEl) {
                 nameEl.textContent = nombre.trim();
                 if (pasesParam && !isNaN(parseInt(pasesParam))) {
                     passesEl.textContent = parseInt(pasesParam);
                 }
+            }
+            if (inputNombre && nombre && nombre.trim()) {
+                inputNombre.value = nombre.trim();
             }
         })();
     </script>
