@@ -1671,7 +1671,21 @@
             border:1px solid rgba(238,113,133,.35);
             z-index:1;
         }
-     
+        .hero::after {
+            background:
+                url('https://memoriesinvitations.com/wp-content/uploads/2026/08/1552Regalo%404x-scaled.png') left bottom / 42% auto no-repeat,
+                url('https://memoriesinvitations.com/wp-content/uploads/2026/08/1552Regalo%404x-scaled.png') right top / 42% auto no-repeat;
+            opacity:.72;
+        }
+        .hero-reference-decoration {
+            position:absolute;
+            width:180px; height:180px;
+            background-image:url('https://memoriesinvitations.com/wp-content/uploads/2023/12/Diseno-15-Anos-Fucsia-Premium-Nuevo-Diseno-10-1024x387.webp');
+            background-size:contain;
+            background-repeat:no-repeat;
+            opacity:.75;
+            z-index:1;
+        }
         .hero-reference-decoration-left { left:-35px; bottom:2%; background-position:left bottom; }
         .hero-reference-decoration-right { right:-35px; top:2%; background-position:right top; }
         .hero-content {
@@ -2012,29 +2026,6 @@
     </div>
 
     <!-- =========================================================
-         APERTURA
-    ========================================================== -->
-    <div class="opening" id="opening">
-        <div class="opening-card">
-            <div class="opening-ornament">✦</div>
-
-    
-                <strong>Celebremos juntos los 15 años de Maria Daniela Priego</strong>
-            </div>
-
-            <div class="opening-name" id="openingGuestName">Invitado especial</div>
-
-            <div class="opening-passes" id="openingPasses">
-                <strong id="openingPassesCount">3</strong>&nbsp; pases
-            </div>
-
-            <div class="opening-date">SÁBADO · 7 DE NOVIEMBRE · 2026</div>
-
-            <button class="open-btn" id="openInvitation">Abrir invitación</button>
-        </div>
-    </div>
-
-    <!-- =========================================================
          AUDIO
     ========================================================== -->
     <audio id="backgroundMusic" loop preload="auto">
@@ -2276,23 +2267,10 @@
     ========================================================== -->
     <script>
         /* =====================================================
-           APERTURA + MÚSICA
+           MÚSICA
         ===================================================== */
-        const opening = document.getElementById('opening');
-        const openInvitation = document.getElementById('openInvitation');
         const music = document.getElementById('backgroundMusic');
         const musicButton = document.getElementById('musicButton');
-
-        openInvitation.addEventListener('click', async function () {
-            opening.classList.add('hidden');
-            try {
-                await music.play();
-                musicButton.textContent = '♫';
-                musicButton.classList.add('playing');
-            } catch (error) {
-                // Autoplay bloqueado por el navegador
-            }
-        });
 
         musicButton.addEventListener('click', async function () {
             if (music.paused) {
@@ -2414,17 +2392,11 @@
             const passesEl = document.getElementById('passesCount');
             const passesWrap = document.getElementById('guestPasses');
 
-            const openingGuestName = document.getElementById('openingGuestName');
-            const openingPasses = document.getElementById('openingPasses');
-            const openingPassesCount = document.getElementById('openingPassesCount');
             const inputNombre = document.getElementById('nombre');
             const selectPases = document.getElementById('pases');
             const selectAsistencia = document.getElementById('asistencia');
 
             if (nombre && nombre.trim()) {
-                if (openingGuestName) {
-                    openingGuestName.textContent = nombre.trim();
-                }
             }
 
             if (nombre && nombre.trim() && card && nameEl) {
@@ -2433,12 +2405,6 @@
                 if (pasesParam && !isNaN(parseInt(pasesParam)) && parseInt(pasesParam) > 0) {
                     const n = parseInt(pasesParam);
                     if (passesEl) passesEl.textContent = n;
-                    if (openingPassesCount) openingPassesCount.textContent = n;
-                    if (openingPasses) {
-                        openingPasses.innerHTML = n === 1
-                            ? '<strong>1</strong>&nbsp; pase'
-                            : '<strong>' + n + '</strong>&nbsp; pases';
-                    }
                     if (passesWrap) {
                         passesWrap.innerHTML = n === 1
                             ? 'Pase: <strong>1</strong>'
