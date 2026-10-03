@@ -3,26 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>María Daniela | Mis 15 Años</title>
+    <title>Maria Daniela | Mis 15 Años</title>
     
     <!-- Fuentes tipográficas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <!-- Iconos FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         /* =========================================================
-           VARIABLES Y DISEÑO INSPIRADO EN LA REFERENCIA
+           VARIABLES Y DISEÑO INSPIRADO EN LAS NUEVAS IMÁGENES
+           (Adaptado a tonos Rosa / Rose Gold)
         ========================================================= */
         :root {
-            --magenta: #b2416f;
-            --magenta-oscuro: #92345a;
-            --texto-claro: #8a737c;
-            --fondo: #fff5f8;
-            --blanco: #ffffff;
-            --font-titulo: 'Great Vibes', cursive;
+            --bg-dark: #121926; /* Fondo azul oscuro/pizarra elegante */
+            --bg-darker: #0b0f17;
+            --pink-main: #e8a0b7; /* Rosa principal (reemplaza al celeste/dorado) */
+            --pink-light: #f9e1e8; /* Rosa muy claro para textos */
+            --pink-hover: #d1829c;
+            --text-light: #e2e8f0;
+            --font-script: 'Dancing Script', cursive;
+            --font-serif: 'Playfair Display', serif;
             --font-cuerpo: 'Montserrat', sans-serif;
         }
 
@@ -35,109 +38,206 @@
 
         body {
             font-family: var(--font-cuerpo);
-            background-color: var(--fondo);
-            color: var(--texto-claro);
+            background-color: var(--bg-darker);
+            color: var(--text-light);
             line-height: 1.6;
-            /* Fondo con simulación de pétalos/bokeh suave */
-            background-image: 
-                radial-gradient(circle at 15% 30%, rgba(246, 175, 199, 0.4) 0%, transparent 10%),
-                radial-gradient(circle at 85% 60%, rgba(246, 175, 199, 0.3) 0%, transparent 15%),
-                radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.8) 0%, transparent 50%);
-            background-attachment: fixed;
             display: flex;
             justify-content: center;
         }
 
-        /* 
-           CONTENEDOR PRINCIPAL
-           Adapta la proporción 215.9 x 355.6 (Legal) a pantallas.
-           Fija un ancho máximo estilo móvil para mantener la estética.
-        */
+        /* CONTENEDOR PRINCIPAL */
         .app-container {
             width: 100%;
-            max-width: 450px; /* Proporción móvil elegante */
+            max-width: 450px;
             min-height: 100vh;
-            background: rgba(255, 255, 255, 0.4);
+            background-color: var(--bg-dark);
             position: relative;
             padding: 40px 20px;
-            box-shadow: 0 0 30px rgba(178, 65, 111, 0.05);
             overflow-x: hidden;
-        }
-
-        /* TÍTULO PRINCIPAL */
-        .main-title {
-            font-family: var(--font-titulo);
-            font-size: clamp(60px, 15vw, 85px);
-            color: var(--magenta);
-            text-align: center;
-            font-weight: 400;
-            margin-bottom: 40px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
-            line-height: 1;
+            box-shadow: 0 0 40px rgba(0,0,0,0.5);
         }
 
         /* =========================================================
-           MENÚ PRINCIPAL (ESTILO ENLACES VERTICALES)
+           PORTADA (Estilo Imagen 4)
         ========================================================= */
+        .hero-section {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        /* Marco hexagonal/diamante simulado */
+        .hero-frame {
+            border: 1px solid rgba(232, 160, 183, 0.4); /* Borde rosa tenue */
+            padding: 40px 15px;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        /* Detalles florales en las esquinas simulados */
+        .hero-frame::before, .hero-frame::after {
+            content: '✿';
+            position: absolute;
+            color: var(--pink-main);
+            font-size: 28px;
+            background: var(--bg-dark);
+        }
+        .hero-frame::before { top: -18px; left: -10px; padding: 0 5px; }
+        .hero-frame::after { bottom: -18px; right: -10px; padding: 0 5px; }
+
+        .hero-subtitle {
+            font-family: var(--font-cuerpo);
+            font-size: 9px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--pink-main);
+            margin-bottom: 10px;
+        }
+
+        .hero-number {
+            font-family: var(--font-serif);
+            font-size: 80px;
+            color: var(--pink-light);
+            line-height: 1;
+            margin: 10px 0;
+            font-weight: 400;
+        }
+
+        .main-title {
+            font-family: var(--font-script);
+            font-size: 55px;
+            color: var(--pink-light);
+            font-weight: 600;
+            margin-top: 15px;
+            text-shadow: 0 2px 10px rgba(232, 160, 183, 0.2);
+        }
+
+        /* Contador (Estilo Imagen 4) */
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        .count-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 50px;
+        }
+        .count-number {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            color: var(--pink-main);
+            font-weight: 600;
+        }
+        .count-label {
+            font-size: 9px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+        .count-colon {
+            font-size: 20px;
+            color: var(--pink-main);
+            margin-bottom: 15px;
+        }
+
+        /* =========================================================
+           MENÚ TIPO LÍNEA DE TIEMPO (Estilo Imagen 3 y 5)
+        ========================================================= */
+        .timeline-menu {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        /* Línea vertical central */
+        .timeline-menu::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 1px;
+            background-color: rgba(232, 160, 183, 0.3); /* Línea rosa */
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+
         .menu-item {
+            position: relative;
+            z-index: 1;
+            background-color: var(--bg-dark); /* Tapa la línea detrás del texto */
+            padding: 30px 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            margin-bottom: 45px;
+            margin-bottom: 10px;
             animation: fadeIn 0.8s ease forwards;
         }
 
         .menu-icon {
-            font-size: 32px;
-            color: var(--magenta);
-            margin-bottom: 12px;
+            font-size: 38px;
+            color: var(--pink-main);
+            margin-bottom: 15px;
+            font-weight: 300; /* Iconos estilo línea fina */
         }
 
-        /* Contenedor especial para el icono de pareja */
         .couple-icon {
             display: flex;
-            gap: 10px;
-            font-size: 40px;
-            color: var(--magenta);
-            margin-bottom: 10px;
+            gap: 5px;
+            font-size: 38px;
+            color: var(--pink-main);
+            margin-bottom: 15px;
         }
 
         .menu-text {
             font-size: 11px;
             max-width: 280px;
-            margin-bottom: 15px;
-            color: var(--texto-claro);
+            margin-bottom: 20px;
+            color: var(--pink-light);
+            font-family: var(--font-cuerpo);
+            font-weight: 300;
         }
 
-        /* BOTONES ROSAS (TIPO PÍLDORA) */
+        /* Botones (Estilo Imagen 5 y 6, pero en Rosa) */
         .btn-pill {
-            background-color: var(--magenta);
-            color: var(--blanco);
+            background-color: var(--pink-main);
+            color: var(--bg-dark);
             border: none;
-            padding: 10px 30px;
-            border-radius: 25px; /* Hace que se vean como óvalos/círculos */
+            padding: 12px 35px;
+            border-radius: 30px;
             font-size: 10px;
             font-family: var(--font-cuerpo);
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             text-transform: uppercase;
             font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(178, 65, 111, 0.35);
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
         }
 
         .btn-pill:hover {
-            background-color: var(--magenta-oscuro);
-            transform: scale(1.05);
+            background-color: var(--pink-hover);
+            transform: scale(1.03);
         }
 
-        /* Grupo de botones para "Ellas / Ellos" */
         .btn-group {
             display: flex;
             gap: 15px;
+        }
+
+        /* Decoración de ramitas en el menú (Estilo Imagen 6) */
+        .leaf-divider {
+            color: rgba(232, 160, 183, 0.3);
+            font-size: 20px;
+            margin: 15px 0;
+            background: var(--bg-dark);
+            padding: 10px;
         }
 
         /* =========================================================
@@ -155,39 +255,103 @@
         }
 
         .section-title {
-            font-family: var(--font-titulo);
-            font-size: 40px;
-            color: var(--magenta);
-            margin-bottom: 20px;
+            font-family: var(--font-serif);
+            font-size: 32px;
+            color: var(--pink-light);
+            margin-bottom: 25px;
+            font-weight: 400;
         }
 
         .info-card {
-            background: var(--blanco);
+            background: transparent;
             padding: 30px 20px;
             border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(178, 65, 111, 0.08);
+            border: 1px solid rgba(232, 160, 183, 0.2);
             margin-bottom: 25px;
-            border: 1px solid rgba(178, 65, 111, 0.1);
+        }
+
+        /* =========================================================
+           ESTILOS DEL FORMULARIO DE CONFIRMACIÓN
+        ========================================================= */
+        .rsvp-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        
+        .rsvp-form input, .rsvp-form select {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(232, 160, 183, 0.4);
+            border-radius: 8px;
+            color: var(--text-light);
+            font-family: var(--font-cuerpo);
+            font-size: 12px;
+            outline: none;
+        }
+
+        .rsvp-form input::placeholder {
+            color: rgba(226, 232, 240, 0.5);
+        }
+
+        .rsvp-form input:focus, .rsvp-form select:focus {
+            border-color: var(--pink-main);
+        }
+
+        .rsvp-form select option {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+        }
+
+        .form-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: rgba(232, 160, 183, 0.5);
+            font-size: 10px;
+            margin: 20px 0;
+            text-transform: uppercase;
+        }
+        .form-divider::before, .form-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid rgba(232, 160, 183, 0.2);
+        }
+        .form-divider::before { margin-right: 10px; }
+        .form-divider::after { margin-left: 10px; }
+
+        .btn-wsp {
+            background-color: transparent;
+            border: 1px solid #25d366;
+            color: #25d366;
+            width: 100%;
+        }
+        .btn-wsp:hover {
+            background-color: #25d366;
+            color: var(--bg-dark);
         }
 
         /* Botón de regreso */
         .btn-back {
             background: transparent;
-            color: var(--magenta);
-            border: 1px solid var(--magenta);
+            color: var(--pink-main);
+            border: 1px solid var(--pink-main);
             padding: 10px 25px;
             border-radius: 25px;
-            font-size: 11px;
+            font-size: 10px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             cursor: pointer;
             margin-top: 20px;
             transition: all 0.3s ease;
         }
         
         .btn-back:hover {
-            background: var(--magenta);
-            color: var(--blanco);
+            background: var(--pink-main);
+            color: var(--bg-dark);
         }
 
         /* Animaciones */
@@ -195,111 +359,136 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         @keyframes slideIn {
             from { opacity: 0; transform: translateX(20px); }
             to { opacity: 1; transform: translateX(0); }
         }
-
-        /* Cuenta Regresiva simple */
-        .countdown { display: flex; justify-content: center; gap: 15px; margin: 20px 0; }
-        .count-box { background: var(--fondo); padding: 10px; border-radius: 10px; width: 60px; color: var(--magenta); font-weight: 600; border: 1px solid rgba(178, 65, 111, 0.2); }
-        .count-label { font-size: 9px; color: var(--texto-claro); font-weight: 400; display: block; margin-top: 5px; }
-
     </style>
 </head>
 <body>
 
     <div class="app-container">
         
-        <!-- Título Fijo en la parte superior -->
-        <h1 class="main-title">María Daniela</h1>
-
         <!-- ==========================================
-             MENÚ PRINCIPAL (VISTA 1)
+             VISTA PRINCIPAL (PORTADA + MENÚ)
         =========================================== -->
-        <div id="main-menu">
+        <div id="main-view">
             
-            <div class="menu-item">
-                <button class="btn-pill" onclick="openSection('sec-invitacion')">INVITACIÓN</button>
-            </div>
-
-            <div class="menu-item">
-                <i class="fa-regular fa-clipboard menu-icon"></i>
-                <p class="menu-text">Para nosotros es muy importante tu asistencia</p>
-                <button class="btn-pill" onclick="openSection('sec-confirmacion')">CONFIRMACIÓN</button>
-            </div>
-
-            <div class="menu-item">
-                <i class="fa-solid fa-location-dot menu-icon" style="position: relative;">
-                    <i class="fa-solid fa-heart" style="font-size: 10px; position: absolute; top: -5px; right: -8px; color: #ff85a1;"></i>
-                </i>
-                <p class="menu-text">Te compartimos la ubicación del lugar de la fiesta para que puedas llegar sin complicaciones</p>
-                <button class="btn-pill" onclick="openSection('sec-ubicacion')">UBICACIÓN</button>
-            </div>
-
-            <div class="menu-item">
-                <div class="couple-icon">
-                    <i class="fa-solid fa-person"></i>
-                    <i class="fa-solid fa-person-dress"></i>
+            <!-- Portada Superior (Estilo Imagen 4) -->
+            <div class="hero-section">
+                <div class="hero-frame">
+                    <p class="hero-subtitle">Celebremos juntos los</p>
+                    <div class="hero-number">15</div>
+                    <p class="hero-subtitle">— Años de —</p>
+                    <h1 class="main-title">María Daniela</h1>
                 </div>
-                <h3 style="color: var(--magenta); font-size: 13px; margin-bottom: 5px;">Código de vestimenta</h3>
-                <p class="menu-text">Descubre las ideas que hemos seleccionado para ti desde nuestro tablero</p>
-                <div class="btn-group">
-                    <button class="btn-pill" onclick="openSection('sec-vestimenta-ellas')">ELLAS</button>
-                    <button class="btn-pill" onclick="openSection('sec-vestimenta-ellos')">ELLOS</button>
+
+                <div class="countdown-container">
+                    <div class="count-item"><span class="count-number" id="days">00</span><span class="count-label">Días</span></div>
+                    <span class="count-colon">:</span>
+                    <div class="count-item"><span class="count-number" id="hours">00</span><span class="count-label">Horas</span></div>
+                    <span class="count-colon">:</span>
+                    <div class="count-item"><span class="count-number" id="mins">00</span><span class="count-label">Min</span></div>
+                    <span class="count-colon">:</span>
+                    <div class="count-item"><span class="count-number" id="secs">00</span><span class="count-label">Seg</span></div>
                 </div>
             </div>
 
-            <div class="menu-item">
-                <i class="fa-solid fa-utensils menu-icon"></i>
-                <p class="menu-text">Te compartimos la ubicación de la mesa desde donde podrás ser parte de esta gran celebración</p>
-                <button class="btn-pill" onclick="openSection('sec-mesas')">MAPA DE MESAS</button>
-            </div>
+            <!-- Menú Línea de Tiempo (Estilo Imágenes 3, 5, 6) -->
+            <div class="timeline-menu">
+                
+                <div class="menu-item">
+                    <i class="fa-regular fa-envelope-open menu-icon"></i>
+                    <p class="menu-text">Tenemos el honor de invitarte a esta gran celebración</p>
+                    <button class="btn-pill" onclick="openSection('sec-invitacion')">INVITACIÓN</button>
+                </div>
 
-            <div class="menu-item">
-                <i class="fa-solid fa-gift menu-icon"></i>
-                <p class="menu-text">Tu sonrisa es el mejor regalo</p>
-                <button class="btn-pill" onclick="openSection('sec-regalo')">REGALO</button>
-            </div>
+                <div class="menu-item">
+                    <i class="fa-regular fa-clipboard menu-icon"></i>
+                    <p class="menu-text">Para nosotros es muy importante tu asistencia</p>
+                    <button class="btn-pill" onclick="openSection('sec-confirmacion')">CONFIRMACIÓN</button>
+                </div>
 
+                <div class="leaf-divider">
+                    <i class="fa-solid fa-leaf" style="transform: scaleX(-1);"></i> &nbsp; <i class="fa-solid fa-leaf"></i>
+                </div>
+
+                <div class="menu-item">
+                    <i class="fa-solid fa-location-dot menu-icon"></i>
+                    <p class="menu-text">Te compartimos la ubicación del lugar de la fiesta para que puedas llegar sin complicaciones</p>
+                    <button class="btn-pill" onclick="openSection('sec-ubicacion')">UBICACIÓN</button>
+                </div>
+
+                <div class="menu-item">
+                    <div class="couple-icon">
+                        <i class="fa-solid fa-person"></i>
+                        <i class="fa-solid fa-person-dress"></i>
+                    </div>
+                    <h3 style="color: var(--pink-main); font-size: 14px; margin-bottom: 8px; font-family: var(--font-serif);">Código de vestimenta</h3>
+                    <p class="menu-text">Descubre las ideas que hemos seleccionado para ti</p>
+                    <div class="btn-group">
+                        <button class="btn-pill" onclick="openSection('sec-vestimenta-ellas')">ELLAS</button>
+                        <button class="btn-pill" onclick="openSection('sec-vestimenta-ellos')">ELLOS</button>
+                    </div>
+                </div>
+
+                <div class="leaf-divider">
+                    <i class="fa-solid fa-leaf" style="transform: scaleX(-1);"></i> &nbsp; <i class="fa-solid fa-leaf"></i>
+                </div>
+
+                <div class="menu-item">
+                    <i class="fa-solid fa-gift menu-icon"></i>
+                    <p class="menu-text">Tu cariño es el mejor regalo</p>
+                    <button class="btn-pill" onclick="openSection('sec-regalo')">REGALO</button>
+                </div>
+
+            </div>
         </div>
 
 
         <!-- ==========================================
              SECCIONES DE CONTENIDO (VISTAS DINÁMICAS)
-             Al hacer clic, el menú desaparece y esto aparece
+             (Misma funcionalidad de ocultar/mostrar)
         =========================================== -->
 
         <!-- 1. INVITACIÓN -->
         <div id="sec-invitacion" class="content-section">
             <h2 class="section-title">Nuestra Invitación</h2>
             <div class="info-card">
-                <p style="font-size: 13px; margin-bottom: 15px;">Con la bendición de Dios y de mis padres:</p>
-                <h3 style="color: var(--magenta); font-size: 16px; margin-bottom: 5px;">Luis Eduardo Priego Velásquez</h3>
-                <h3 style="color: var(--magenta); font-size: 16px; margin-bottom: 25px;">&amp; María Ic</h3>
+                <p style="font-size: 12px; margin-bottom: 20px; color: var(--pink-light);">Con la bendición de Dios y de mis padres:</p>
+                <h3 style="color: var(--pink-main); font-size: 18px; margin-bottom: 5px; font-family: var(--font-serif);">Luis Eduardo Priego Velásquez</h3>
+                <h3 style="color: var(--pink-main); font-size: 18px; margin-bottom: 30px; font-family: var(--font-serif);">&amp; Sandra Patricia de Priego </h3>
                 
-                <p style="font-size: 12px; margin-bottom: 10px;">Tenemos el honor de invitarte este:</p>
-                <h4 style="color: var(--magenta); font-size: 14px;">Sábado 07 de Noviembre 2026</h4>
-                
-                <div class="countdown">
-                    <div class="count-box"><span id="days">00</span><span class="count-label">Días</span></div>
-                    <div class="count-box"><span id="hours">00</span><span class="count-label">Hrs</span></div>
-                    <div class="count-box"><span id="mins">00</span><span class="count-label">Min</span></div>
-                </div>
+                <p style="font-size: 11px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Tenemos el honor de invitarte este:</p>
+                <h4 style="color: var(--pink-light); font-size: 16px; font-family: var(--font-serif);">Sábado 07 de Noviembre 2026</h4>
             </div>
             <button class="btn-back" onclick="goHome()">Volver al Menú</button>
         </div>
 
-        <!-- 2. CONFIRMACIÓN -->
+        <!-- 2. CONFIRMACIÓN (Ahora incluye formulario y WhatsApp) -->
         <div id="sec-confirmacion" class="content-section">
-            <i class="fa-regular fa-clipboard menu-icon" style="font-size: 40px;"></i>
+            <i class="fa-regular fa-clipboard menu-icon" style="font-size: 45px;"></i>
             <h2 class="section-title">Confirmación</h2>
             <div class="info-card">
-                <p style="font-size: 13px; margin-bottom: 20px;">Por favor confirma tu asistencia antes del 20 de Octubre para organizar los detalles de tu llegada.</p>
-                <!-- Cambia el número por tu WhatsApp real -->
-                <a href="https://api.whatsapp.com/send?phone=50200000000&text=¡Hola!%20Confirmo%20mi%20asistencia%20para%20los%2015%20Años%20de%20María%20Daniela." target="_blank" class="btn-pill" style="background: #25d366; box-shadow: none;">
-                    <i class="fa-brands fa-whatsapp"></i> Confirmar por WhatsApp
+                <p style="font-size: 12px; margin-bottom: 20px; color: var(--pink-light);">Por favor confirma tu asistencia antes del 20 de Octubre.</p>
+                
+                <!-- Formulario Clásico -->
+                <form class="rsvp-form" onsubmit="event.preventDefault(); alert('¡Formulario enviado con éxito!'); goHome();">
+                    <input type="text" placeholder="Nombre y Apellido" required>
+                    <input type="number" placeholder="Número de pases a confirmar" min="1" max="10" required>
+                    <select required>
+                        <option value="" disabled selected>¿Nos acompañarás?</option>
+                        <option value="si">Sí, confirmo asistencia</option>
+                        <option value="no">No podré asistir</option>
+                    </select>
+                    <button type="submit" class="btn-pill" style="width: 100%;">ENVIAR RESPUESTA</button>
+                </form>
+
+                <div class="form-divider">O también puedes</div>
+
+                <!-- Botón de WhatsApp -->
+                <a href="https://api.whatsapp.com/send?phone=50200000000&text=¡Hola!%20Confirmo%20mi%20asistencia%20para%20los%2015%20Años%20de%20María%20Daniela." target="_blank" class="btn-pill btn-wsp">
+                    <i class="fa-brands fa-whatsapp" style="font-size: 14px;"></i> Confirmar por WhatsApp
                 </a>
             </div>
             <button class="btn-back" onclick="goHome()">Volver al Menú</button>
@@ -307,24 +496,22 @@
 
         <!-- 3. UBICACIÓN -->
         <div id="sec-ubicacion" class="content-section">
-            <i class="fa-solid fa-location-dot menu-icon" style="font-size: 40px;"></i>
+            <i class="fa-solid fa-location-dot menu-icon" style="font-size: 45px;"></i>
             <h2 class="section-title">Ubicaciones</h2>
             
             <div class="info-card">
-                <h3 style="color: var(--magenta); font-size: 16px; margin-bottom: 5px;">Misa de Acción de Gracias</h3>
-                <p style="font-size: 12px; margin-bottom: 15px;">Parroquia Zona Portales, 05:00 PM</p>
+                <h3 style="color: var(--pink-main); font-size: 18px; margin-bottom: 5px; font-family: var(--font-serif);">Misa de Acción de Gracias</h3>
+                <p style="font-size: 12px; margin-bottom: 15px; color: var(--pink-light);">Parroquia Zona Portales, 05:00 PM</p>
                 <div class="btn-group" style="justify-content: center;">
-                    <a href="https://maps.google.com" target="_blank" class="btn-pill" style="font-size: 9px; padding: 8px 15px;">Google Maps</a>
-                    <a href="https://waze.com" target="_blank" class="btn-pill" style="font-size: 9px; padding: 8px 15px; background: #33ccff;">Waze</a>
+                    <a href="https://maps.google.com" target="_blank" class="btn-pill" style="font-size: 9px; padding: 10px 20px;">Google Maps</a>
                 </div>
             </div>
 
             <div class="info-card">
-                <h3 style="color: var(--magenta); font-size: 16px; margin-bottom: 5px;">Recepción</h3>
-                <p style="font-size: 12px; margin-bottom: 15px;">Salón de Eventos Zona Portales, 07:00 PM</p>
+                <h3 style="color: var(--pink-main); font-size: 18px; margin-bottom: 5px; font-family: var(--font-serif);">Recepción</h3>
+                <p style="font-size: 12px; margin-bottom: 15px; color: var(--pink-light);">Salón de Eventos Zona Portales, 07:00 PM</p>
                 <div class="btn-group" style="justify-content: center;">
-                    <a href="https://maps.google.com" target="_blank" class="btn-pill" style="font-size: 9px; padding: 8px 15px;">Google Maps</a>
-                    <a href="https://waze.com" target="_blank" class="btn-pill" style="font-size: 9px; padding: 8px 15px; background: #33ccff;">Waze</a>
+                    <a href="https://maps.google.com" target="_blank" class="btn-pill" style="font-size: 9px; padding: 10px 20px;">Google Maps</a>
                 </div>
             </div>
             <button class="btn-back" onclick="goHome()">Volver al Menú</button>
@@ -332,59 +519,49 @@
 
         <!-- 4A. VESTIMENTA ELLAS -->
         <div id="sec-vestimenta-ellas" class="content-section">
-            <i class="fa-solid fa-person-dress menu-icon" style="font-size: 40px;"></i>
+            <i class="fa-solid fa-person-dress menu-icon" style="font-size: 45px;"></i>
             <h2 class="section-title">Ellas</h2>
             <div class="info-card">
-                <h3 style="color: var(--magenta); font-size: 16px; margin-bottom: 10px;">Formal / Etiqueta</h3>
-                <p style="font-size: 12px; margin-bottom: 15px;">Vestido largo o de noche.</p>
-                <p style="font-size: 11px; color: var(--magenta); font-weight: bold;">Por favor, evitar usar colores en tonalidades Rosa, ya que está reservado para la quinceañera.</p>
+                <h3 style="color: var(--pink-main); font-size: 18px; margin-bottom: 10px; font-family: var(--font-serif);">Formal / Etiqueta</h3>
+                <p style="font-size: 12px; margin-bottom: 15px; color: var(--pink-light);">Vestido largo o de noche.</p>
+                <p style="font-size: 11px; color: var(--pink-main); font-weight: bold; border-top: 1px solid rgba(232, 160, 183, 0.2); padding-top: 15px;">Por favor, evitar usar colores en tonalidades Rosa, ya que está reservado para la quinceañera.</p>
             </div>
             <button class="btn-back" onclick="goHome()">Volver al Menú</button>
         </div>
 
         <!-- 4B. VESTIMENTA ELLOS -->
         <div id="sec-vestimenta-ellos" class="content-section">
-            <i class="fa-solid fa-person menu-icon" style="font-size: 40px;"></i>
+            <i class="fa-solid fa-person menu-icon" style="font-size: 45px;"></i>
             <h2 class="section-title">Ellos</h2>
             <div class="info-card">
-                <h3 style="color: var(--magenta); font-size: 16px; margin-bottom: 10px;">Formal / Etiqueta</h3>
-                <p style="font-size: 12px; margin-bottom: 15px;">Traje completo oscuro (negro, azul marino o gris) y corbata.</p>
+                <h3 style="color: var(--pink-main); font-size: 18px; margin-bottom: 10px; font-family: var(--font-serif);">Formal / Etiqueta</h3>
+                <p style="font-size: 12px; margin-bottom: 15px; color: var(--pink-light);">Traje completo oscuro (negro, azul marino o gris) y corbata.</p>
             </div>
             <button class="btn-back" onclick="goHome()">Volver al Menú</button>
         </div>
 
-        <!-- 5. MESAS -->
-        <div id="sec-mesas" class="content-section">
-            <i class="fa-solid fa-utensils menu-icon" style="font-size: 40px;"></i>
-            <h2 class="section-title">Tu Mesa</h2>
-            <div class="info-card">
-                <p style="font-size: 13px;">A tu llegada a la recepción de Zona Portales, nuestra anfitriona te estará esperando en la entrada para acompañarte y asignarte a tu mesa reservada.</p>
-            </div>
-            <button class="btn-back" onclick="goHome()">Volver al Menú</button>
-        </div>
-
-        <!-- 6. REGALO -->
+        <!-- 5. REGALO -->
         <div id="sec-regalo" class="content-section">
-            <i class="fa-solid fa-gift menu-icon" style="font-size: 40px;"></i>
+            <i class="fa-solid fa-gift menu-icon" style="font-size: 45px;"></i>
             <h2 class="section-title">Mesa de Regalos</h2>
             <div class="info-card">
-                <p style="font-size: 13px; margin-bottom: 20px;">Tu presencia es mi mejor regalo. Si deseas tener un detalle adicional conmigo, la celebración será de:</p>
-                <div style="padding: 15px; border: 1px dashed var(--magenta); border-radius: 10px; display: inline-block;">
-                    <i class="fa-regular fa-envelope" style="font-size: 24px; color: var(--magenta); margin-bottom: 10px;"></i>
-                    <h4 style="color: var(--magenta);">Lluvia de Sobres</h4>
+                <p style="font-size: 12px; margin-bottom: 25px; color: var(--pink-light);">Tu presencia es mi mejor regalo. Si deseas tener un detalle adicional conmigo, la celebración será de:</p>
+                <div style="padding: 20px; border: 1px dashed var(--pink-main); border-radius: 10px; display: inline-block;">
+                    <i class="fa-regular fa-envelope" style="font-size: 30px; color: var(--pink-main); margin-bottom: 10px;"></i>
+                    <h4 style="color: var(--pink-light); font-family: var(--font-serif); font-size: 18px; font-weight: 400;">Lluvia de Sobres</h4>
                 </div>
-                <p style="font-size: 11px; margin-top: 15px;">Habrá un buzón especial en la entrada de la recepción.</p>
+                <p style="font-size: 11px; margin-top: 20px; color: rgba(226, 232, 240, 0.7);">Habrá un buzón especial en la entrada de la recepción.</p>
             </div>
             <button class="btn-back" onclick="goHome()">Volver al Menú</button>
         </div>
 
     </div>
 
-    <!-- SCRIPT DE NAVEGACIÓN Y CUENTA REGRESIVA -->
+    <!-- SCRIPT DE NAVEGACIÓN Y CUENTA REGRESIVA (Sin modificar la lógica) -->
     <script>
-        // Función para ocultar menú y mostrar la sección deseada (Evita scroll infinito)
+        // Función para ocultar vista principal y mostrar sección
         function openSection(sectionId) {
-            document.getElementById('main-menu').style.display = 'none';
+            document.getElementById('main-view').style.display = 'none';
             const sections = document.querySelectorAll('.content-section');
             sections.forEach(sec => sec.classList.remove('active'));
             
@@ -397,11 +574,11 @@
             const sections = document.querySelectorAll('.content-section');
             sections.forEach(sec => sec.classList.remove('active'));
             
-            document.getElementById('main-menu').style.display = 'block';
+            document.getElementById('main-view').style.display = 'block';
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Lógica de cuenta regresiva
+        // Lógica de cuenta regresiva adaptada a las 4 casillas (Días, Horas, Min, Seg)
         const eventDate = new Date(2026, 10, 7, 17, 0, 0).getTime(); // 07 Nov 2026
         setInterval(() => {
             const now = new Date().getTime();
@@ -411,6 +588,7 @@
                 document.getElementById('days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
                 document.getElementById('hours').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
                 document.getElementById('mins').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                document.getElementById('secs').innerText = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
             }
         }, 1000);
     </script>
