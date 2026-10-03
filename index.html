@@ -33,6 +33,7 @@
             --template-cream: #f5e8d8;
             --template-bg: #fffafd;
             --template-ink: #463541;
+            --dorado: #c7a14a;
         }
 
         *, *::before, *::after {
@@ -54,13 +55,17 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* Fondo temático de quinceañera con detalles florales sutiles */
         body::before {
             content: "";
             position: fixed;
             inset: 0;
             pointer-events: none;
             z-index: -2;
-            background: radial-gradient(circle at 10% 10%, rgba(217,91,146,.08), transparent 25%), radial-gradient(circle at 90% 35%, rgba(183,155,200,.10), transparent 28%);
+            background: 
+                radial-gradient(circle at 10% 10%, rgba(217,91,146,.1), transparent 30%), 
+                radial-gradient(circle at 90% 85%, rgba(199,161,74,.1), transparent 30%),
+                radial-gradient(circle at 50% 50%, rgba(183,155,200,.08), transparent 40%);
         }
 
         img {
@@ -138,13 +143,22 @@
         .butterfly-hero-inner {
             position: relative;
             z-index: 2;
-            max-width: 600px;
+            max-width: 650px;
+        }
+
+        /* Contenedor principal de portada con círculos a la par (Badge + Foto redonda) */
+        .hero-circles-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin: 0 auto 22px;
         }
 
         .butterfly-badge {
-            width: 260px;
-            height: 260px;
-            margin: 0 auto 22px;
+            width: 230px;
+            height: 230px;
             border: 1px solid rgba(217,91,146,.55);
             border-radius: 50%;
             position: relative;
@@ -152,51 +166,69 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 0 9px rgba(255,255,255,.8),0 20px 55px rgba(168,63,112,.10);
-            background: rgba(255,255,255,.72);
+            box-shadow: 0 0 0 8px rgba(255,255,255,.9),0 20px 50px rgba(168,63,112,.12);
+            background: rgba(255,255,255,.8);
+        }
+
+        /* Foto redonda de ella a la par */
+        .hero-photo-circle {
+            width: 210px;
+            height: 210px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--template-pink);
+            box-shadow: 0 0 0 8px rgba(255,255,255,.9),0 20px 50px rgba(168,63,112,.15);
+            position: relative;
+            background: #fff;
+        }
+
+        .hero-photo-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .badge-number {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 86px;
+            font-size: 76px;
             line-height: .75;
             color: var(--template-pink);
             font-weight: 600;
         }
 
         .badge-caption {
-            font-size: 12px;
+            font-size: 11px;
             letter-spacing: 4px;
             color: var(--template-pink-dark);
-            margin-top: 12px;
+            margin-top: 10px;
         }
 
         .badge-name {
             font-family: 'Great Vibes', cursive;
-            font-size: 36px;
+            font-size: 32px;
             color: var(--template-pink);
-            margin-top: 6px;
+            margin-top: 4px;
         }
 
         .badge-leaves {
             color: var(--template-cream);
-            font-size: 54px;
+            font-size: 48px;
             position: absolute;
-            left: 17px;
-            top: 89px;
+            left: 15px;
+            top: 78px;
             transform: rotate(-45deg);
         }
 
         .badge-butterfly {
             position: absolute;
-            font-size: 34px;
+            font-size: 30px;
             filter: drop-shadow(0 5px 6px rgba(100,50,80,.12));
             animation: butterflyFloat 5s ease-in-out infinite;
         }
-        .badge-butterfly.b1 { left:-18px; top:-8px; }
-        .badge-butterfly.b2 { right:-12px; top:25px; font-size:27px; animation-delay:-1s; }
-        .badge-butterfly.b3 { left:0; bottom:5px; font-size:26px; animation-delay:-2s; }
-        .badge-butterfly.b4 { right:-4px; bottom:-18px; font-size:38px; animation-delay:-3s; }
+        .badge-butterfly.b1 { left:-15px; top:-5px; }
+        .badge-butterfly.b2 { right:-10px; top:20px; font-size:24px; animation-delay:-1s; }
+        .badge-butterfly.b3 { left:-5px; bottom:2px; font-size:22px; animation-delay:-2s; }
+        .badge-butterfly.b4 { right:-2px; bottom:-12px; font-size:32px; animation-delay:-3s; }
 
         @keyframes butterflyFloat {
             50% { transform: translateY(-8px) rotate(4deg); }
@@ -212,15 +244,15 @@
             font-family: 'Cormorant Garamond', serif;
             text-transform: uppercase;
             letter-spacing: 4px;
-            font-size: clamp(34px,9vw,58px);
+            font-size: clamp(32px,8vw,52px);
             color: var(--template-ink);
-            margin: 10px 0;
+            margin: 8px 0;
         }
 
         .butterfly-hero p {
             font-size: 13px;
             max-width: 400px;
-            margin: 0 auto 18px;
+            margin: 0 auto 15px;
             color: #6d5a66;
         }
 
@@ -233,6 +265,7 @@
             background: #fff;
             border-top: 1px solid #f0dce7;
             border-bottom: 1px solid #f0dce7;
+            position: relative;
         }
 
         .template-line-art, .template-floral-top {
@@ -290,37 +323,45 @@
             line-height: 1.9;
         }
 
+        /* Botones mejorados con estilo elegante, flores/mariposas decorativas sutiles o efectos refinados */
         .template-button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            min-width: 165px;
-            padding: 13px 18px;
+            gap: 8px;
+            min-width: 210px;
+            padding: 14px 24px;
             color: #fff;
-            font-size: 9px;
-            letter-spacing: 2px;
+            font-size: 10px;
+            letter-spacing: 2.5px;
             text-transform: uppercase;
-            background: var(--template-pink);
-            border: 1px solid var(--template-pink);
-            border-radius: 2px;
+            background: linear-gradient(135deg, var(--template-pink), var(--template-pink-dark));
+            border: 1px solid rgba(199,161,74,.4);
+            border-radius: 30px;
             cursor: pointer;
-            box-shadow: 0 10px 24px rgba(168,63,112,.15);
-            transition: transform .2s ease;
+            box-shadow: 0 10px 25px rgba(168,63,112,.2);
+            transition: all 0.3s ease;
+            font-weight: 500;
         }
+
         .template-button.light {
-            background: transparent;
+            background: #fff;
             color: var(--template-pink-dark);
-            border-color: #ddb8c9;
-            box-shadow: none;
+            border: 1px solid var(--template-pink);
+            box-shadow: 0 5px 15px rgba(0,0,0,.05);
         }
-        .template-button:hover { transform: translateY(-2px); }
+
+        .template-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(168,63,112,.3);
+        }
 
         /* Estilos de la Ventana Modal (Popup) */
         .modal-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(70, 53, 65, 0.6);
-            backdrop-filter: blur(4px);
+            background: rgba(70, 53, 65, 0.65);
+            backdrop-filter: blur(5px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -343,11 +384,12 @@
             overflow-y: auto;
             padding: 40px 30px;
             position: relative;
-            border-radius: 4px;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.25);
             transform: translateY(20px);
             transition: transform 0.3s ease;
             text-align: center;
+            border: 1px solid rgba(217,91,146,.2);
         }
 
         .modal-overlay.active .modal-content {
@@ -360,7 +402,7 @@
             right: 20px;
             background: transparent;
             border: none;
-            font-size: 24px;
+            font-size: 26px;
             color: var(--template-pink-dark);
             cursor: pointer;
         }
@@ -387,7 +429,13 @@
         .rsvp-box label { font-size:10px; letter-spacing:1px; text-transform:uppercase; color:var(--template-pink-dark); display:block; margin-bottom:7px; }
         .rsvp-box .form-control { width:100%; border:1px solid #ead8e1; background:#fff; padding:12px 13px; color:#5c4a55; outline:none; }
         .rsvp-box .form-control:focus { border-color:var(--template-pink); }
-        .rsvp-box .submit-btn { width:100%; color:#fff; padding:14px; text-transform:uppercase; letter-spacing:2px; font-size:10px; cursor:pointer; background: var(--template-pink); border: none; }
+        /* Campos bloqueados para que no se puedan editar manualmente */
+        .rsvp-box .form-control[readonly], .rsvp-box .form-control:disabled {
+            background-color: #f7eff3;
+            color: #7a6872;
+            cursor: not-allowed;
+        }
+        .rsvp-box .submit-btn { width:100%; color:#fff; padding:14px; text-transform:uppercase; letter-spacing:2px; font-size:10px; cursor:pointer; background: var(--template-pink); border: none; border-radius: 30px; box-shadow: 0 10px 25px rgba(168,63,112,.2); }
         .rsvp-box .success-message { display:none; margin-top:18px; padding:15px; text-align:center; color:var(--template-pink-dark); background:#fff5f9; border:1px solid #edd8e4; }
 
         .template-closing { position:relative; padding:110px 22px 75px; background:linear-gradient(180deg,#fffafd,#fceff6); overflow:hidden; }
@@ -396,6 +444,12 @@
         footer { background:#fff; text-align:center; padding:24px; color:#8a727e; font-size:10px; letter-spacing:1px; border-top:1px solid #f0dce7; }
 
         @media (max-width: 600px) {
+            .hero-circles-container { gap: 15px; }
+            .butterfly-badge { width: 170px; height: 170px; }
+            .hero-photo-circle { width: 150px; height: 150px; }
+            .badge-number { font-size: 56px; }
+            .badge-name { font-size: 24px; }
+            .badge-leaves { top: 58px; font-size: 36px; }
             .timeline::before { left: 15px; }
             .timeline-item { width: 100%; text-align: left !important; padding-left: 35px; padding-right: 0; margin-left: 0 !important; }
             .timeline-item::after { left: 11px !important; right: auto !important; }
@@ -420,16 +474,25 @@
     <header class="butterfly-hero">
         <img class="template-leaves-top" src="https://memoriesinvitations.com/wp-content/uploads/2023/12/Diseno-15-Anos-Fucsia-Premium-Nuevo-Diseno-02-1024x386.webp" alt="" aria-hidden="true">
         <div class="butterfly-hero-inner">
-            <div class="butterfly-badge" aria-hidden="true">
-                <span class="badge-butterfly b1">🦋</span>
-                <span class="badge-butterfly b2">🦋</span>
-                <span class="badge-butterfly b3">🦋</span>
-                <span class="badge-butterfly b4">🦋</span>
-                <div class="badge-leaves">❧</div>
-                <div class="badge-number">15</div>
-                <div class="badge-caption">AÑOS DE</div>
-                <div class="badge-name">María Daniela</div>
+            
+            <!-- Círculos de los 15 años y foto redonda de ella a la par -->
+            <div class="hero-circles-container">
+                <div class="butterfly-badge" aria-hidden="true">
+                    <span class="badge-butterfly b1">🦋</span>
+                    <span class="badge-butterfly b2">🦋</span>
+                    <span class="badge-butterfly b3">🦋</span>
+                    <span class="badge-butterfly b4">🦋</span>
+                    <div class="badge-leaves">❧</div>
+                    <div class="badge-number">15</div>
+                    <div class="badge-caption">AÑOS DE</div>
+                    <div class="badge-name">María Daniela</div>
+                </div>
+
+                <div class="hero-photo-circle">
+                    <img src="foto-maria-daniela.jpg" alt="María Daniela">
+                </div>
             </div>
+
             <div class="hero-invite-line">ACOMPÁÑAME A CELEBRAR</div>
             <h1>Mis XV Años</h1>
             <p>Una noche llena de sueños, alegría y momentos para recordar.</p>
@@ -444,24 +507,24 @@
         <div class="personal-passes" id="guestPasses">Pases: <strong id="passesCount">3</strong></div>
     </section>
 
-    <!-- SECCIÓN DE BOTONES PARA CADA SECCIÓN -->
+    <!-- SECCIÓN DE BOTONES MEJORADOS -->
     <section class="template-section">
         <div class="template-floral-top">❧</div>
         <div class="section-kicker">Detalles del evento</div>
         <h2 class="template-title">Secciones de la Celebración</h2>
-        <p class="template-text">Haz clic en cada sección para ver toda la información detallada.</p>
+        <p class="template-text">Haz clic en cada botón para desplegar la información correspondiente.</p>
         
-        <div style="display: flex; flex-direction: column; gap: 15px; align-items: center; margin-top: 30px;">
-            <button class="template-button" data-modal="modalItinerario">Itinerario</button>
-            <button class="template-button" data-modal="modalMisa">Santa Misa</button>
-            <button class="template-button" data-modal="modalUbicacion">Ubicación</button>
-            <button class="template-button" data-modal="modalVestimenta">Código de Vestimenta</button>
-            <button class="template-button" data-modal="modalRegalo">Regalo</button>
-            <button class="template-button" data-modal="modalRsvp">Confirmar Asistencia</button>
+        <div style="display: flex; flex-direction: column; gap: 16px; align-items: center; margin-top: 30px;">
+            <button class="template-button" data-modal="modalItinerario">🦋 Itinerario</button>
+            <button class="template-button" data-modal="modalMisa">🌸 Santa Misa</button>
+            <button class="template-button" data-modal="modalUbicacion">📍 Ubicación</button>
+            <button class="template-button" data-modal="modalVestimenta">✨ Código de Vestimenta</button>
+            <button class="template-button" data-modal="modalRegalo">🎁 Regalo</button>
+            <button class="template-button" data-modal="modalRsvp">💌 Confirmar Asistencia</button>
         </div>
     </section>
 
-    <!-- VENTANAS MODALES (POPUP) PARA CADA SECCIÓN -->
+    <!-- VENTANAS MODALES (POPUP) -->
 
     <!-- 1. ITINERARIO -->
     <div class="modal-overlay" id="modalItinerario">
@@ -536,7 +599,7 @@
             <button class="modal-close closeModalBtn">&times;</button>
             <div class="section-kicker" style="margin-top: 10px;">Tu cariño, el mejor regalo</div>
             <h3 class="template-title" style="font-size: 28px;">Regalo</h3>
-            <p class="template-text">Tu presencia es mi mejor regalo para mi esta noche. Si quieres hacerme un regalo, en el salón habra sobre para el efectivo.</p>
+            <p class="template-text">Tu presencia es mi mejor regalo y hará que esta noche sea aún más especial.<br><br>Si además deseas tener un pequeño detalle conmigo, lo recibiré con mucho cariño y gratitud.</p>
             <div style="margin-top: 35px;">
                 <button class="template-button light closeModalBtn">Regresar</button>
             </div>
@@ -553,10 +616,33 @@
             </div>
             <div class="rsvp-box" style="margin-top: 15px; border: none; box-shadow: none; padding: 0;">
                 <form id="rsvpForm" action="https://script.google.com/macros/s/AKfycbzrymL9OAmSVkM4OOTQ2z2LUBGRg77gqOBG518cIk2Too0Vq_ekXHzlmAj_yVP5mqB5gQ/exec" method="POST" target="hidden_iframe">
-                    <div class="form-group"><label for="nombre">Nombre y apellido</label><input class="form-control" type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre completo" required></div>
-                    <div class="form-group"><label for="asistencia">¿Nos acompañas?</label><select class="form-control" id="asistencia" name="asistencia" required><option value="">Selecciona una opción</option><option value="Si">Sí, ahí estaré 💕</option><option value="No">Lo siento, no podré asistir</option></select></div>
-                    <div class="form-group"><label for="pases">Número de personas</label><select class="form-control" id="pases" name="pases" required><option value="">Selecciona el número de personas</option><option value="1">1 persona</option><option value="2">2 personas</option><option value="3">3 personas</option><option value="4">4 personas</option><option value="5">5 personas</option></select></div>
-                    <div class="form-group"><label for="mensaje">Un mensaje para María Daniela</label><textarea class="form-control" id="mensaje" name="mensaje" placeholder="Puedes dejarle un mensaje a María Daniela" style="min-height: 80px; resize: vertical;"></textarea></div>
+                    <!-- Campo de nombre bloqueado (viene del link y no se puede cambiar) -->
+                    <div class="form-group">
+                        <label for="nombre">Nombre y apellido</label>
+                        <input class="form-control" type="text" id="nombre" name="nombre" readonly required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="asistencia">¿Nos acompañas?</label>
+                        <select class="form-control" id="asistencia" name="asistencia" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="Si">Sí, ahí estaré 💕</option>
+                            <option value="No">Lo siento, no podré asistir</option>
+                        </select>
+                    </div>
+
+                    <!-- Campo de pases bloqueado (viene del link) -->
+                    <div class="form-group">
+                        <label for="pases">Número de personas / pases asignados</label>
+                        <input class="form-control" type="text" id="pasesInputDisplay" readonly>
+                        <input type="hidden" id="pases" name="pases">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Un mensaje para María Daniela</label>
+                        <textarea class="form-control" id="mensaje" name="mensaje" placeholder="Puedes dejarle un mensaje a María Daniela" style="min-height: 80px; resize: vertical;"></textarea>
+                    </div>
+                    
                     <button class="submit-btn" type="submit" id="submitButton">Confirmar asistencia</button>
                     <div class="success-message" id="successMessage">✨ Muchas gracias por confirmar.<br><br>Será un gusto compartir esta noche tan especial contigo. 💕</div>
                 </form>
@@ -606,7 +692,7 @@
         });
 
         /* =====================================================
-           MÚSICA Y PERSONALIZACIÓN
+           MÚSICA Y PERSONALIZACIÓN DINÁMICA DESDE EL LINK
         ===================================================== */
         const music = document.getElementById('backgroundMusic');
         const musicButton = document.getElementById('musicButton');
@@ -627,20 +713,57 @@
             const params = new URLSearchParams(window.location.search);
             const nombre = params.get('nombre') || params.get('name') || params.get('para');
             const pasesParam = params.get('pases') || params.get('invitados') || params.get('passes');
+            
             const nameEl = document.getElementById('guestName');
             const passesEl = document.getElementById('passesCount');
             const inputNombre = document.getElementById('nombre');
+            const pasesInputDisplay = document.getElementById('pasesInputDisplay');
+            const pasesHidden = document.getElementById('pases');
 
-            if (nombre && nombre.trim() && nameEl) {
-                nameEl.textContent = nombre.trim();
-                if (pasesParam && !isNaN(parseInt(pasesParam))) {
-                    passesEl.textContent = parseInt(pasesParam);
-                }
+            // Configurar nombre
+            if (nombre && nombre.trim()) {
+                const nombreLimpio = nombre.trim();
+                nameEl.textContent = nombreLimpio;
+                inputNombre.value = nombreLimpio;
+            } else {
+                nameEl.textContent = "Invitado especial";
+                inputNombre.value = "Invitado especial";
             }
-            if (inputNombre && nombre && nombre.trim()) {
-                inputNombre.value = nombre.trim();
+
+            // Configurar pases (bloqueados para que no se puedan cambiar)
+            let numPases = 3; // Valor predeterminado
+            if (pasesParam && !isNaN(parseInt(pasesParam)) && parseInt(pasesParam) > 0) {
+                numPases = parseInt(pasesParam);
             }
+            
+            passesEl.textContent = numPases;
+            pasesInputDisplay.value = numPases === 1 ? "1 pase asignado" : numPases + " pases asignados";
+            pasesHidden.value = numPases;
         })();
+
+        // Confeti y respuesta del formulario
+        const form = document.getElementById('rsvpForm');
+        const hiddenIframe = document.getElementById('hidden_iframe');
+        const successMessage = document.getElementById('successMessage');
+        const submitButton = document.getElementById('submitButton');
+        
+        if (form && hiddenIframe) {
+            let formSubmitting = false;
+            form.addEventListener('submit', function () {
+                formSubmitting = true;
+                if (submitButton) {
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Enviando confirmación...';
+                }
+            });
+
+            hiddenIframe.addEventListener('load', function () {
+                if (!formSubmitting) return;
+                formSubmitting = false;
+                if (successMessage) successMessage.style.display = 'block';
+                if (submitButton) submitButton.style.display = 'none';
+            });
+        }
     </script>
 </body>
 </html>
