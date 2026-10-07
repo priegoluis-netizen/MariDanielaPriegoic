@@ -576,11 +576,12 @@
 </head>
 <body>
 
-    <!-- SECCIÓN INTRODUCCIÓN DE VIDEO -->
+    <!-- SECCIÓN INTRODUCCIÓN DE VIDEO CON AUDIO DEPURADO -->
     <section class="intro-video-section">
         <div class="intro-video-frame">
             <div class="intro-video-container">
-                <video id="introVideo" autoplay muted playsinline controls>
+                <!-- Se retiró 'muted' para habilitar el sonido del video -->
+                <video id="introVideo" autoplay playsinline controls>
                     <source src="intro.mp4" type="video/mp4">
                     Tu navegador no soporta reproducción de video.
                 </video>
@@ -684,8 +685,7 @@
             <div class="timeline">
                 <div class="timeline-item right"><span class="time">5:00 p. m.</span><strong>Santa Misa</strong><small>Capilla San Francisco de Asís</small></div>
                 <div class="timeline-item left"><span class="time">7:00 p. m.</span><strong>Recepción</strong><small>Salón de Eventos Zona Portales “El Jardin”</small></div>
-                
-                </div>
+            </div>
             
             <div style="margin-top: 35px;">
                 <button class="template-button light closeModalBtn">Regresar</button>
@@ -723,14 +723,8 @@
                 <a class="template-button" href="https://www.google.com/maps/place/Mi+Jardin,+Zona+Portales/data=!4m2!3m1!1s0x0:0x2048b8c18d4e5e48?sa=X&ved=1t:2428&ictx=111" target="_blank" rel="noopener">CÓMO LLEGAR</a>
             </div>
             <div class="template-actions">
-    <a 
-        class="template-button"
-        href="https://www.waze.com/ul?q=Salon%20de%20Eventos%20Mi%20Jardin%20Zona%20Portales%20Guatemala&navigate=yes"
-        target="_blank"
-        rel="noopener">
-        📍 CÓMO LLEGAR CON WAZE
-    </a>
-</div>
+                <a class="template-button" href="https://www.waze.com/ul?q=Salon%20de%20Eventos%20Mi%20Jardin%20Zona%20Portales%20Guatemala&navigate=yes" target="_blank" rel="noopener">📍 CÓMO LLEGAR CON WAZE</a>
+            </div>
             <div style="margin-top: 25px;">
                 <button class="template-button light closeModalBtn">Regresar</button>
             </div>
@@ -745,7 +739,7 @@
             <h3 class="template-title" style="font-size: 28px;">Código de vestimenta</h3>
             <div class="dress-style">FORMAL · GALA</div>
             <p class="template-text">Una noche tan especial merece un toque de elegancia. Gracias por acompañarme con tu mejor estilo. </p>
-             <p class="template-text">                        NOTA:COLOR ROSA RESERVADO PARA LA QUINCEAÑERA                            </p>
+            <p class="template-text">NOTA: COLOR ROSA RESERVADO PARA LA QUINCEAÑERA</p>
             
             <div style="margin-top: 35px;">
                 <button class="template-button light closeModalBtn">Regresar</button>
@@ -759,7 +753,7 @@
             <button class="modal-close closeModalBtn">&times;</button>
             <div class="section-kicker" style="margin-top: 10px;">Tu cariño, el mejor regalo</div>
             <h3 class="template-title" style="font-size: 28px;">Regalo</h3>
-            <p class="template-text">Tu presencia es mi mejor regalo y hará que esta noche sea aún más especial.<br><br>Si quieres hacerme un regalo, en el Salón habra sobres para el Efectivo</p>
+            <p class="template-text">Tu presencia es mi mejor regalo y hará que esta noche sea aún más especial.<br><br>Si quieres hacerme un regalo, en el Salón habrá sobres para el Efectivo</p>
             <div style="margin-top: 35px;">
                 <button class="template-button light closeModalBtn">Regresar</button>
             </div>
@@ -799,8 +793,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="mensaje">Colocar Nombre de las Personas que Asistiran</label>
-                        <textarea class="form-control" id="mensaje" name="mensaje" placeholder="Escribe los nombre de las personas" style="min-height: 80px; resize: vertical;"></textarea>
+                        <label for="mensaje">Colocar Nombre de las Personas que Asistirán</label>
+                        <textarea class="form-control" id="mensaje" name="mensaje" placeholder="Escribe los nombres de las personas" style="min-height: 80px; resize: vertical;"></textarea>
                     </div>
                     
                     <button class="submit-btn" type="submit" id="submitButton">Confirmar asistencia</button>
@@ -819,17 +813,36 @@
 
     <script>
         /* =====================================================
-           AUTO-DESPLAZAMIENTO Y CONTROL DEL VIDEO INTRO
+           AUTO-DESPLAZAMIENTO Y SINCRONIZACIÓN DE MÚSICA DE FONDO
         ===================================================== */
         const introVideo = document.getElementById('introVideo');
         const mainInvitation = document.getElementById('mainInvitation');
         const goToInvitationBtn = document.getElementById('goToInvitationBtn');
+        const music = document.getElementById('backgroundMusic');
+        const musicButton = document.getElementById('musicButton');
 
-        function scrollToInvitation() {
-            mainInvitation.scrollIntoView({ behavior: 'smooth' });
+        function startBackgroundMusic() {
+            if (music.paused) {
+                music.play().then(() => {
+                    musicButton.textContent = '♫';
+                }).catch(err => {
+                    console.log('Autoplay de música bloqueado por el navegador hasta interacción', err);
+                });
+            }
         }
 
-        // 1. Al terminar el video se desplaza automáticamente a la invitación
+        function scrollToInvitation() {
+            // Pausar video si aún está reproduciéndose
+            if (!introVideo.paused) {
+                introVideo.pause();
+            }
+            // Desplazar a la invitación principal
+            mainInvitation.scrollIntoView({ behavior: 'smooth' });
+            // Iniciar música de fondo automáticamente
+            startBackgroundMusic();
+        }
+
+        // 1. Al terminar el video se desplaza automáticamente e inicia la música de fondo
         introVideo.addEventListener('ended', function () {
             scrollToInvitation();
         });
@@ -873,11 +886,8 @@
         });
 
         /* =====================================================
-           MÚSICA Y PERSONALIZACIÓN DINÁMICA DESDE EL LINK
+           BOTÓN MANUAL DE MÚSICA Y PERSONALIZACIÓN DINÁMICA
         ===================================================== */
-        const music = document.getElementById('backgroundMusic');
-        const musicButton = document.getElementById('musicButton');
-
         musicButton.addEventListener('click', async function () {
             if (music.paused) {
                 try {
