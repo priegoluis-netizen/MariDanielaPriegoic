@@ -55,21 +55,45 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Sección de Intro en Video */
+        /* =====================================================
+           SECCIÓN INTRO VIDEO ELEGANTE CON MARCO Y BOTÓN
+        ===================================================== */
         .intro-video-section {
+            min-height: 100vh;
             width: 100%;
-            background: #000;
+            background: radial-gradient(circle, #2d1b28 0%, #150a12 100%);
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 20px 0;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Marco elegante para el video */
+        .intro-video-frame {
+            position: relative;
+            width: min(100%, 380px);
+            aspect-ratio: 9 / 16;
+            border-radius: 20px;
+            padding: 8px;
+            background: linear-gradient(135deg, var(--dorado), #f7e7be, var(--template-pink), var(--dorado));
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba(199, 161, 74, 0.3);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .intro-video-frame:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(217, 91, 146, 0.4);
         }
 
         .intro-video-container {
             width: 100%;
-            max-width: 500px; /* Tamaño adecuado para formato vertical de invitación */
-            aspect-ratio: 9 / 16;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            height: 100%;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #000;
         }
 
         .intro-video-container video {
@@ -77,6 +101,45 @@
             height: 100%;
             object-fit: cover;
             display: block;
+        }
+
+        /* Botón para saltar / ir a la invitación */
+        .skip-intro-btn {
+            margin-top: 25px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+            background: linear-gradient(135deg, var(--template-pink), var(--template-pink-dark));
+            border: 1px solid var(--dorado);
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(217, 91, 146, 0.4);
+            transition: all 0.3s ease;
+            animation: pulseGlow 2s infinite alternate;
+        }
+
+        .skip-intro-btn:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(217, 91, 146, 0.6);
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 5px 20px rgba(217, 91, 146, 0.3); }
+            100% { box-shadow: 0 10px 30px rgba(199, 161, 74, 0.6); }
+        }
+
+        /* Transición decorativa entre video e invitación */
+        .intro-divider {
+            width: 100%;
+            height: 50px;
+            background: linear-gradient(to bottom, #150a12, var(--template-bg));
         }
 
         /* Fondo temático de quinceañera */
@@ -513,15 +576,25 @@
 </head>
 <body>
 
-    <!-- VIDEO INTRODUCCIÓN -->
+    <!-- SECCIÓN INTRODUCCIÓN DE VIDEO -->
     <section class="intro-video-section">
-        <div class="intro-video-container">
-            <video controls autoplay muted loop playsinline>
-                <source src="intro.mp4" type="video/mp4">
-                Tu navegador no soporta la reproducción de video.
-            </video>
+        <div class="intro-video-frame">
+            <div class="intro-video-container">
+                <video id="introVideo" autoplay muted playsinline controls>
+                    <source src="intro.mp4" type="video/mp4">
+                    Tu navegador no soporta reproducción de video.
+                </video>
+            </div>
         </div>
+        
+        <!-- Botón para ir a la invitación -->
+        <button class="skip-intro-btn" id="goToInvitationBtn">
+            Ver Invitación ✨
+        </button>
     </section>
+
+    <!-- Transición visual hacia la invitación -->
+    <div class="intro-divider"></div>
 
     <audio id="backgroundMusic" loop preload="auto">
         <source src="musica.mp3" type="audio/mpeg">
@@ -536,7 +609,7 @@
     </a>
 
     <!-- PORTADA -->
-    <header class="butterfly-hero">
+    <header class="butterfly-hero" id="mainInvitation">
         <img class="template-leaves-top" src="https://memoriesinvitations.com/wp-content/uploads/2023/12/Diseno-15-Anos-Fucsia-Premium-Nuevo-Diseno-02-1024x386.webp" alt="" aria-hidden="true">
         <div class="butterfly-hero-inner">
             
@@ -745,6 +818,27 @@
     <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 
     <script>
+        /* =====================================================
+           AUTO-DESPLAZAMIENTO Y CONTROL DEL VIDEO INTRO
+        ===================================================== */
+        const introVideo = document.getElementById('introVideo');
+        const mainInvitation = document.getElementById('mainInvitation');
+        const goToInvitationBtn = document.getElementById('goToInvitationBtn');
+
+        function scrollToInvitation() {
+            mainInvitation.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 1. Al terminar el video se desplaza automáticamente a la invitación
+        introVideo.addEventListener('ended', function () {
+            scrollToInvitation();
+        });
+
+        // 2. Al presionar el botón "Ver Invitación"
+        goToInvitationBtn.addEventListener('click', function () {
+            scrollToInvitation();
+        });
+
         /* =====================================================
            CONTROL GENERAL DE MODALES
         ===================================================== */
