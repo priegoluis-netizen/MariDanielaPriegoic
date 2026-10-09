@@ -321,6 +321,51 @@
             font-size: 10px;
             color: var(--template-pink-dark);
         }
+        .event-countdown {
+            margin: 18px auto 0;
+            max-width: 420px;
+            padding: 15px 18px 16px;
+            border: 1px solid rgba(190, 145, 83, .55);
+            border-radius: 18px;
+            background: linear-gradient(135deg, rgba(255,255,255,.88), rgba(255,239,246,.9));
+            box-shadow: 0 8px 24px rgba(133, 81, 105, .10);
+        }
+        .event-countdown-title {
+            margin-bottom: 10px;
+            color: var(--template-pink-dark);
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+        }
+        .event-countdown-values {
+            display: flex;
+            justify-content: center;
+            gap: clamp(8px, 3vw, 18px);
+        }
+        .event-countdown-unit { min-width: 48px; }
+        .event-countdown-number {
+            display: block;
+            color: #a66e45;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(25px, 5vw, 32px);
+            font-weight: 600;
+            line-height: 1.05;
+        }
+        .event-countdown-label {
+            display: block;
+            margin-top: 4px;
+            color: #806777;
+            font-size: 9px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .event-countdown-message {
+            color: var(--template-pink-dark);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 23px;
+            font-weight: 600;
+        }
         .butterfly-hero h1 {
             font-family: 'Cormorant Garamond', serif;
             text-transform: uppercase;
@@ -611,6 +656,16 @@
             <div class="hero-invite-line">ACOMPÁÑAME A CELEBRAR</div>
             <p>Una noche llena de sueños, alegría y momentos para recordar.</p>
             <div class="hero-date">SÁBADO · 7 DE NOVIEMBRE · 2026</div>
+            <div class="event-countdown" aria-live="polite" aria-label="Cuenta regresiva para el día del evento">
+                <div class="event-countdown-title">La cuenta regresiva ha comenzado</div>
+                <div class="event-countdown-values" id="eventCountdownValues">
+                    <div class="event-countdown-unit"><span class="event-countdown-number" id="eventDays">--</span><span class="event-countdown-label">Días</span></div>
+                    <div class="event-countdown-unit"><span class="event-countdown-number" id="eventHours">--</span><span class="event-countdown-label">Horas</span></div>
+                    <div class="event-countdown-unit"><span class="event-countdown-number" id="eventMinutes">--</span><span class="event-countdown-label">Minutos</span></div>
+                    <div class="event-countdown-unit"><span class="event-countdown-number" id="eventSeconds">--</span><span class="event-countdown-label">Segundos</span></div>
+                </div>
+                <div class="event-countdown-message" id="eventCountdownMessage" hidden>¡Hoy es el gran día!</div>
+            </div>
         </div>
         <div class="butterfly-float butterfly-float-1">🦋</div>
         <div class="butterfly-float butterfly-float-2">🦋</div>
@@ -907,6 +962,36 @@
                 if (submitButton) submitButton.style.display = 'none';
             });
         }
+
+        /* =====================================================
+           CUENTA REGRESIVA PARA EL DÍA DEL EVENTO
+           El contador llega al inicio del sábado 7 de noviembre de 2026.
+        ===================================================== */
+        (function () {
+            const eventDate = new Date(2026, 10, 7, 0, 0, 0);
+            const daysEl = document.getElementById('eventDays');
+            const hoursEl = document.getElementById('eventHours');
+            const minutesEl = document.getElementById('eventMinutes');
+            const secondsEl = document.getElementById('eventSeconds');
+            const valuesEl = document.getElementById('eventCountdownValues');
+            const messageEl = document.getElementById('eventCountdownMessage');
+
+            function updateEventCountdown() {
+                const diff = eventDate.getTime() - Date.now();
+                if (diff <= 0) {
+                    if (valuesEl) valuesEl.style.display = 'none';
+                    if (messageEl) messageEl.hidden = false;
+                    return;
+                }
+                const totalSeconds = Math.floor(diff / 1000);
+                if (daysEl) daysEl.textContent = Math.floor(totalSeconds / 86400);
+                if (hoursEl) hoursEl.textContent = Math.floor((totalSeconds % 86400) / 3600);
+                if (minutesEl) minutesEl.textContent = Math.floor((totalSeconds % 3600) / 60);
+                if (secondsEl) secondsEl.textContent = totalSeconds % 60;
+            }
+            updateEventCountdown();
+            setInterval(updateEventCountdown, 1000);
+        })();
 
         /* =====================================================
            CONTEO REGRESIVO Y CIERRE DE CONFIRMACIONES
