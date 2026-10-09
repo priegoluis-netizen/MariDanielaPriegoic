@@ -508,6 +508,20 @@
         .template-closing p { max-width:500px; margin:12px auto 22px; color:#6c5a64; font-size:13px; line-height:1.9; }
         footer { background:#fff; text-align:center; padding:24px; color:#8a727e; font-size:10px; letter-spacing:1px; border-top:1px solid #f0dce7; }
 
+        .countdown-button-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            width: min(100%, 360px);
+        }
+        .countdown-button-wrap .countdown-box { width: 100%; margin: 0; font-size: 12px; }
+        .template-button:disabled,
+        .template-button.confirmation-closed {
+            background: #a0a0a0 !important; color: #fff !important;
+            border-color: #999 !important; cursor: not-allowed !important;
+            opacity: .8; box-shadow: none !important; transform: none !important;
+        }
         /* Contador regresivo */
         .countdown-box {
             text-align: center;
@@ -623,7 +637,12 @@
             <button class="template-button" data-modal="modalUbicacion">📍 Ubicación</button>
             <button class="template-button" data-modal="modalVestimenta">✨ Código de Vestimenta</button>
             <button class="template-button" data-modal="modalRegalo">🎁 Regalo</button>
-            <button class="template-button" data-modal="modalRsvp">💌 Confirmar Asistencia</button>
+            <div class="countdown-button-wrap">
+                <div class="countdown-box" id="countdownBoxButton">
+                    ⏳ Cierre de confirmaciones en: <strong id="countdownTextButton">calculando...</strong>
+                </div>
+                <button class="template-button" data-modal="modalRsvp" id="openRsvpButton">💌 Confirmar Asistencia</button>
+            </div>
         </div>
     </section>
     <!-- VENTANAS MODALES (POPUP) -->
@@ -891,56 +910,72 @@
 
         /* =====================================================
            CONTEO REGRESIVO Y CIERRE DE CONFIRMACIONES
-           Fecha límite: Lunes 12 de octubre 2026
+           Fecha límite: 12 de octubre de 2026 a las 00:00
         ===================================================== */
         (function () {
-            const deadline = new Date(2026, 9, 12, 0, 0, 0); // 12 octubre 2026 00:00
+            const deadline = new Date(2026, 9, 12, 0, 0, 0);
             const countdownBox = document.getElementById('countdownBox');
             const countdownText = document.getElementById('countdownText');
+            const countdownBoxButton = document.getElementById('countdownBoxButton');
+            const countdownTextButton = document.getElementById('countdownTextButton');
             const submitBtn = document.getElementById('submitButton');
+            const openRsvpBtn = document.getElementById('openRsvpButton');
             const form = document.getElementById('rsvpForm');
-            const successMessage = document.getElementById('successMessage');
+            const closedMessage = '⏰ El periodo de confirmación ha finalizado (12 de octubre de 2026).';
+
+            function closeConfirmations() {
+                [countdownText, countdownTextButton].forEach(el => {
+                    if (el) el.textContent = 'Cerrado';
+                });
+                [countdownBox, countdownBoxButton].forEach(box => {
+                    if (!box) return;
+                    box.textContent = closedMessage;
+                    box.style.background = '#fff5f5';
+                    box.style.borderColor = '#e8b4b4';
+                    box.style.color = '#8a3a3a';
+                });
+                if (openRsvpBtn) {
+                    openRsvpBtn.disabled = true;
+                    openRsvpBtn.classList.add('confirmation-closed');
+                    openRsvpBtn.textContent = 'Confirmaciones cerradas';
+                    openRsvpBtn.setAttribute('aria-disabled', 'true');
+                    openRsvpBtn.removeAttribute('data-modal');
+                }
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Registro cerrado';
+                }
+                if (form) form.dataset.confirmationsClosed = 'true';
+            }
 
             function updateCountdown() {
-                const now = new Date();
-                const diff = deadline - now;
-
+                const diff = deadline - new Date();
                 if (diff <= 0) {
-                    // Ya pasó la fecha → deshabilitar
-                    if (countdownText) {
-                        countdownText.textContent = 'Cerrado';
-                    }
-                    if (countdownBox) {
-                        countdownBox.innerHTML = '⏰ El periodo de confirmación ha finalizado (12 de octubre 2026)';
-                        countdownBox.style.background = '#fff5f5';
-                        countdownBox.style.borderColor = '#e8b4b4';
-                        countdownBox.style.color = '#8a3a3a';
-                    }
-                    if (submitBtn) {
-                        submitBtn.disabled = true;
-                        submitBtn.textContent = 'Registro cerrado';
-                    }
-                    if (form) {
-                        form.addEventListener('submit', function (e) {
-                            e.preventDefault();
-                            return false;
-                        });
-                    }
+                    closeConfirmations();
                     return;
                 }
-
-                // Calcular días, horas, minutos y segundos
                 const days = Math.floor(diff / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-                if (countdownText) {
-                    countdownText.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-                }
+                const remaining = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+                if (countdownText) countdownText.textContent = remaining;
+                if (countdownTextButton) countdownTextButton.textContent = remaining;
+                if (form) form.dataset.confirmationsClosed = 'false';
             }
 
-            // Ejecutar inmediatamente y luego cada segundo
+            // Comprobación adicional al enviar, incluso si el contador aún no se ha actualizado.
+            if (form) {
+                form.addEventListener('submit', function (e) {
+                    if (new Date() >= deadline || form.dataset.confirmationsClosed === 'true') {
+                        e.preventDefault();
+                        e.stopImmediatePropagation();
+                        closeConfirmations();
+                        return false;
+                    }
+                }, true);
+            }
+
             updateCountdown();
             setInterval(updateCountdown, 1000);
         })();
